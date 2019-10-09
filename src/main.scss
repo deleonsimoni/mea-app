@@ -4,7 +4,7 @@
  */
 
 // Theme variables, must be included before the libraries to allow overriding defaults
-@import "theme/theme-variables";
+@import "theme/variables.scss";
 
 // 3rd party libraries
 @import "~bootstrap/scss/bootstrap";
@@ -13,5 +13,7 @@
 @import "~@fortawesome/fontawesome-free/scss/regular.scss";
 @import "~@fortawesome/fontawesome-free/scss/solid.scss";
 
-// Theme customization
-@import "theme/theme";
+@import "theme/mixins.scss";
+@import "theme/global.scss";
+@import "theme/resume-item.scss";
+@import "theme/bootstrap-overrides.scss";
