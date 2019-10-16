@@ -9,5 +9,4 @@ import { AgendaComponent } from './agenda.component';
   imports: [CommonModule, TranslateModule, AgendaRoutingModule],
   declarations: [AgendaComponent]
 })
-export class AgendaModule {
-}
+export class AgendaModule {}

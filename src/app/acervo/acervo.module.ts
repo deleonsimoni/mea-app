@@ -9,5 +9,4 @@ import { AcervoComponent } from './acervo.component';
   imports: [CommonModule, TranslateModule, AcervoRoutingModule],
   declarations: [AcervoComponent]
 })
-export class AcervoModule {
-}
+export class AcervoModule {}

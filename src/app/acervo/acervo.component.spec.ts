@@ -8,9 +8,8 @@ describe('AcervoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AcervoComponent ]
-    })
-    .compileComponents();
+      declarations: [AcervoComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

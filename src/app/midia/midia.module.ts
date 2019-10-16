@@ -9,5 +9,4 @@ import { MidiaComponent } from './midia.component';
   imports: [CommonModule, TranslateModule, MidiaRoutingModule],
   declarations: [MidiaComponent]
 })
-export class MidiaModule {
-}
+export class MidiaModule {}

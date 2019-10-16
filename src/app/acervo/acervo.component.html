@@ -1,20 +1,20 @@
 <div class="container-fluid p-0">
+  <section class="p-3 pt-lg-5 align-items-center">
     <div class="row">
-    <section class="p-3 pt-lg-5 align-items-center">
-        <div class="col-sm-6">
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="../assets/clarence.jpeg" alt="Avatar" class="img-fluid">
-                    </div>
-                    <div class="flip-card-back">
-                        <h1>John Doe</h1>
-                        <p>Architect & Engineer</p>
-                        <p>We love that guy</p>
-                    </div>
-                </div>
-            </div>
+      <div class="col-sm-6 col-md-4" *ngFor="let livro of livros">
+        <div class="grid">
+          <figure class="effect-sadie">
+            <img [src]="livro.imagem" class="img-fluid" />
+            <figcaption>
+              <div class="conteudo-hover">
+                <p class="titulo">{{ livro.titulo }}</p>
+                <p class="descricao text-justify">{{ livro.desc }}</p>
+                <a [href]="livro.link" target="_blank">Visite a pagina</a>
+              </div>
+            </figcaption>
+          </figure>
         </div>
-    </section>
+      </div>
     </div>
+  </section>
 </div>

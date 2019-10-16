@@ -20,7 +20,7 @@
 .ng-invalid.ng-touched:not(form) {
   border-left: 4px solid theme-color("danger");
 }
- 
+
 /*@include media-breakpoint-down(xs) {
   .container {
     width: 100%;
