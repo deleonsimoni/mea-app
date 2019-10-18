@@ -5,9 +5,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./acervo.component.scss']
 })
 export class AcervoComponent implements OnInit {
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   livros = [
     {
@@ -39,6 +39,20 @@ export class AcervoComponent implements OnInit {
         'O livro traz um conjunto de estudos e experiências de professores/pesquisadores que praticam o que Lucia Santaella (2016) nomeia, no prefácio, como App-Learning. Isto é, o uso de determinados aplicativos para celulares, tablets e computadores como estratégias pedagógicas que ajudam a desenvolver a autonomia de professores e alunos. Os relatos reunidos enfatizam os desafios e as dinâmicas que os aplicativos proporcionam em diversos processos de pesquisa, extensão, ensino e aprendizagem na era das conectividades.',
       imagem: '../assets/AppLearning_capa.jpg',
       link: 'http://www.edufba.ufba.br/2016/12/app-learning-experiencias-de-pesquisa-e-formacao/'
+    },
+    {
+      titulo: 'TECCOGS - Revista digital de tecnologias cognitivas',
+      desc:
+        'O livro traz um conjunto de estudos e experiências de professores/pesquisadores que praticam o que Lucia Santaella (2016) nomeia, no prefácio, como App-Learning. Isto é, o uso de determinados aplicativos para celulares, tablets e computadores como estratégias pedagógicas que ajudam a desenvolver a autonomia de professores e alunos. Os relatos reunidos enfatizam os desafios e as dinâmicas que os aplicativos proporcionam em diversos processos de pesquisa, extensão, ensino e aprendizagem na era das conectividades.',
+      imagem: '../assets/teccogs.jpg',
+      link: 'http://www4.pucsp.br/pos/tidd/teccogs/edicao_completa/teccogs_cognicao_informacao-edicao_16-2017-completa.pdf'
+    },
+    {
+      titulo: 'PAIDÉI@ - Revista Científica de educação a distância',
+      desc:
+        'O livro traz um conjunto de estudos e experiências de professores/pesquisadores que praticam o que Lucia Santaella (2016) nomeia, no prefácio, como App-Learning. Isto é, o uso de determinados aplicativos para celulares, tablets e computadores como estratégias pedagógicas que ajudam a desenvolver a autonomia de professores e alunos. Os relatos reunidos enfatizam os desafios e as dinâmicas que os aplicativos proporcionam em diversos processos de pesquisa, extensão, ensino e aprendizagem na era das conectividades.',
+      imagem: '../assets/paideia.jpg',
+      link: 'http://periodicos.unimesvirtual.com.br/index.php/paideia/article/view/31/22'
     }
   ];
 }
