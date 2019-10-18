@@ -5,17 +5,9 @@
       <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="../assets/clarence.jpeg" alt="" />
     </span>
   </a>
-  <button
-    class="navbar-toggler btn btn-outline-primary"
-    type="button"
-    data-toggle="collapse"
-    data-target="#navbarTogglerDemo02"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-    (click)="isCollapsed = !isCollapsed"
-    [attr.aria-expanded]="!isCollapsed"
-    aria-controls="navbarTogglerDemo02"
-  >
+  <button class="navbar-toggler btn btn-outline-primary" type="button" data-toggle="collapse"
+    data-target="#navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation"
+    (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="navbarTogglerDemo02">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02" [ngbCollapse]="isCollapsed">
@@ -30,7 +22,7 @@
         <a (click)="isCollapsed = true" class="nav-link js-scroll-trigger" routerLink="/acervo">Acervo</a>
       </li>
       <li class="nav-item">
-        <a (click)="isCollapsed = true" class="nav-link js-scroll-trigger" routerLink="/agenda">Agenda</a>
+        <a (click)="isCollapsed = true" class="nav-link js-scroll-trigger" routerLink="/agenda">Onde estou?</a>
       </li>
     </ul>
   </div>
