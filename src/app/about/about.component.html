@@ -1,0 +1,74 @@
+<div class="container-fluid p-0">
+  <section class="p-3 mt-lg-5 mb-lg-4 d-flex align-items-center">
+    <div>
+      <h2 class="mb-2">Edméa Santos</h2>
+      <p class="lead mb-5 ml-4">
+        Professora do <a href="http://www.proped.pro.br/" target="_blank">PROPED</a> - Programa de Pós-graduação em
+        Educação da UERJ. Atua na área da Cibercultura e Educação, Educação Online, Informática na Educação, Pesquisas e
+        práticas com os Cotidianos, nos cursos de Pedagogia presencial e a distância da UERJ.
+      </p>
+    </div>
+  </section>
+
+  <section class="pl-3 pr-3 align-items-center">
+    <h3 class="mb-2">Formação</h3>
+    <div class="row ml-2 mt-4">
+      <div class="col-sm-12 col-lg-6 pb-3" *ngFor="let formacao of formacaoAcad">
+        <h5>{{ formacao.formacao }}</h5>
+        <p class="subLinhas">{{ formacao.instituicao }}</p>
+        <div class="pl-3 d-flex descricao">
+          <p>{{ formacao.titulo }}</p>
+          <p>{{ formacao.grade }}</p>
+          <p *ngFor="let atividade of formacao.atividades">
+            {{ atividade.atividade }}
+          </p>
+          <p>{{ formacao.orientador }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pl-3 pr-3 mb-5 align-items-center">
+    <h3 class="mb-3">Atuação Profissional</h3>
+    <div class="row ml-2 mt-4">
+      <div class="col-sm-12" *ngFor="let trabalho of atuProf">
+        <h5 class="mb-3">{{ trabalho.instituicao }}</h5>
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <p class="text-center">Vinculo institucional</p>
+            <div *ngFor="let vinculo of trabalho.vinculos">
+              <p>
+                <strong>{{ vinculo.data }}</strong> - {{ vinculo.funcao }}
+              </p>
+              <p class="descricao pl-3">{{ vinculo.obs }}</p>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6">
+            <p class="text-center">Atividades</p>
+            <div *ngFor="let atividade of trabalho.atividades">
+              <p>
+                <strong>{{ atividade.data }}</strong> - {{ atividade.atividade }}
+              </p>
+              <p class="descricao pl-3">{{ atividade.obs }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pl-3 pr-3 align-items-center">
+    <h3 class="mb-2">Projetos de pesquisa</h3>
+    <div class="row ml-2 mt-4">
+      <div class="col-sm-12 pb-5" *ngFor="let projeto of projPes">
+        <h5>
+          <strong>{{ projeto.data }}</strong> - {{ projeto.titulo }}
+        </h5>
+        <p class="subLinhas">{{ projeto.estatus }}</p>
+        <p class="text-justify descricao">{{ projeto.desc }}</p>
+        <p class="subLinhas mb-1">{{ projeto.alunos }}</p>
+        <p class="subLinhas">{{ projeto.integrantes }}</p>
+      </div>
+    </div>
+  </section>
+</div>

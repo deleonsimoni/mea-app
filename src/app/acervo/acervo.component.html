@@ -1,0 +1,20 @@
+<div class="container-fluid p-0">
+  <section class="p-3 pt-lg-5 align-items-center">
+    <div class="row">
+      <div class="col-sm-6 col-md-4" *ngFor="let livro of livros">
+        <div class="grid">
+          <figure class="effect-sadie">
+            <img [src]="livro.imagem" class="img-fluid capa-livro" />
+            <figcaption>
+              <div class="conteudo-hover">
+                <p class="titulo">{{ livro.titulo }}</p>
+                <p class="descricao text-justify">{{ livro.desc }}</p>
+                <a [href]="livro.link" target="_blank">Visite a pagina</a>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
