@@ -12,4 +12,8 @@ export class MenuComponent implements OnInit {
   constructor() { }
 
   ngOnInit() { }
+
+  openExternalLink(link: string) {
+    window.open(link, "_blank");
+  }
 }
