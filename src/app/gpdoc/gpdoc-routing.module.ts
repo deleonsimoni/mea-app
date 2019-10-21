@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { extract } from '@app/core';
-import { AcervoComponent } from './acervo.component';
+import { GpdocComponent } from './gpdoc.component';
 
 const routes: Routes = [
   // Module is lazy loaded, see app-routing.module.ts
-  { path: '', component: AcervoComponent, data: { title: extract('Livros') } }
+  { path: '', component: GpdocComponent, data: { title: extract('GPDOC') } }
 ];
 
 @NgModule({
@@ -14,4 +14,4 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: []
 })
-export class AcervoRoutingModule {}
+export class GpdocRoutingModule {}

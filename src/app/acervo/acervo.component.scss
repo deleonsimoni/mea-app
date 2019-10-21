@@ -147,13 +147,13 @@ figure.effect-sadie:hover div {
   font-weight: 700;
 }
 .conteudo-hover .descricao {
-  border-left: solid #f45622 2px;
   /* background-color: #e9ecef; */
+  border-left: solid 3px #f45622;
   font-size: 11px !important;
   color: #495057 !important;
   padding: 0px 10px !important;
-  overflow-y: scroll !important;
   margin: 10px 0px !important;
+  overflow-y: auto;
   height: 70%;
 }
 .conteudo-hover a {

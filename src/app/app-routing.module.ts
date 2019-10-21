@@ -4,18 +4,21 @@ import { Shell } from '@app/shell/shell.service';
 
 const routes: Routes = [
   Shell.childRoutes([
-    { path: 'biografia', loadChildren: './about/about.module#AboutModule' },
+    { path: 'curriculo', loadChildren: './about/about.module#AboutModule' },
     { path: 'agenda', loadChildren: './agenda/agenda.module#AgendaModule' },
     { path: 'midia', loadChildren: './midia/midia.module#MidiaModule' },
-    { path: 'acervo', loadChildren: './acervo/acervo.module#AcervoModule' }
+    { path: 'livros', loadChildren: './acervo/acervo.module#AcervoModule' },
+    { path: 'gpdoc', loadChildren: './gpdoc/gpdoc.module#GpdocModule' }
   ]),
   // Fallback when no prior route is matched
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
+  imports: [
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+  ],
   exports: [RouterModule],
   providers: []
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -106,16 +106,16 @@ figure.effect-sadie:hover div {
 }
 .conteudo-hover .titulo {
   margin: 15px 0px !important;
-  font-size: 18px !important;
+  font-size: 14px !important;
   font-weight: 700;
 }
 .conteudo-hover .descricao {
-  border-left: solid #f45622 2px;
+  border-left: solid 3px #f45622;
   font-size: 11px !important;
   color: #495057 !important;
   padding: 0px 10px !important;
-  overflow-y: scroll !important;
   margin: 10px 0px !important;
+  overflow-y: auto;
   height: 70%;
 }
 .conteudo-hover a {
@@ -128,4 +128,8 @@ figure.effect-sadie:hover div {
 .conteudo-hover a:hover {
   color: white;
   background-color: #f45622;
+}
+.capa-livro {
+  height: 430px;
+  width: 300px;
 }

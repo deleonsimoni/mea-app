@@ -17,3 +17,26 @@ strong {
   font-style: italic;
   color: #007bff;
 }
+.flexAcerto {
+  flex-flow: row wrap;
+}
+.curriculo {
+  padding-bottom: 1.5rem !important;
+}
+.curriculo a {
+  color: white !important;
+  border-radius: 5px;
+  background-color: #000081;
+}
+.curriculo a:hover {
+  color: white !important;
+}
+.orcid a {
+  background-color: #a6ce39;
+}
+.google a {
+  background-color: #4d90fe;
+}
+.academia a {
+  background-color: black;
+}

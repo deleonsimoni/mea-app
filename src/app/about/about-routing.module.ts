@@ -6,7 +6,11 @@ import { extract } from '@app/core';
 
 const routes: Routes = [
   // Module is lazy loaded, see app-routing.module.ts
-  { path: '', component: AboutComponent, data: { title: extract('Biografia') } }
+  {
+    path: '',
+    component: AboutComponent,
+    data: { title: extract('CurriculoLattes') }
+  }
 ];
 
 @NgModule({
@@ -14,4 +18,4 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: []
 })
-export class AboutRoutingModule { }
+export class AboutRoutingModule {}

@@ -1,0 +1,12 @@
+.lead {
+  font-size: 1.5rem;
+}
+.gpdoc-link {
+  color: white !important;
+  border-radius: 5px;
+  font-weight: 700;
+  background-color: #000081;
+}
+.gpdoc-link:hover {
+  color: white !important;
+}
