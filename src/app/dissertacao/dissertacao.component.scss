@@ -1,0 +1,32 @@
+.descricao {
+  flex-flow: row wrap;
+  border-left: solid #f45622 3px;
+  /* background-color: #e9ecef; */
+  color: #495057;
+  padding: 0px 10px;
+}
+.text-center {
+  font-weight: 600;
+  font-size: 1.2em;
+  color: #f45622;
+}
+strong {
+  color: #f45622;
+  font-weight: 500;
+}
+.subLinhas {
+  font-style: italic;
+  color: #007bff;
+}
+.completo {
+  text-transform: uppercase;
+  text-shadow: 600;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f45622;
+}
+.completo:hover {
+  color: white;
+  background-color: #f45622;
+}

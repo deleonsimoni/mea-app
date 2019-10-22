@@ -1,0 +1,23 @@
+<div class="container-fluid p-0">
+  <section class="p-3 pt-lg-5 align-items-center">
+    <h3 class="mb-3">Dissertacões e teses</h3>
+    <div class="row ml-lg-4">
+      <div class="col-sm-12 pb-5" *ngFor="let dessertacao of dissertacoes">
+        <h5>
+          {{ dessertacao.dataPublicacao }} -
+          <strong>{{ dessertacao.titulo }}</strong>
+        </h5>
+        <h6>
+          Autor(a) - <span class="subLinhas">{{ dessertacao.autor }}</span>
+        </h6>
+        <p class="text-left descricao">{{ dessertacao.resumo }}</p>
+        <!-- <h6>Orientadora - <span class="subLinhas">{{ dessertacao.orientador }}</span></h6> -->
+        <div class="mt-3 mb-3">
+          <a [href]="dessertacao.linkPdf" target="_blank" class="completo"
+            ><i class="fa fa-file mr-2"></i> Acesse ao documento completo</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

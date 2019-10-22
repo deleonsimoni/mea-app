@@ -14,7 +14,6 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ModalModule, BsModalRef } from 'ngx-bootstrap/modal';
 
-
 @NgModule({
   imports: [
     BrowserModule,
@@ -32,9 +31,7 @@ import { ModalModule, BsModalRef } from 'ngx-bootstrap/modal';
     AppRoutingModule // must be imported as the last module as it contains the fallback route
   ],
   declarations: [AppComponent],
-  providers: [
-    BsModalRef
-  ],
+  providers: [BsModalRef],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

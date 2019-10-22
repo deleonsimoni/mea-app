@@ -8,7 +8,11 @@ const routes: Routes = [
     { path: 'agenda', loadChildren: './agenda/agenda.module#AgendaModule' },
     { path: 'midia', loadChildren: './midia/midia.module#MidiaModule' },
     { path: 'livros', loadChildren: './acervo/acervo.module#AcervoModule' },
-    { path: 'gpdoc', loadChildren: './gpdoc/gpdoc.module#GpdocModule' }
+    { path: 'gpdoc', loadChildren: './gpdoc/gpdoc.module#GpdocModule' },
+    {
+      path: 'OrientacoesConcluidas',
+      loadChildren: './dissertacao/dissertacao.module#DissertacaoModule'
+    }
   ]),
   // Fallback when no prior route is matched
   { path: '**', redirectTo: '', pathMatch: 'full' }
