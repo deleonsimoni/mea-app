@@ -10,6 +10,10 @@ const routes: Routes = [
     { path: 'livros', loadChildren: './acervo/acervo.module#AcervoModule' },
     { path: 'gpdoc', loadChildren: './gpdoc/gpdoc.module#GpdocModule' },
     {
+      path: 'ProjetosPesquisa',
+      loadChildren: './pesquisa/pesquisa.module#PesquisaModule'
+    },
+    {
       path: 'OrientacoesConcluidas',
       loadChildren: './dissertacao/dissertacao.module#DissertacaoModule'
     }
