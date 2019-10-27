@@ -6,7 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./midia.component.scss']
 })
 export class MidiaComponent implements OnInit {
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() { }
+  ngOnInit() {}
+
+  objMidia = [
+    {
+      titulo: '',
+      descricao: '',
+      dataPublicacao: '',
+      autores: '',
+      programa: '',
+      comoCitar: '',
+      arquivo: '',
+      linkVideo: ''
+    }
+  ];
 }

@@ -86,9 +86,8 @@ export class AcervoComponent implements OnInit {
       linkIngles: ''
     },
     {
-      titulo: 'TECCOGS - Revista digital de tecnologias cognitivas',
-      descricao:
-        'O livro traz um conjunto de estudos e experiências de professores/pesquisadores que praticam o que Lucia Santaella (2016) nomeia, no prefácio, como App-Learning. Isto é, o uso de determinados aplicativos para celulares, tablets e computadores como estratégias pedagógicas que ajudam a desenvolver a autonomia de professores e alunos. Os relatos reunidos enfatizam os desafios e as dinâmicas que os aplicativos proporcionam em diversos processos de pesquisa, extensão, ensino e aprendizagem na era das conectividades.',
+      titulo: 'Entrevista com Edméa Oliveira dos Santos',
+      descricao: '',
       autores: '',
       editora: '',
       comoCitar: '',
@@ -102,9 +101,8 @@ export class AcervoComponent implements OnInit {
       linkIngles: ''
     },
     {
-      titulo: 'PAIDÉI@ - Revista Científica de educação a distância',
-      descricao:
-        'O livro traz um conjunto de estudos e experiências de professores/pesquisadores que praticam o que Lucia Santaella (2016) nomeia, no prefácio, como App-Learning. Isto é, o uso de determinados aplicativos para celulares, tablets e computadores como estratégias pedagógicas que ajudam a desenvolver a autonomia de professores e alunos. Os relatos reunidos enfatizam os desafios e as dinâmicas que os aplicativos proporcionam em diversos processos de pesquisa, extensão, ensino e aprendizagem na era das conectividades.',
+      titulo: 'Entrevista com os professores Marco Silva e Edméa Santos',
+      descricao: '',
       autores: '',
       editora: '',
       comoCitar: '',
