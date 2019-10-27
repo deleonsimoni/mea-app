@@ -1,19 +1,15 @@
 <div class="container-fluid p-0">
   <section class="p-3 pt-lg-5 align-items-center">
-    <div class="row justify-content-center">
-      <div class="col-sm-12 col-md-6 col-lg-4 align-self-center" *ngFor="let livro of livros">
-        <div class="grid">
-          <figure class="effect-sadie">
-            <img [src]="livro.imagem" class="img-fluid capa-livro" />
-            <figcaption>
-              <div class="conteudo-hover">
-                <p class="titulo" (click)="openModal(template, livro)">{{ livro.titulo }}</p>
-                <p class="descricao">{{ livro.desc }}</p>
-                <a [href]="livro.link" target="_blank">Visite a pagina</a>
-              </div>
-            </figcaption>
-          </figure>
-        </div>
+    <div class="row">
+      <div
+        class="col-sm-12 col-md-6 col-lg-4 align-self-center"
+        *ngFor="let livro of livros"
+      >
+        <img
+          [src]="livro.imagem"
+          (click)="openModal(template, livro)"
+          class="img-fluid capa-livro"
+        />
       </div>
     </div>
   </section>
@@ -21,13 +17,74 @@
 
 <ng-template #template>
   <div class="modal-header">
-    <h4 class="modal-title pull-left">{{ livroSelecionado.titulo}}</h4>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <h4 class="modal-title pull-left">{{ livroSelecionado.titulo }}</h4>
+    <button
+      type="button"
+      class="close pull-right"
+      aria-label="Close"
+      (click)="modalRef.hide()"
+    >
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
-    <b>Titulo:</b> {{ livroSelecionado.titulo}}
-    <b>Resumo:</b> {{ livroSelecionado.desc}}
+    <p class="descricao">{{ livroSelecionado.descricao }}</p>
+    <div class=" d-flex flexAcerto">
+      <div
+        *ngIf="
+          livroSelecionado.autores != '' && livroSelecionado.autores != null
+        "
+        class="mr-3"
+      >
+        <p>
+          <b>Autor(a): </b
+          ><span class="subLinhas">{{ livroSelecionado.autores }}</span>
+        </p>
+      </div>
+      <div
+        *ngIf="
+          livroSelecionado.editora != '' && livroSelecionado.editora != null
+        "
+        class="mr-3"
+      >
+        <p>
+          <b>Editora: </b
+          ><span class="subLinhas">{{ livroSelecionado.editora }}</span>
+        </p>
+      </div>
+    </div>
+    <div class=" d-flex flexAcerto">
+      <div
+        *ngIf="
+          livroSelecionado.linkLoja != '' && livroSelecionado.linkLoja != null
+        "
+        class="mr-3 mb-4"
+      >
+        <a class="completo" [href]="livroSelecionado.linkLoja" target="_blank"
+          ><i class="fa fa-book"></i> Loja Online</a
+        >
+      </div>
+      <div
+        *ngIf="
+          livroSelecionado.linkPdf != '' && livroSelecionado.linkPdf != null
+        "
+        class="mr-3 mb-4"
+      >
+        <a class="completo" [href]="livroSelecionado.linkPdf" target="_blank"
+          ><i class="fa fa-file"></i> Versão em PDF</a
+        >
+      </div>
+      <div
+        *ngIf="
+          livroSelecionado.linkIngles != '' &&
+          livroSelecionado.linkIngles != null
+        "
+        class="mr-3 mb-4"
+      >
+        <a class="completo" [href]="livroSelecionado.linkIngles" target="_blank"
+          ><i class="fa fa-file"></i> Versão em Inglês</a
+        >
+      </div>
+    </div>
   </div>
 </ng-template>
