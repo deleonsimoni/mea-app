@@ -144,7 +144,7 @@ export class AcervoComponent implements OnInit {
         'https://www.amazon.com.br/Facebook-educa%C3%A7%C3%A3o-publicar-curtir-compartilhar-ebook/dp/B0187Q5LE8/ref=sr_1_3?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&keywords=edmea+santos&qid=1571014338&sr=8-3',
       fontePdf: '',
       linkPdf:
-        'http://www.uepb.edu.br/download/ebooks/Facebook-and-Education.pdf',
+        'https://static.scielo.org/scielobooks/c3h5q/pdf/porto-9788578792831.pdf',
       fonteIngles: '',
       linkIngles:
         'http://www.uepb.edu.br/download/ebooks/Facebook-and-Education.pdf'
