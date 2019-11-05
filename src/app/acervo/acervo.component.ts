@@ -18,8 +18,7 @@ export class AcervoComponent implements OnInit {
     this.livroSelecionado = livro;
     this.modalRef = this.modalService.show(template);
   }
-
-  livros = [
+  autorais = [
     {
       titulo: 'Pesquisa Formação na Cibercultura',
       descricao:
@@ -37,11 +36,31 @@ export class AcervoComponent implements OnInit {
       linkIngles: ''
     },
     {
+      titulo: 'Avaliação Da Aprendizagem Em Educação Online',
+      descricao:
+        'Educação online? Ah, então é moleza...! Este livro reúne a experiência de 65 representantes da área e derruba esse mito, mostrando que a avaliação online é uma questão complexa que só pode ser resolvida com conhecimento de causa. Mudam as formas de pensar e de aprender mudam também as formas de avaliar. A tradicional prova - temida por alguns, e nem sempre eficaz para verificar resultados - torna-se mais global e se renova em portfólios, participação em comunidades virtuais, blogs, videoconferências e outros dispositivos. A modalidade online revoluciona tempo e espaço e permite realizar avaliações ao longo do processo, voltadas para o desenvolvimento de competências.',
+      autores: 'Marco Silva, Edméa Santos',
+      editora: 'Loyola',
+      comoCitar: '',
+      imagem:
+        '../assets/Avaliação-de-Aprendizage-em-Educação-Online-2-Edição.jpg',
+      arquivo: '',
+      linkLoja:
+        'https://www.estantevirtual.com.br/livros/marco-silva-edmea-santos/avaliacao-da-aprendizagem-em-educacao-online/764118405',
+      fontePdf: '',
+      linkPdf: '',
+      fonteIngles: '',
+      linkIngles: ''
+    }
+  ];
+
+  organizados = [
+    {
       titulo: 'Pesquisa e mobilidade na cibercultura: itinerâncias docentes',
       descricao:
         'O livro visa promover uma compreensão das relações existentes entre a educação, tecnologias digitais e mobilidade. O principal objetivo do projeto foi entender como as tecnologias digitais e a mobilidade podem contribuir para a pesquisa e a formação no atual contexto da cibercultura em espaços formais e não formais de aprendizagem.',
       autores:
-        'Cristiane Porto, Edméa Santos, Maria Luíza Oswald e Edvaldo Couto (Org.)',
+        'Cristiane Porto, Edméa Santos, Maria Luíza Oswald e Edvaldo Couto',
       editora: 'Edufba',
       comoCitar: '',
       imagem: '../assets/Pesquisa-e-mobilidade-capa.jpg',
@@ -73,59 +92,13 @@ export class AcervoComponent implements OnInit {
       titulo: 'App-learning: experiências de pesquisa e formação',
       descricao:
         'O livro traz um conjunto de estudos e experiências de professores/pesquisadores que praticam o que Lucia Santaella (2016) nomeia, no prefácio, como App-Learning. Isto é, o uso de determinados aplicativos para celulares, tablets e computadores como estratégias pedagógicas que ajudam a desenvolver a autonomia de professores e alunos. Os relatos reunidos enfatizam os desafios e as dinâmicas que os aplicativos proporcionam em diversos processos de pesquisa, extensão, ensino e aprendizagem na era das conectividades.',
-      autores: 'Edvaldo Couto, Cristiane Porto, Edméa Santos (Org.)',
+      autores: 'Edvaldo Couto, Cristiane Porto, Edméa Santos',
       editora: 'Edufba',
       comoCitar: '',
       imagem: '../assets/AppLearning_capa.jpg',
       arquivo: '',
       linkLoja:
         'http://www.edufba.ufba.br/2016/12/app-learning-experiencias-de-pesquisa-e-formacao/',
-      fontePdf: '',
-      linkPdf: '',
-      fonteIngles: '',
-      linkIngles: ''
-    },
-    {
-      titulo: 'Entrevista com Edméa Oliveira dos Santos',
-      descricao: '',
-      autores: '',
-      editora: '',
-      comoCitar: '',
-      imagem: '../assets/teccogs.jpg',
-      arquivo: '',
-      linkLoja: '',
-      fontePdf: '',
-      linkPdf:
-        'http://www4.pucsp.br/pos/tidd/teccogs/edicao_completa/teccogs_cognicao_informacao-edicao_16-2017-completa.pdf',
-      fonteIngles: '',
-      linkIngles: ''
-    },
-    {
-      titulo: 'Entrevista com os professores Marco Silva e Edméa Santos',
-      descricao: '',
-      autores: '',
-      editora: '',
-      comoCitar: '',
-      imagem: '../assets/paideia.jpg',
-      arquivo: '',
-      linkLoja: '',
-      fontePdf: '',
-      linkPdf:
-        'http://periodicos.unimesvirtual.com.br/index.php/paideia/article/view/31/22',
-      fonteIngles: '',
-      linkIngles: ''
-    },
-    {
-      titulo: 'Mídias e Tecnologias na Educação Presencial e a Distância',
-      descricao:
-        'Ampliando o sentido de conceitos como tecnologia, educação e aprendizagem, Mídias e Tecnologias na Educação Presencial e a Distância busca tirar proveito do dinamismo e da diversidade das novas tecnologias e mídias disponíveis e cada vez mais acessíveis para recriar na sala de aula (física e virtual) a complexidade das relações educativas e, acima de tudo, fazer com que os objetos de estudo sejam realmente elementos que componham a “vida do lado de fora”. Elaborada a partir de pesquisas e práticas pedagógicas, esta obra é dirigida a estudantes e docentes de licenciatura que buscam uma nova perspectiva e uma verdadeira mudança de paradigmas na educação.',
-      autores: 'Edméa Santos',
-      editora: 'LTC',
-      comoCitar: '',
-      imagem: '../assets/midias-e-tecnologias.jpg',
-      arquivo: '',
-      linkLoja:
-        'https://www.amazon.com.br/Mídias-Tecnologias-Educação-Presencial-Distância/dp/8521626568/ref=sr_1_2?__mk_pt_BR=ÅMÅŽÕÑ&keywords=edmea+santos&qid=1571014252&sr=8-2',
       fontePdf: '',
       linkPdf: '',
       fonteIngles: '',
@@ -166,6 +139,25 @@ export class AcervoComponent implements OnInit {
       linkPdf: '',
       fonteIngles: '',
       linkIngles: ''
+    }
+  ];
+
+  capitulos = [
+    {
+      titulo: 'Mídias e Tecnologias na Educação Presencial e a Distância',
+      descricao:
+        'Ampliando o sentido de conceitos como tecnologia, educação e aprendizagem, Mídias e Tecnologias na Educação Presencial e a Distância busca tirar proveito do dinamismo e da diversidade das novas tecnologias e mídias disponíveis e cada vez mais acessíveis para recriar na sala de aula (física e virtual) a complexidade das relações educativas e, acima de tudo, fazer com que os objetos de estudo sejam realmente elementos que componham a “vida do lado de fora”. Elaborada a partir de pesquisas e práticas pedagógicas, esta obra é dirigida a estudantes e docentes de licenciatura que buscam uma nova perspectiva e uma verdadeira mudança de paradigmas na educação.',
+      autores: 'Edméa Santos',
+      editora: 'LTC',
+      comoCitar: '',
+      imagem: '../assets/midias-e-tecnologias.jpg',
+      arquivo: '',
+      linkLoja:
+        'https://www.amazon.com.br/Mídias-Tecnologias-Educação-Presencial-Distância/dp/8521626568/ref=sr_1_2?__mk_pt_BR=ÅMÅŽÕÑ&keywords=edmea+santos&qid=1571014252&sr=8-2',
+      fontePdf: '',
+      linkPdf: '',
+      fonteIngles: '',
+      linkIngles: ''
     },
     {
       titulo: 'Currículos. Teorias E Práticas',
@@ -183,7 +175,8 @@ export class AcervoComponent implements OnInit {
       fonteIngles: '',
       linkIngles: ''
     }
-    /* {
+  ];
+  /* {
       titulo: '',
       descricao: '',
       autores: '',
@@ -197,5 +190,4 @@ export class AcervoComponent implements OnInit {
       fonteIngles: '',
       linkIngles: ''
     } */
-  ];
 }

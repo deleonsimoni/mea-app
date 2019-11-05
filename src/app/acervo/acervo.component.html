@@ -1,13 +1,51 @@
 <div class="container-fluid p-0">
-  <section class="p-3 pt-lg-5 align-items-center">
-    <div class="row">
+  <section class="p-3 align-items-center">
+    <div class="row" *ngIf="autorais != '' && autorais != null">
+      <h2 class="col-12 text-primary mb-4 mt-4 d-none d-lg-block">Autorais</h2>
+      <h3 class="col-12 text-primary mb-4 mt-4 d-lg-none d-md-none">
+        Autorais
+      </h3>
       <div
         class="col-sm-12 col-md-6 col-lg-4 align-self-center"
-        *ngFor="let livro of livros"
+        *ngFor="let autoral of autorais"
       >
         <img
-          [src]="livro.imagem"
-          (click)="openModal(template, livro)"
+          [src]="autoral.imagem"
+          (click)="openModal(template, autoral)"
+          class="img-fluid capa-livro"
+        />
+      </div>
+    </div>
+    <div class="row" *ngIf="organizados != '' && organizados != null">
+      <h2 class="col-12 text-primary mb-4 mt-4 d-none d-lg-block">
+        Organizados
+      </h2>
+      <h3 class="col-12 text-primary mb-4 mt-4 d-lg-none d-md-none">
+        Organizados
+      </h3>
+      <div
+        class="col-sm-12 col-md-6 col-lg-4 align-self-center"
+        *ngFor="let organizado of organizados"
+      >
+        <img
+          [src]="organizado.imagem"
+          (click)="openModal(template, organizado)"
+          class="img-fluid capa-livro"
+        />
+      </div>
+    </div>
+    <div class="row" *ngIf="capitulos != '' && capitulos != null">
+      <h2 class="col-12 text-primary mb-4 mt-4 d-none d-lg-block">Capitulos</h2>
+      <h3 class="col-12 text-primary mb-4 mt-4 d-lg-none d-md-none">
+        Capitulos
+      </h3>
+      <div
+        class="col-sm-12 col-md-6 col-lg-4 align-self-center"
+        *ngFor="let capitulo of capitulos"
+      >
+        <img
+          [src]="capitulo.imagem"
+          (click)="openModal(template, capitulo)"
           class="img-fluid capa-livro"
         />
       </div>

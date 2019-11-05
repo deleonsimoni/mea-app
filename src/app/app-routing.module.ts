@@ -9,10 +9,6 @@ const routes: Routes = [
     { path: 'midia', loadChildren: './midia/midia.module#MidiaModule' },
     { path: 'livros', loadChildren: './acervo/acervo.module#AcervoModule' },
     { path: 'gpdoc', loadChildren: './gpdoc/gpdoc.module#GpdocModule' },
-    {
-      path: 'entrevistas',
-      loadChildren: './entrevista/entrevista.module#EntrevistaModule'
-    },
     { path: 'artigos', loadChildren: './artigos/artigos.module#ArtigosModule' },
     {
       path: 'ProjetosPesquisa',
@@ -29,7 +25,11 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: PreloadAllModules,
+      initialNavigation: 'enabled',
+      scrollPositionRestoration: 'enabled'
+    })
   ],
   exports: [RouterModule],
   providers: []

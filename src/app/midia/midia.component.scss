@@ -13,3 +13,14 @@
   top: 0;
   width: 100%;
 }
+.entCont {
+  flex-flow: row wrap;
+}
+.box {
+  max-width: 50%;
+}
+.capa-livro {
+  border-radius: 10px;
+  margin: 5px 0px;
+  cursor: pointer;
+}

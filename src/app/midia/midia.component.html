@@ -1,21 +1,46 @@
 <div class="container-fluid p-0">
   <section class="p-3 pt-lg-5 align-items-center">
-    <div class="row">
+    <div class="row mb-4">
+      <h3 class="col-12 mb-3">Entrevistas</h3>
+      <div class="col-4 d-flex entCont" *ngFor="let entrevista of entrevistas">
+        <img class="img-fluid capa-livro" [src]="entrevista.imagem" />
+      </div>
+    </div>
+    <div class="row mb-4">
+      <h3 class="col-12 mb-3">Entrevistas em Periódicos</h3>
+      <div class="col-12"></div>
+    </div>
+    <div class="row mb-4">
+      <h3 class="col-12 mb-3">Programas de TV</h3>
       <div class="col-12">
-        <div
-          class="text-center align-items-center d-none d-lg-block d-md-block"
-        >
-          <h1 class="text-primary">Cibercultura EaD.</h1>
-          <h3>UERJ - TV Escola</h3>
-        </div>
-        <div class="text-center align-items-center  d-lg-none d-md-none">
-          <h3 class="text-primary">Cibercultura EaD.</h3>
-          <p>UERJ - TV Escola</p>
-        </div>
         <div class="iframe-container">
           <iframe src="https://www.youtube.com/embed/fAMaLhqWD1Q"></iframe>
         </div>
       </div>
     </div>
+    <div class="row mb-4">
+      <h3 class="col-12 mb-3">Video Aulas</h3>
+      <div class="col-12"></div>
+    </div>
+    <div class="row mb-4">
+      <h3 class="col-12 mb-3">Filmes de Pesquisa</h3>
+      <div class="col-12">
+        <div class="iframe-container">
+          <iframe src="https://www.youtube.com/embed/5J0PSxlfSbI"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="text-center align-items-center d-none d-lg-block d-md-block">
+      <h1 class="text-primary">Cibercultura EaD.</h1>
+      <h3>UERJ - TV Escola</h3>
+    </div>
+    <div class="text-center align-items-center  d-lg-none d-md-none">
+      <h3 class="text-primary">Cibercultura EaD.</h3>
+      <p>UERJ - TV Escola</p>
+    </div>
+    <div class="iframe-container">
+      <iframe src="https://www.youtube.com/embed/fAMaLhqWD1Q"></iframe>
+    </div> -->
   </section>
 </div>
