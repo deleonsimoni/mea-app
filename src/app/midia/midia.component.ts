@@ -1,14 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 @Component({
   selector: 'app-midia',
   templateUrl: './midia.component.html',
   styleUrls: ['./midia.component.scss']
 })
 export class MidiaComponent implements OnInit {
-  constructor() {}
+  constructor(private modalService: BsModalService) {}
+
+  modalRef: BsModalRef;
+  livroSelecionado: any;
 
   ngOnInit() {}
+
+  openModal(template: TemplateRef<any>, livro: any) {
+    this.livroSelecionado = livro;
+    this.modalRef = this.modalService.show(template);
+  }
 
   entrevistas = [
     {

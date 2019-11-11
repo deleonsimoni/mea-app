@@ -9,7 +9,6 @@ const routes: Routes = [
     { path: 'midia', loadChildren: './midia/midia.module#MidiaModule' },
     { path: 'livros', loadChildren: './acervo/acervo.module#AcervoModule' },
     { path: 'gpdoc', loadChildren: './gpdoc/gpdoc.module#GpdocModule' },
-    { path: 'artigos', loadChildren: './artigos/artigos.module#ArtigosModule' },
     {
       path: 'ProjetosPesquisa',
       loadChildren: './pesquisa/pesquisa.module#PesquisaModule'

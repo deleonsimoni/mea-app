@@ -1,10 +1,10 @@
 <div class="container-fluid p-0">
   <section class="p-3 align-items-center">
-    <div class="row" *ngIf="autorais != '' && autorais != null">
-      <h2 class="col-12 text-primary mb-4 mt-4 d-none d-lg-block">Autorais</h2>
-      <h3 class="col-12 text-primary mb-4 mt-4 d-lg-none d-md-none">
-        Autorais
-      </h3>
+    <h2 class="text-primary mb-4 mt-4 d-none d-lg-block">Autorais</h2>
+    <h3 class="text-primary mb-4 mt-4 d-lg-none d-md-none">
+      Autorais
+    </h3>
+    <div class="row ml-lg-4" *ngIf="autorais != '' && autorais != null">
       <div
         class="col-sm-12 col-md-6 col-lg-4 align-self-center"
         *ngFor="let autoral of autorais"
@@ -16,13 +16,13 @@
         />
       </div>
     </div>
-    <div class="row" *ngIf="organizados != '' && organizados != null">
-      <h2 class="col-12 text-primary mb-4 mt-4 d-none d-lg-block">
-        Organizados
-      </h2>
-      <h3 class="col-12 text-primary mb-4 mt-4 d-lg-none d-md-none">
-        Organizados
-      </h3>
+    <h2 class="text-primary mb-4 mt-4 d-none d-lg-block">
+      Organizados
+    </h2>
+    <h3 class="text-primary mb-4 mt-4 d-lg-none d-md-none">
+      Organizados
+    </h3>
+    <div class="row ml-lg-4" *ngIf="organizados != '' && organizados != null">
       <div
         class="col-sm-12 col-md-6 col-lg-4 align-self-center"
         *ngFor="let organizado of organizados"
@@ -34,11 +34,11 @@
         />
       </div>
     </div>
-    <div class="row" *ngIf="capitulos != '' && capitulos != null">
-      <h2 class="col-12 text-primary mb-4 mt-4 d-none d-lg-block">Capitulos</h2>
-      <h3 class="col-12 text-primary mb-4 mt-4 d-lg-none d-md-none">
-        Capitulos
-      </h3>
+    <h2 class="text-primary mb-4 mt-4 d-none d-lg-block">Capitulos</h2>
+    <h3 class="text-primary mb-4 mt-4 d-lg-none d-md-none">
+      Capitulos
+    </h3>
+    <div class="row ml-lg-4" *ngIf="capitulos != '' && capitulos != null">
       <div
         class="col-sm-12 col-md-6 col-lg-4 align-self-center"
         *ngFor="let capitulo of capitulos"
@@ -46,6 +46,25 @@
         <img
           [src]="capitulo.imagem"
           (click)="openModal(template, capitulo)"
+          class="img-fluid capa-livro"
+        />
+      </div>
+    </div>
+    <h2 class="text-primary mb-4 mt-4 d-none d-lg-block">internacionais</h2>
+    <h3 class="text-primary mb-4 mt-4 d-lg-none d-md-none">
+      internacionais
+    </h3>
+    <div
+      class="row ml-lg-4"
+      *ngIf="internacionais != '' && internacionais != null"
+    >
+      <div
+        class="col-sm-12 col-md-6 col-lg-4 align-self-center"
+        *ngFor="let internacional of internacionais"
+      >
+        <img
+          [src]="internacional.imagem"
+          (click)="openModal(template, internacional)"
           class="img-fluid capa-livro"
         />
       </div>

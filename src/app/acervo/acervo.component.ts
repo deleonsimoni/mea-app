@@ -176,6 +176,112 @@ export class AcervoComponent implements OnInit {
       linkIngles: ''
     }
   ];
+
+  internacionais = [
+    {
+      titulo:
+        'New Literacies, New Agencies?: A Brazilian Perspective on Mindsets, Digital Practices and Tools for Social Action In and Out of School (New Literacies and Digital Epistemologies',
+      descricao:
+        'From students as teachers’ pets to teachers as Second Life avatars, or from being ridiculed for not knowing your syntax to ridiculing others through multimodal remixing, something has changed in the way people are acting and being acted upon through literacies. From parallel text processing «under a cloud» to text-as-process enhanced by cloud computing, or from one laptop per child to several laptops left behind by children in creative spoken interaction, learners and educators’ actions through and around texts and technologies provide quite a telling example of such changes. From writing as technology to blogging as a tool for fostering critical mindsets within complexity, or from automatized knowledge acquisition routines to new forms of relating to knowledge and new perspectives on autonomy, social ordering and Self constitutional processes defy binaries such as agent/structure, global/local, social/technical, virtual/real, or even human/non-human. In this volume a team of scholars from some of the most prestigious Brazilian universities address these issues, and illustrate them with findings from research on the interplay between new literacies, digital technologies and social action in and out-of-school. The chapters introduce, or revisit, an array of theoretical constructs from education, sociology, linguistics and media studies, while presenting a new inside perspective about how research on new literacies is being carried out in Brazil. Altogether, they provide a very useful set of ideas, tools and analytical frameworks for researchers, teachers, and students of Education, Language and Arts and Communication worldwide, especially those concerned with technology-enhanced education and social inclusion.',
+      autores: 'Eduardo S. Junqueira, Marcelo E. K. Buzato',
+      editora: 'Peter Lang Inc. - International Academic Publishers',
+      comoCitar: '',
+      imagem: './assets/New-Literacies-New-Agencies.jpg',
+      arquivo: '',
+      linkLoja:
+        'https://www.amazon.com/-/pt/New-Literacies-Agencies-Perspective-Epistemologies-dp-1433121123/dp/1433121123/ref=mt_hardcover?_encoding=UTF8&me=&qid=',
+      fontePdf: '',
+      linkPdf: '',
+      fonteIngles: '',
+      linkIngles: ''
+    },
+    {
+      titulo: 'Better e-Learning for innovation in education',
+      descricao:
+        '"Better e-Learning for All", acronym "Better-e", is a project funded by the Erasmus+ Programme, in the scope of its Key-Action 2, Strategic Partnerships of cooperation for innovation and the exchange of good practices. The project resulted from the needs assessment by some Institutions that had worked together in previous contexts and projects, and was successfully proposed for funding to the Turkish National Agency of the Erasmus+ Programme by Adana Vocational School of Higher Education, Çukurova University (funding contract 2015-1-TR01-KA204-021954)',
+      autores:
+        'Gülden İlin, Şükrü Çetin İlin, Bento Duarte da Silva, António J. Osório, José Alberto Lencastre',
+      editora: 'Şükrü Çetin İlın (Çukurova University, Adana, Turkey)',
+      comoCitar: '',
+      imagem:
+        './assets/Better_e-Learning_for_Innovation_in_Education_e-Book2017.jpg',
+      arquivo: '',
+      linkLoja: '',
+      fontePdf: '',
+      linkPdf:
+        'http://repositorium.sdum.uminho.pt/bitstream/1822/48472/1/Better_e-Learning_for_Innovation_in_Education_e-Book2017.pdf',
+      fonteIngles: '',
+      linkIngles: ''
+    },
+    {
+      titulo:
+        'International Handbook of E-Learning Volume 2 : Implementation and Case Studies',
+      descricao:
+        "The International Handbook of e-Learning, Volume 2 provides a comprehensive compendium of implementation and practice in all aspects of e-learning, one of the most significant ongoing global developments in the entire field of education. Covering the integration, challenges, implications, and context-appropriate use of open education networks, blended learning, mobile technologies, social media, and other platforms in a variety of unique international settings, these thirty contributions illustrate the wide-ranging applications and solutions made possible by this rapidly growing new paradigm. Case studies are driven by empirical research and attention to cultural specificity, while future research needs are discussed in relation to both confirmed practice and recent changes in the field. The book will be of interest to anyone seeking to create and sustain meaningful, supportive learning environments within today's anytime, anywhere framework, from teachers, administrators, and policy makers to corporate and government trainers.",
+      autores: 'Mohamed Ally , Edited by  Badrul H. Khan',
+      editora: 'Taylor & Francis Ltd',
+      comoCitar: '',
+      imagem: './assets/International-Handbook-of-E-Learning-Volume-2.jpg',
+      arquivo: '',
+      linkLoja:
+        'https://www.bookdepository.com/International-Handbook-E-Learning-2-Mohamed-Ally/9781138793729',
+      fontePdf: '',
+      linkPdf: '',
+      fonteIngles: '',
+      linkIngles: ''
+    },
+    {
+      titulo:
+        'The Assessment of Interactive Learning: The Contributions Made by Online Portfolios and Cognitive Mapping',
+      descricao:
+        'This chapter proposes the use of a communicational approach to rethink conceptual and methodological aspects of learning assessment in the context of interactive online information and communication technologies. The approach makes use of the digital online portfolio interface together with cognitive mapping techniques (mind maps and concept maps) as devices for assessing learning in online education. The examples described in the text are the result of pedagogical practice and research undertaken by the authors.',
+      autores: 'Edméa Santos, Marco Silva',
+      editora: 'SCOPUS',
+      comoCitar: '',
+      imagem:
+        './assets/Handbook-of-Research-on-Collaborative-Learning-Using-Concept-Mapping.jpg',
+      arquivo: '',
+      linkLoja:
+        'https://www.igi-global.com/chapter/assessment-interactive-learning/36289',
+      fontePdf: '',
+      linkPdf: '',
+      fonteIngles: '',
+      linkIngles: ''
+    },
+    {
+      titulo:
+        'Tecnología, innovación e investigación en los procesos de enseñanza-aprendizaje',
+      descricao:
+        'Este libro pretende mostrar un compendio de aportaciones en torno a la tecnología, innovación e investigación en los procesos de enseñanza-aprendizaje, de ahí su título. Desde diversos contextos educativos, los autores respectivos de cada capítulo dan a conocer las posibilidades que ofrecen las Tecnologías de la Información y la Comunicación [TIC] con respecto al diseño y desarrollo de nuevos escenarios de enseñanza-aprendizaje. Cabe considerar que las TIC deben asentarse en fundamentos pedagógicos cuando se trate de perfilar las características de dichos escenarios educativos. Así, se podrán mostrar reflexiones, innovaciones e investigaciones que añadan nuevos significados al conocimiento. En este sentido, las aportaciones de este libro se estructuran en cuatro grandes bloques temáticos: Innovación Educativa, Investigación Científica en Tecnología Educativa, Políticas Educativas y de Investigación, y Escenarios de aprendizaje basados en TIC. Se trata de cuatro pilares en los cuales consideramos debe fundamentarse el aporte de investigación, desarrollo e innovación que este libro contiene a fin de responder a las exigencias educativas del siglo XXI.',
+      autores: 'Roig-Vila, Rosabel(ed.)',
+      editora: 'Octaedro',
+      comoCitar: '',
+      imagem:
+        './assets/Tecnología-innovación-e-investigación-en-los-procesos-de-enseñanza-aprendizaje.jpg',
+      arquivo: '',
+      linkLoja: '',
+      fontePdf: '',
+      linkPdf: 'https://rua.ua.es/dspace/handle/10045/61787',
+      fonteIngles: '',
+      linkIngles: ''
+    },
+    {
+      titulo:
+        'Open Educational Resources and Social Networks - Recursos Educacionais Abertos e Redes Sociais',
+      descricao:
+        'The Open Educational Resources (OER) movement, arguably one of the most significant early twenty-first century developments, has already celebrated 10 years of its mission towards opening up access to knowledge for all. During this next decade, we believe that the focus of the OER movement will move beyond the provision of ‘open content’ to include ‘open construction’. Knowledge is created in a constructive process, so our understanding of OER should include, not only teaching and learning materials shared under open licenses, but also open technologies, open methodologies for transparent building and sharing of OER as knowledge.',
+      autores: '',
+      editora: '',
+      comoCitar: '',
+      imagem: './assets/Recursos-Educacionais-Abertos-e-Redes-Sociais.jpg',
+      arquivo: '',
+      linkLoja: '',
+      fontePdf: '',
+      linkPdf: 'https://oer.kmi.open.ac.uk/',
+      fonteIngles: '',
+      linkIngles: ''
+    }
+  ];
   /* {
       titulo: '',
       descricao: '',
