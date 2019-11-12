@@ -6,9 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dissertacao.component.scss']
 })
 export class DissertacaoComponent implements OnInit {
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
   dissertacoes = [
     {
       titulo: 'ATOS DE CURRÍCULO NA PERSPECTIVA DE APP-LEARNING',
@@ -158,6 +158,25 @@ export class DissertacaoComponent implements OnInit {
       orientador: 'Edméa Oliveira dos Santos ',
       dataPublicacao: '20/05/2010',
       linkPdf: 'http://www.proped.pro.br/teses/teses_pdf/2008_1-435-ME.pdf'
+    },
+    {
+      titulo:
+        "EVENTOS CIENTÍFICOS ONLINE: UM FENÔMENO DA EDUCAÇAO NA CIBERCULTURA",
+      autor: 'ALICE MARIA FIGUEIRA REIS DA COSTA',
+      resumo:
+        '',
+      orientador: 'Edméa Oliveira dos Santos ',
+      dataPublicacao: '19/03/2018',
+      linkPdf: 'http://www.proped.pro.br/'
+    },
+    {
+      titulo:
+        "E-ACESSIBILIDADE E FORMAÇÃO DOCENTE: INCLUSÃO DE ESTUDANTES COM DEFICIÊNCIA VISUAL TOTAL EM CURSOS SUPERIORES ONLINE E NA CIBERCULTURA",
+      autor: 'VALERIA DE OLIVEIRA SILVA',
+      resumo: '',
+      orientador: 'Edméa Oliveira dos Santos ',
+      dataPublicacao: '09/08/2013',
+      linkPdf: 'http://www.proped.pro.br/'
     }
     /* {
       titulo:"",

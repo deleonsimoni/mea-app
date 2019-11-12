@@ -4,16 +4,9 @@
     <h3 class="text-primary mb-4 mt-4 d-lg-none d-md-none">
       Autorais
     </h3>
-    <div class="row ml-lg-4" *ngIf="autorais != '' && autorais != null">
-      <div
-        class="col-sm-12 col-md-6 col-lg-4 align-self-center"
-        *ngFor="let autoral of autorais"
-      >
-        <img
-          [src]="autoral.imagem"
-          (click)="openModal(template, autoral)"
-          class="img-fluid capa-livro"
-        />
+    <div class="row ml-lg-4" *ngIf="autorais">
+      <div class="col-sm-12 col-md-6 col-lg-4 align-self-center" *ngFor="let autoral of autorais">
+        <img [src]="autoral.imagem" (click)="openModal(template, autoral)" class="img-fluid capa-livro" />
       </div>
     </div>
     <h2 class="text-primary mb-4 mt-4 d-none d-lg-block">
@@ -22,51 +15,27 @@
     <h3 class="text-primary mb-4 mt-4 d-lg-none d-md-none">
       Organizados
     </h3>
-    <div class="row ml-lg-4" *ngIf="organizados != '' && organizados != null">
-      <div
-        class="col-sm-12 col-md-6 col-lg-4 align-self-center"
-        *ngFor="let organizado of organizados"
-      >
-        <img
-          [src]="organizado.imagem"
-          (click)="openModal(template, organizado)"
-          class="img-fluid capa-livro"
-        />
+    <div class="row ml-lg-4" *ngIf="organizados">
+      <div class="col-sm-12 col-md-6 col-lg-4 align-self-center" *ngFor="let organizado of organizados">
+        <img [src]="organizado.imagem" (click)="openModal(template, organizado)" class="img-fluid capa-livro" />
       </div>
     </div>
     <h2 class="text-primary mb-4 mt-4 d-none d-lg-block">Capitulos</h2>
     <h3 class="text-primary mb-4 mt-4 d-lg-none d-md-none">
       Capitulos
     </h3>
-    <div class="row ml-lg-4" *ngIf="capitulos != '' && capitulos != null">
-      <div
-        class="col-sm-12 col-md-6 col-lg-4 align-self-center"
-        *ngFor="let capitulo of capitulos"
-      >
-        <img
-          [src]="capitulo.imagem"
-          (click)="openModal(template, capitulo)"
-          class="img-fluid capa-livro"
-        />
+    <div class="row ml-lg-4" *ngIf="capitulos">
+      <div class="col-sm-12 col-md-6 col-lg-4 align-self-center" *ngFor="let capitulo of capitulos">
+        <img [src]="capitulo.imagem" (click)="openModal(template, capitulo)" class="img-fluid capa-livro" />
       </div>
     </div>
     <h2 class="text-primary mb-4 mt-4 d-none d-lg-block">internacionais</h2>
     <h3 class="text-primary mb-4 mt-4 d-lg-none d-md-none">
       internacionais
     </h3>
-    <div
-      class="row ml-lg-4"
-      *ngIf="internacionais != '' && internacionais != null"
-    >
-      <div
-        class="col-sm-12 col-md-6 col-lg-4 align-self-center"
-        *ngFor="let internacional of internacionais"
-      >
-        <img
-          [src]="internacional.imagem"
-          (click)="openModal(template, internacional)"
-          class="img-fluid capa-livro"
-        />
+    <div class="row ml-lg-4" *ngIf="internacionais">
+      <div class="col-sm-12 col-md-6 col-lg-4 align-self-center" *ngFor="let internacional of internacionais">
+        <img [src]="internacional.imagem" (click)="openModal(template, internacional)" class="img-fluid capa-livro" />
       </div>
     </div>
   </section>
@@ -75,73 +44,48 @@
 <ng-template #template>
   <div class="modal-header">
     <h4 class="modal-title pull-left">{{ livroSelecionado.titulo }}</h4>
-    <button
-      type="button"
-      class="close pull-right"
-      aria-label="Close"
-      (click)="modalRef.hide()"
-    >
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
     <p class="descricao">{{ livroSelecionado.descricao }}</p>
     <div class=" d-flex flexAcerto">
-      <div
-        *ngIf="
+      <div *ngIf="
           livroSelecionado.autores != '' && livroSelecionado.autores != null
-        "
-        class="mr-3"
-      >
+        " class="mr-3">
         <p>
-          <b>Autor(a): </b
-          ><span class="subLinhas">{{ livroSelecionado.autores }}</span>
+          <b>Autor(a): </b><span class="subLinhas">{{ livroSelecionado.autores }}</span>
         </p>
       </div>
-      <div
-        *ngIf="
+      <div *ngIf="
           livroSelecionado.editora != '' && livroSelecionado.editora != null
-        "
-        class="mr-3"
-      >
+        " class="mr-3">
         <p>
-          <b>Editora: </b
-          ><span class="subLinhas">{{ livroSelecionado.editora }}</span>
+          <b>Editora: </b><span class="subLinhas">{{ livroSelecionado.editora }}</span>
         </p>
       </div>
     </div>
 
     <div class=" d-flex flexAcerto">
-      <div
-        *ngIf="
+      <div *ngIf="
           livroSelecionado.linkLoja != '' && livroSelecionado.linkLoja != null
-        "
-        class="mr-3 mb-4"
-      >
-        <a class="completo" [href]="livroSelecionado.linkLoja" target="_blank"
-          ><i class="fa fa-book"></i> Loja Online</a
-        >
+        " class="mr-3 mb-4">
+        <a class="completo" [href]="livroSelecionado.linkLoja" target="_blank"><i class="fa fa-book"></i> Loja
+          Online</a>
       </div>
-      <div
-        *ngIf="
+      <div *ngIf="
           livroSelecionado.linkPdf != '' && livroSelecionado.linkPdf != null
-        "
-        class="mr-3 mb-4"
-      >
-        <a class="completo" [href]="livroSelecionado.linkPdf" target="_blank"
-          ><i class="fa fa-file"></i> Versão em PDF</a
-        >
+        " class="mr-3 mb-4">
+        <a class="completo" [href]="livroSelecionado.linkPdf" target="_blank"><i class="fa fa-file"></i> Versão em
+          PDF</a>
       </div>
-      <div
-        *ngIf="
+      <div *ngIf="
           livroSelecionado.linkIngles != '' &&
           livroSelecionado.linkIngles != null
-        "
-        class="mr-3 mb-4"
-      >
-        <a class="completo" [href]="livroSelecionado.linkIngles" target="_blank"
-          ><i class="fa fa-file"></i> Versão em Inglês</a
-        >
+        " class="mr-3 mb-4">
+        <a class="completo" [href]="livroSelecionado.linkIngles" target="_blank"><i class="fa fa-file"></i> Versão em
+          Inglês</a>
       </div>
     </div>
   </div>
