@@ -7,12 +7,12 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
   styleUrls: ['./acervo.component.scss']
 })
 export class AcervoComponent implements OnInit {
-  constructor(private modalService: BsModalService) {}
+  constructor(private modalService: BsModalService) { }
 
   modalRef: BsModalRef;
   livroSelecionado: any;
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   openModal(template: TemplateRef<any>, livro: any) {
     this.livroSelecionado = livro;
@@ -30,23 +30,6 @@ export class AcervoComponent implements OnInit {
       arquivo: '',
       linkLoja:
         'https://www.amazon.com.br/Pesquisa-Forma%C3%A7%C3%A3o-Na-Cibercultura-Edmea-Santos/dp/1793247102/ref=sr_1_4?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&keywords=edmea+santos&qid=1571013778&sr=8-4',
-      fontePdf: '',
-      linkPdf: '',
-      fonteIngles: '',
-      linkIngles: ''
-    },
-    {
-      titulo: 'Avaliação Da Aprendizagem Em Educação Online',
-      descricao:
-        'Educação online? Ah, então é moleza...! Este livro reúne a experiência de 65 representantes da área e derruba esse mito, mostrando que a avaliação online é uma questão complexa que só pode ser resolvida com conhecimento de causa. Mudam as formas de pensar e de aprender mudam também as formas de avaliar. A tradicional prova - temida por alguns, e nem sempre eficaz para verificar resultados - torna-se mais global e se renova em portfólios, participação em comunidades virtuais, blogs, videoconferências e outros dispositivos. A modalidade online revoluciona tempo e espaço e permite realizar avaliações ao longo do processo, voltadas para o desenvolvimento de competências.',
-      autores: 'Marco Silva, Edméa Santos',
-      editora: 'Loyola',
-      comoCitar: '',
-      imagem:
-        '../assets/Avaliação-de-Aprendizage-em-Educação-Online-2-Edição.jpg',
-      arquivo: '',
-      linkLoja:
-        'https://www.estantevirtual.com.br/livros/marco-silva-edmea-santos/avaliacao-da-aprendizagem-em-educacao-online/764118405',
       fontePdf: '',
       linkPdf: '',
       fonteIngles: '',
@@ -139,10 +122,24 @@ export class AcervoComponent implements OnInit {
       linkPdf: '',
       fonteIngles: '',
       linkIngles: ''
-    }
-  ];
-
-  capitulos = [
+    },
+    {
+      titulo: 'Avaliação Da Aprendizagem Em Educação Online',
+      descricao:
+        'Educação online? Ah, então é moleza...! Este livro reúne a experiência de 65 representantes da área e derruba esse mito, mostrando que a avaliação online é uma questão complexa que só pode ser resolvida com conhecimento de causa. Mudam as formas de pensar e de aprender mudam também as formas de avaliar. A tradicional prova - temida por alguns, e nem sempre eficaz para verificar resultados - torna-se mais global e se renova em portfólios, participação em comunidades virtuais, blogs, videoconferências e outros dispositivos. A modalidade online revoluciona tempo e espaço e permite realizar avaliações ao longo do processo, voltadas para o desenvolvimento de competências.',
+      autores: 'Marco Silva, Edméa Santos',
+      editora: 'Loyola',
+      comoCitar: '',
+      imagem:
+        '../assets/Avaliação-de-Aprendizage-em-Educação-Online-2-Edição.jpg',
+      arquivo: '',
+      linkLoja:
+        'https://www.estantevirtual.com.br/livros/marco-silva-edmea-santos/avaliacao-da-aprendizagem-em-educacao-online/764118405',
+      fontePdf: '',
+      linkPdf: '',
+      fonteIngles: '',
+      linkIngles: ''
+    },
     {
       titulo: 'Mídias e Tecnologias na Educação Presencial e a Distância',
       descricao:

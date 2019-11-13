@@ -20,7 +20,7 @@
         <img [src]="organizado.imagem" (click)="openModal(template, organizado)" class="img-fluid capa-livro" />
       </div>
     </div>
-    <h2 class="text-primary mb-4 mt-4 d-none d-lg-block">Capitulos</h2>
+    <!--<h2 class="text-primary mb-4 mt-4 d-none d-lg-block">Capitulos</h2>
     <h3 class="text-primary mb-4 mt-4 d-lg-none d-md-none">
       Capitulos
     </h3>
@@ -28,10 +28,10 @@
       <div class="col-sm-12 col-md-6 col-lg-4 align-self-center" *ngFor="let capitulo of capitulos">
         <img [src]="capitulo.imagem" (click)="openModal(template, capitulo)" class="img-fluid capa-livro" />
       </div>
-    </div>
-    <h2 class="text-primary mb-4 mt-4 d-none d-lg-block">internacionais</h2>
+    </div>-->
+    <h3 class="text-primary mb-4 mt-4 d-none d-lg-block">Capitulos em livros internacionais</h3>
     <h3 class="text-primary mb-4 mt-4 d-lg-none d-md-none">
-      internacionais
+      Capitulos em livros internacionais
     </h3>
     <div class="row ml-lg-4" *ngIf="internacionais">
       <div class="col-sm-12 col-md-6 col-lg-4 align-self-center" *ngFor="let internacional of internacionais">
