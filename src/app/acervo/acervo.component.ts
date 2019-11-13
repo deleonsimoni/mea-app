@@ -37,7 +37,31 @@ export class AcervoComponent implements OnInit {
     }
   ];
 
+  webLivroSocial = [
+    {
+      titulo: '',
+      linkPdf: 'https://ieducacao.ceie-br.org'
+    }
+  ];
+
   organizados = [
+    {
+      titulo: 'Facebook e educação: publicar, curtir, compartilhar',
+      descricao:
+        'A obra apresenta elementos capazes de instigar a reflexão sobre a mídia social Facebook nos mais diversos contextos e situações, envolvendo os usos que as pessoas fazem dessa mídia; os temas que surgem e como esses se configuram enquanto objeto de estudo num ambiente de diálogo; os potenciais sociotécni­cos e educacionais da rede, enquanto espaços de subjetivação, sociabilidade e diferença; bem como os usos do Facebook no ensino superior e na formação continuada de professores.',
+      autores: 'Cristiane Porto, Edméa Oliveira dos Santos',
+      editora: 'SciELO - EDUEPB',
+      comoCitar: '',
+      imagem: '../assets/facebook.jpg',
+      arquivo: '',
+      linkLoja:
+        'https://www.amazon.com.br/Facebook-educa%C3%A7%C3%A3o-publicar-curtir-compartilhar-ebook/dp/B0187Q5LE8/ref=sr_1_3?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&keywords=edmea+santos&qid=1571014338&sr=8-3',
+      fontePdf: '',
+      linkPdf:
+        'https://static.scielo.org/scielobooks/c3h5q/pdf/porto-9788578792831.pdf',
+      fonteIngles: '',
+      linkIngles: ''
+    },
     {
       titulo: 'Pesquisa e mobilidade na cibercultura: itinerâncias docentes',
       descricao:
@@ -88,24 +112,6 @@ export class AcervoComponent implements OnInit {
       linkIngles: ''
     },
     {
-      titulo: 'Facebook e educação: publicar, curtir, compartilhar',
-      descricao:
-        'A obra apresenta elementos capazes de instigar a reflexão sobre a mídia social Facebook nos mais diversos contextos e situações, envolvendo os usos que as pessoas fazem dessa mídia; os temas que surgem e como esses se configuram enquanto objeto de estudo num ambiente de diálogo; os potenciais sociotécni­cos e educacionais da rede, enquanto espaços de subjetivação, sociabilidade e diferença; bem como os usos do Facebook no ensino superior e na formação continuada de professores.',
-      autores: 'Cristiane Porto, Edméa Oliveira dos Santos',
-      editora: 'SciELO - EDUEPB',
-      comoCitar: '',
-      imagem: '../assets/facebook.jpg',
-      arquivo: '',
-      linkLoja:
-        'https://www.amazon.com.br/Facebook-educa%C3%A7%C3%A3o-publicar-curtir-compartilhar-ebook/dp/B0187Q5LE8/ref=sr_1_3?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&keywords=edmea+santos&qid=1571014338&sr=8-3',
-      fontePdf: '',
-      linkPdf:
-        'https://static.scielo.org/scielobooks/c3h5q/pdf/porto-9788578792831.pdf',
-      fonteIngles: '',
-      linkIngles:
-        'http://www.uepb.edu.br/download/ebooks/Facebook-and-Education.pdf'
-    },
-    {
       titulo:
         'Diário Online: Dispositivo multirreferencial de pesquisa-formação na cibercultura',
       descricao:
@@ -118,6 +124,23 @@ export class AcervoComponent implements OnInit {
       arquivo: '',
       linkLoja:
         'https://www.amazon.com.br/Di%C3%A1rio-Online-multirreferencial-pesquisa-forma%C3%A7%C3%A3o-Contempor%C3%A2neas-ebook/dp/B00O6F78KA/ref=sr_1_1?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&keywords=edmea+santos&qid=1571013973&sr=8-1',
+      fontePdf: '',
+      linkPdf: '',
+      fonteIngles: '',
+      linkIngles: ''
+    },
+    {
+      titulo: 'Práticas pedagógicas e tecnologias digitais',
+      descricao:
+        'Os artigos deste livro trazem questões que discutem os fundamentos epistemológicos do uso de tecnologias na formação de professores, focando em suas implicações em relação à pesquisa-formação, currículo, didática e aprendizagem.',
+      autores: 'Edméa Santos e Lynn Alves',
+      editora: 'e-papers',
+      comoCitar: '',
+      imagem:
+        '../assets/praticas pedagogicas.jpg',
+      arquivo: '',
+      linkLoja:
+        'http://www.e-papers.com.br/produtos.asp?codigo_produto=861&promo=0',
       fontePdf: '',
       linkPdf: '',
       fonteIngles: '',
@@ -175,6 +198,22 @@ export class AcervoComponent implements OnInit {
   ];
 
   internacionais = [
+    {
+      titulo:
+        'FACEBOOK AND EDUCATION post, like & share',
+      descricao:
+        '',
+      autores: 'Alexandre Chagas, Cristiane Porto, Edméa Santos',
+      editora: 'Editora da Universidade Estadual da Paraíba',
+      comoCitar: '',
+      imagem: './assets/facebook and education.jpg',
+      arquivo: '',
+      linkLoja: '',
+      fontePdf: '',
+      linkPdf: 'http://www.uepb.edu.br/download/ebooks/Facebook-and-Education.pdf',
+      fonteIngles: '',
+      linkIngles: ''
+    },
     {
       titulo:
         'New Literacies, New Agencies?: A Brazilian Perspective on Mindsets, Digital Practices and Tools for Social Action In and Out of School (New Literacies and Digital Epistemologies',

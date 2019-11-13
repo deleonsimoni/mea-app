@@ -1,5 +1,8 @@
 <div class="container-fluid p-0">
   <section class="p-3 align-items-center">
+
+
+    <!-- Livros Autorais -->
     <h2 class="text-primary mb-4 mt-4 d-none d-lg-block">Autorais</h2>
     <h3 class="text-primary mb-4 mt-4 d-lg-none d-md-none">
       Autorais
@@ -7,8 +10,49 @@
     <div class="row ml-lg-4" *ngIf="autorais">
       <div class="col-sm-12 col-md-6 col-lg-4 align-self-center" *ngFor="let autoral of autorais">
         <img [src]="autoral.imagem" (click)="openModal(template, autoral)" class="img-fluid capa-livro" />
+        <div class=" d-flex flexAcerto">
+          <div *ngIf="
+            autoral.linkLoja != '' && autoral.linkLoja != null
+              " class="mr-3 mb-4">
+            <a class="completo" [href]="autoral.linkLoja" target="_blank"><i class="fa fa-book"></i> Loja
+              Online</a>
+          </div>
+          <div *ngIf="
+            autoral.linkPdf != '' && autoral.linkPdf != null
+              " class="mr-3 mb-4">
+            <a class="completo" [href]="autoral.linkPdf" target="_blank"><i class="fa fa-file"></i> Versão em
+              PDF</a>
+          </div>
+          <div *ngIf="
+            autoral.linkIngles != '' &&
+            autoral.linkIngles != null
+              " class="mr-3 mb-4">
+            <a class="completo" [href]="autoral.linkIngles" target="_blank"><i class="fa fa-file"></i> Versão em
+              Inglês</a>
+          </div>
+        </div>
       </div>
     </div>
+    <!-- FIM DOS AUTORAIS -->
+
+    <!-- WEB LIVRO SOCIAL -->
+    <h2 class="text-primary mb-4 mt-4 d-none d-lg-block">Web Livro Social</h2>
+    <h3 class="text-primary mb-4 mt-4 d-lg-none d-md-none">
+      Web Livro Social
+    </h3>
+    <div class="row ml-lg-4" *ngIf="autorais">
+      <div class="col-sm-12 col-md-6 col-lg-4 align-self-center" *ngFor="let webSocial of webLivroSocial">
+        <div class=" d-flex flexAcerto">
+          <div class="mr-3 mb-4">
+            <a class="completo" [href]="webSocial.linkPdf" target="_blank"><i class="fa fa-file"></i> Acessar Web Livro
+              Social</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FIM DO WEB LIVRO SOCIAL -->
+
+    <!-- LIVROS ORGANIZADOS -->
     <h2 class="text-primary mb-4 mt-4 d-none d-lg-block">
       Organizados
     </h2>
@@ -18,26 +62,66 @@
     <div class="row ml-lg-4" *ngIf="organizados">
       <div class="col-sm-12 col-md-6 col-lg-4 align-self-center" *ngFor="let organizado of organizados">
         <img [src]="organizado.imagem" (click)="openModal(template, organizado)" class="img-fluid capa-livro" />
+        <div class=" d-flex flexAcerto">
+          <div *ngIf="
+            organizado.linkLoja != '' && organizado.linkLoja != null
+                " class="mr-3 mb-4">
+            <a class="completo" [href]="organizado.linkLoja" target="_blank"><i class="fa fa-book"></i> Loja
+              Online</a>
+          </div>
+          <div *ngIf="
+            organizado.linkPdf != '' && organizado.linkPdf != null
+                " class="mr-3 mb-4">
+            <a class="completo" [href]="organizado.linkPdf" target="_blank"><i class="fa fa-file"></i> Versão em
+              PDF</a>
+          </div>
+          <div *ngIf="
+            organizado.linkIngles != '' &&
+            organizado.linkIngles != null
+                " class="mr-3 mb-4">
+            <a class="completo" [href]="organizado.linkIngles" target="_blank"><i class="fa fa-file"></i> Versão em
+              Inglês</a>
+          </div>
+        </div>
       </div>
     </div>
-    <!--<h2 class="text-primary mb-4 mt-4 d-none d-lg-block">Capitulos</h2>
-    <h3 class="text-primary mb-4 mt-4 d-lg-none d-md-none">
-      Capitulos
-    </h3>
-    <div class="row ml-lg-4" *ngIf="capitulos">
-      <div class="col-sm-12 col-md-6 col-lg-4 align-self-center" *ngFor="let capitulo of capitulos">
-        <img [src]="capitulo.imagem" (click)="openModal(template, capitulo)" class="img-fluid capa-livro" />
-      </div>
-    </div>-->
-    <h3 class="text-primary mb-4 mt-4 d-none d-lg-block">Capitulos em livros internacionais</h3>
+    <!-- FIM DOS ORGANIZADOS -->
+
+
+
+    <!-- LIVROS INTERNACIONAIS -->
+    <h3 class="text-primary mb-4 mt-4 d-none d-lg-block">Livros internacionais</h3>
     <h3 class="text-primary mb-4 mt-4 d-lg-none d-md-none">
       Capitulos em livros internacionais
     </h3>
     <div class="row ml-lg-4" *ngIf="internacionais">
       <div class="col-sm-12 col-md-6 col-lg-4 align-self-center" *ngFor="let internacional of internacionais">
         <img [src]="internacional.imagem" (click)="openModal(template, internacional)" class="img-fluid capa-livro" />
+        <div class=" d-flex flexAcerto">
+          <div *ngIf="
+            internacional.linkLoja != '' && internacional.linkLoja != null
+                  " class="mr-3 mb-4">
+            <a class="completo" [href]="internacional.linkLoja" target="_blank"><i class="fa fa-book"></i> Loja
+              Online</a>
+          </div>
+          <div *ngIf="
+            internacional.linkPdf != '' && internacional.linkPdf != null
+                  " class="mr-3 mb-4">
+            <a class="completo" [href]="internacional.linkPdf" target="_blank"><i class="fa fa-file"></i> Versão em
+              PDF</a>
+          </div>
+          <div *ngIf="
+            internacional.linkIngles != '' &&
+            internacional.linkIngles != null
+                  " class="mr-3 mb-4">
+            <a class="completo" [href]="internacional.linkIngles" target="_blank"><i class="fa fa-file"></i> Versão em
+              Inglês</a>
+          </div>
+        </div>
       </div>
     </div>
+    <!-- FIM DOS INTERNACIONAIS -->
+
   </section>
 </div>
 
@@ -89,4 +173,5 @@
       </div>
     </div>
   </div>
+
 </ng-template>
