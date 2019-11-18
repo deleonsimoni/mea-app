@@ -80,6 +80,22 @@ export class AcervoComponent implements OnInit {
       linkIngles: ''
     },
     {
+      titulo: 'O LIVRO NA CIBER CULTURA',
+      descricao:
+        'Para que servem os encontros entre pares ? O que é supervisionar  um pós-doc ? Este livro é um dos produtos de um encontro muito fecundo entre Edméa Santos e Cristiane Porto no Proped/UERJ. Preocupadas com temos de conteúdo , forma , linguagens , metodologias , fundamentos , dilemas , práticas e dispositivos queríamos  saber “como o livro vem se apresentando na cibercultura ? “. Este livro coletivo , por nós idealizado, contou com a participação de gente muito importante . Gente que faz educação , comunicação e que vem pesquisando o tema . Muitos pesquisam, outros fazer , muitos outros fazem para saber ! E editora parceira já disponibilizou o pdf ! Isso mesmo, o conteúdo é obra aberta para a partilha . Que venham as práticas , mais pensamentos , autorias . Aproveitemos e partilhemos  para o mundo da língua portuguesa ! Bora , bora porque não viemos a este mundo para fazer mais do mesmo.',
+      autores:
+        'Cristiane Porto, Edméa Santos',
+      editora: 'Universitária Leopoldianum',
+      comoCitar: '',
+      imagem: '../assets/olivronacibercultura.jpg',
+      arquivo: '',
+      linkLoja:
+        '',
+      linkPdf: 'https://www.unisantos.br/wp-content/uploads/2019/11/Cibercultura.pdf',
+      fonteIngles: '',
+      linkIngles: ''
+    },
+    {
       titulo: 'Múltiplas Linguagens nos Currículos',
       descricao:
         'O livro Múltiplas Linguagens nos Currículos é uma contribuição de vários pesquisadores à atualização da prática educativa e um convite à renovadas miragens pedagógicas, através de uma coletânea de artigos que estudam temas originais mas interativos entre as vivênciasdas cidades e da cibercultura, tais como: letramento digital, recursos educacionais abertos, e-acessibilidade, webquest, jogos eletrônicos, lousa digital, pedagogia das imagens, audiovisual fotografia, HQs e rádio.',
