@@ -22,6 +22,23 @@ export class AcervoComponent implements OnInit {
     {
       titulo: 'Pesquisa Formação na Cibercultura',
       descricao:
+        '',
+      autores: 'Edméa Santos',
+      editora: 'edufpi',
+      comoCitar: '',
+      imagem: '../assets/Pesquisa-formação na cibercultura.jpg',
+      arquivo: '',
+      linkLoja:
+        '',
+      fontePdf: '',
+      linkPdf: '',
+      download: '../assets/livros/Livro PESQUISA-FORMAÇÃO NA CIBERCULTURA_E-BOOK.pdf',
+      fonteIngles: '',
+      linkIngles: ''
+    },
+    {
+      titulo: 'Pesquisa Formação na Cibercultura',
+      descricao:
         'A partir das atividades de pesquisas conduzidas por Edméa Santos, coordenadora do grupo de pesquisa Docència e Cibercultura da Universidade do Estado do Rio de Janeiro, cujos resultados dos projetos recentes se apresentam agora reunidos em forma de livro, a autora procede à elaboração de um novo olhar crítico sobre as questões e os contextos de desenvolvimento da cibercultura na sociedade digital, com particular ènfase para as problemáticas da docència online.Deste modo, e através da convergència das narrativas dos estudos no âmbito da formação de e-formadores, a autora conduz-nos para a análise das dimensões da cibercultura, desde a interação à mediação social, enquanto processos de participação e coautoria na criação das redes de aprendizagem e conhecimento, passando, necessariamente, pela inovação e sustentabilidade das comunidades de prática, e pela valorização da ligação entre os contextos formais e informais de experiència individual e coletiva para a criação de conhecimento na sociedade digital.É uma obra que constitui um importante contributo para a mudança e inovação no pensamento educacional e que merece a nossa maior atenção.Paulo Maria Bastos da Silva DiasReitor da Universidade Aberta, Portugal',
       autores: 'Edméa Santos',
       editora: 'WHITEBOOKS',
@@ -46,19 +63,33 @@ export class AcervoComponent implements OnInit {
 
   organizados = [
     {
-      titulo: 'Facebook e educação: publicar, curtir, compartilhar',
+      titulo: 'APP-EDUCATION',
       descricao:
-        'A obra apresenta elementos capazes de instigar a reflexão sobre a mídia social Facebook nos mais diversos contextos e situações, envolvendo os usos que as pessoas fazem dessa mídia; os temas que surgem e como esses se configuram enquanto objeto de estudo num ambiente de diálogo; os potenciais sociotécni­cos e educacionais da rede, enquanto espaços de subjetivação, sociabilidade e diferença; bem como os usos do Facebook no ensino superior e na formação continuada de professores.',
+        `App-Education, ou “educação baseada em aplicativos”, seria uma nova roupagem para o software
+        educacional, geralmente instrucionista, que se popularizou na década de 1990? Seria uma didática
+        neotecnicista? A presente obra acaba com essas dúvidas e descontrói preconceitos.
+        Na primeira parte do livro, sobre Fundamentos e Contextos, fi ca evidente que não se trata de
+        uma nova roupagem para a educação bancária.Os aplicativos são estruturantes da cultura
+        contemporânea, são artefatos técnico- culturais que instituem linguagens e espaços de convivência,
+        instauram e potencializam redes educativas que nos formam a partir de práticas culturais e
+        processos de subjetivação.
+        Na segunda parte do livro, sobre Práticas Educativas em Mobilidade, conhecemos alguns exemplos
+        de como professores e pesquisadores vêm praticando a App - Education em diversas áreas e níveis
+        educacionais.Os relatos e refl exões ilustram como a cultura digital vem modifi cando os processos
+        educacionais convencionais e nos convidam a repensar nossas próprias práticas pedagógicas.
+        Com o diálogo entre teoria e prática, este livro nos ajuda a compreender e a conceber uma
+        educação em tempos de Cibercultura.
+        Profº Dr.Mariano Pimentel(UNIRIO)'`,
       autores: 'Cristiane Porto, Edméa Oliveira dos Santos',
-      editora: 'SciELO - EDUEPB',
+      editora: 'EDUFBA',
       comoCitar: '',
-      imagem: '../assets/facebook.jpg',
+      imagem: '../assets/app-education.jpg',
       arquivo: '',
       linkLoja:
         'https://www.amazon.com.br/Facebook-educa%C3%A7%C3%A3o-publicar-curtir-compartilhar-ebook/dp/B0187Q5LE8/ref=sr_1_3?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&keywords=edmea+santos&qid=1571014338&sr=8-3',
       fontePdf: '',
       linkPdf:
-        'https://static.scielo.org/scielobooks/c3h5q/pdf/porto-9788578792831.pdf',
+        '',
       fonteIngles: '',
       linkIngles: ''
     },
@@ -76,6 +107,23 @@ export class AcervoComponent implements OnInit {
         'http://www.edufba.ufba.br/2015/11/pesquisa-e-mobilidade-na-cibercultura-itinerancias-docentes/',
       fontePdf: '',
       linkPdf: '',
+      fonteIngles: '',
+      linkIngles: ''
+    },
+    {
+      titulo: 'Facebook e educação: publicar, curtir, compartilhar',
+      descricao:
+        'A obra apresenta elementos capazes de instigar a reflexão sobre a mídia social Facebook nos mais diversos contextos e situações, envolvendo os usos que as pessoas fazem dessa mídia; os temas que surgem e como esses se configuram enquanto objeto de estudo num ambiente de diálogo; os potenciais sociotécni­cos e educacionais da rede, enquanto espaços de subjetivação, sociabilidade e diferença; bem como os usos do Facebook no ensino superior e na formação continuada de professores.',
+      autores: 'Cristiane Porto, Edméa Oliveira dos Santos',
+      editora: 'SciELO - EDUEPB',
+      comoCitar: '',
+      imagem: '../assets/facebook.jpg',
+      arquivo: '',
+      linkLoja:
+        'https://www.amazon.com.br/Facebook-educa%C3%A7%C3%A3o-publicar-curtir-compartilhar-ebook/dp/B0187Q5LE8/ref=sr_1_3?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&keywords=edmea+santos&qid=1571014338&sr=8-3',
+      fontePdf: '',
+      linkPdf:
+        'https://static.scielo.org/scielobooks/c3h5q/pdf/porto-9788578792831.pdf',
       fonteIngles: '',
       linkIngles: ''
     },

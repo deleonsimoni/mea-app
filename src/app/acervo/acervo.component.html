@@ -24,6 +24,12 @@
               PDF</a>
           </div>
           <div *ngIf="
+            autoral.download != '' && autoral.download != null
+              " class="mr-3 mb-4">
+            <a class="completo" [href]="autoral.download" download="PESQUISA-FORMAÇÃO NA CIBERCULTURA_E-BOOK.pdf"><i
+                class="fa fa-file"></i> Download PDF</a>
+          </div>
+          <div *ngIf="
             autoral.linkIngles != '' &&
             autoral.linkIngles != null
               " class="mr-3 mb-4">

@@ -15,3 +15,13 @@ q {
   width: 275px;
   margin-left: 9vw;
 }
+.modal-body {
+  max-height: 80vh;
+  overflow-y: scroll;
+}
+.modal-header {
+  background-color: #f45622;
+}
+.modal-title {
+  color: white;
+}
