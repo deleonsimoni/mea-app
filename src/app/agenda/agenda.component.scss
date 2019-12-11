@@ -1,5 +1,13 @@
 .lista-mes {
 }
+.caixa-mes h3 {
+  text-align: center;
+}
+.caixa-mes p {
+  margin: 10px 0px;
+  text-align: left;
+  font-style: italic;
+}
 .lista-mes li {
   text-decoration: none;
   display: inline-block;
@@ -8,6 +16,9 @@
   display: inline-block;
   margin: 3px;
 }
-.caixa-mes {
-  height: 35vh;
+.box-new {
+  border: solid 1px gray;
+  width: 100%;
+  height: 50vh;
+  border-radius: 10px;
 }
