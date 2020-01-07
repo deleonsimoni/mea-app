@@ -10,52 +10,22 @@ export class AgendaComponent implements OnInit {
   ngOnInit() {}
   agenda = [
     {
-      mes: 'Outubro',
-      dias: [
-        { dia: '10', compromisso: 'Sessão de autografos' },
-        { dia: '10', compromisso: 'Sessão de autografos' },
-        { dia: '10', compromisso: 'Sessão de autografos' }
-      ]
+      mes: 'Outubro'
     },
     {
-      mes: 'Outubro',
-      dias: [
-        { dia: '10', compromisso: 'Sessão de autografos' },
-        { dia: '10', compromisso: 'Sessão de autografos' },
-        { dia: '10', compromisso: 'Sessão de autografos' }
-      ]
+      mes: 'Outubro'
     },
     {
-      mes: 'Outubro',
-      dias: [
-        { dia: '10', compromisso: 'Sessão de autografos' },
-        { dia: '10', compromisso: 'Sessão de autografos' },
-        { dia: '10', compromisso: 'Sessão de autografos' }
-      ]
+      mes: 'Outubro'
     },
     {
-      mes: 'Outubro',
-      dias: [
-        { dia: '10', compromisso: 'Sessão de autografos' },
-        { dia: '10', compromisso: 'Sessão de autografos' },
-        { dia: '10', compromisso: 'Sessão de autografos' }
-      ]
+      mes: 'Outubro'
     },
     {
-      mes: 'Outubro',
-      dias: [
-        { dia: '10', compromisso: 'Sessão de autografos' },
-        { dia: '10', compromisso: 'Sessão de autografos' },
-        { dia: '10', compromisso: 'Sessão de autografos' }
-      ]
+      mes: 'Outubro'
     },
     {
-      mes: 'Outubro',
-      dias: [
-        { dia: '10', compromisso: 'Sessão de autografos' },
-        { dia: '10', compromisso: 'Sessão de autografos' },
-        { dia: '10', compromisso: 'Sessão de autografos' }
-      ]
+      mes: 'Outubro'
     }
   ];
 }
