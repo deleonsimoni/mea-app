@@ -94,6 +94,22 @@ export class AcervoComponent implements OnInit {
       linkIngles: ''
     },
     {
+      titulo: 'O LIVRO NA CIBER CULTURA',
+      descricao:
+        'Para que servem os encontros entre pares ? O que é supervisionar  um pós-doc ? Este livro é um dos produtos de um encontro muito fecundo entre Edméa Santos e Cristiane Porto no Proped/UERJ. Preocupadas com temos de conteúdo , forma , linguagens , metodologias , fundamentos , dilemas , práticas e dispositivos queríamos  saber “como o livro vem se apresentando na cibercultura ? “. Este livro coletivo , por nós idealizado, contou com a participação de gente muito importante . Gente que faz educação , comunicação e que vem pesquisando o tema . Muitos pesquisam, outros fazer , muitos outros fazem para saber ! E editora parceira já disponibilizou o pdf ! Isso mesmo, o conteúdo é obra aberta para a partilha . Que venham as práticas , mais pensamentos , autorias . Aproveitemos e partilhemos  para o mundo da língua portuguesa ! Bora , bora porque não viemos a este mundo para fazer mais do mesmo.',
+      autores:
+        'Cristiane Porto, Edméa Santos',
+      editora: 'Universitária Leopoldianum',
+      comoCitar: '',
+      imagem: '../assets/olivronacibercultura.jpg',
+      arquivo: '',
+      linkLoja:
+        '',
+      linkPdf: 'https://www.unisantos.br/wp-content/uploads/2019/11/Cibercultura.pdf',
+      fonteIngles: '',
+      linkIngles: ''
+    },
+    {
       titulo: 'Pesquisa e mobilidade na cibercultura: itinerâncias docentes',
       descricao:
         'O livro visa promover uma compreensão das relações existentes entre a educação, tecnologias digitais e mobilidade. O principal objetivo do projeto foi entender como as tecnologias digitais e a mobilidade podem contribuir para a pesquisa e a formação no atual contexto da cibercultura em espaços formais e não formais de aprendizagem.',
@@ -124,22 +140,6 @@ export class AcervoComponent implements OnInit {
       fontePdf: '',
       linkPdf:
         'https://static.scielo.org/scielobooks/c3h5q/pdf/porto-9788578792831.pdf',
-      fonteIngles: '',
-      linkIngles: ''
-    },
-    {
-      titulo: 'O LIVRO NA CIBER CULTURA',
-      descricao:
-        'Para que servem os encontros entre pares ? O que é supervisionar  um pós-doc ? Este livro é um dos produtos de um encontro muito fecundo entre Edméa Santos e Cristiane Porto no Proped/UERJ. Preocupadas com temos de conteúdo , forma , linguagens , metodologias , fundamentos , dilemas , práticas e dispositivos queríamos  saber “como o livro vem se apresentando na cibercultura ? “. Este livro coletivo , por nós idealizado, contou com a participação de gente muito importante . Gente que faz educação , comunicação e que vem pesquisando o tema . Muitos pesquisam, outros fazer , muitos outros fazem para saber ! E editora parceira já disponibilizou o pdf ! Isso mesmo, o conteúdo é obra aberta para a partilha . Que venham as práticas , mais pensamentos , autorias . Aproveitemos e partilhemos  para o mundo da língua portuguesa ! Bora , bora porque não viemos a este mundo para fazer mais do mesmo.',
-      autores:
-        'Cristiane Porto, Edméa Santos',
-      editora: 'Universitária Leopoldianum',
-      comoCitar: '',
-      imagem: '../assets/olivronacibercultura.jpg',
-      arquivo: '',
-      linkLoja:
-        '',
-      linkPdf: 'https://www.unisantos.br/wp-content/uploads/2019/11/Cibercultura.pdf',
       fonteIngles: '',
       linkIngles: ''
     },
