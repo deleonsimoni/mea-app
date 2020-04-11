@@ -1,0 +1,27 @@
+.logo {
+  width: 100px;
+}
+
+q {
+  font-style: italic;
+  font-size: 1.2rem;
+  quotes: "« " " »";
+}
+.email {
+  text-transform: lowercase;
+}
+.capa-livro {
+  height: 275px;
+  width: 275px;
+  margin-left: 9vw;
+}
+.modal-body {
+  max-height: 80vh;
+  overflow-y: scroll;
+}
+.modal-header {
+  background-color: #f45622;
+}
+.modal-title {
+  color: white;
+}
