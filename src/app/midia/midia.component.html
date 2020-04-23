@@ -1,5 +1,23 @@
 <div class="container-fluid p-0">
   <section class="p-3 pt-lg-5 align-items-center">
+    <h3 class="mb-3 text-primary">Live da Anped</h3>
+    <div class="row mb-5 ml-lg-4 no-gutters">
+      <div class="col-12 col-md-6">
+        <div class="iframe-container">
+          <iframe
+            src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fanped.educacao%2Fvideos%2F548400622526798%2F&show_text=0&width=560"
+            width="560"
+            height="315"
+            style="border:none;overflow:hidden"
+            scrolling="no"
+            frameborder="0"
+            allowTransparency="true"
+            allowFullScreen="true"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
     <h3 class="mb-3 text-primary">Filmes de Pesquisa</h3>
     <div class="row mb-5 ml-lg-4 no-gutters">
       <div class="col-12 col-md-6">
@@ -47,7 +65,11 @@
       <div class="col-12 col-md-6">
         <h5 class="mt-4 mb-0 text-center">Palestra no Enelud</h5>
         <p class="text-center mb-3">
-          <a href="https://osaciperere.wordpress.com/vii-enelud/" target="_blank">materia sobre a Enelud</a>
+          <a
+            href="https://osaciperere.wordpress.com/vii-enelud/"
+            target="_blank"
+            >materia sobre a Enelud</a
+          >
         </p>
         <div class="iframe-container">
           <iframe src="https://www.youtube.com/embed/ujoCr7Gcd-c"></iframe>
@@ -80,11 +102,17 @@
       </div>
     </div>
 
-
     <h3 class="mb-3 text-primary">Entrevistas</h3>
     <div class="row mb-5 ml-lg-4">
-      <div class="col-12 col-md-4 d-flex entCont" *ngFor="let entrevista of entrevistas">
-        <img class="img-fluid capa-livro" (click)="openModal(template, entrevista)" [src]="entrevista.imagem" />
+      <div
+        class="col-12 col-md-4 d-flex entCont"
+        *ngFor="let entrevista of entrevistas"
+      >
+        <img
+          class="img-fluid capa-livro"
+          (click)="openModal(template, entrevista)"
+          [src]="entrevista.imagem"
+        />
       </div>
     </div>
 
@@ -103,60 +131,96 @@
     <ng-template #template>
       <div class="modal-header">
         <h4 class="modal-title pull-left">{{ livroSelecionado.titulo }}</h4>
-        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <button
+          type="button"
+          class="close pull-right"
+          aria-label="Close"
+          (click)="modalRef.hide()"
+        >
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <p class="descricao">{{ livroSelecionado.descricao }}</p>
         <div class=" d-flex flexAcerto">
-          <div *ngIf="
+          <div
+            *ngIf="
               livroSelecionado.autores != '' && livroSelecionado.autores != null
-            " class="mr-3">
+            "
+            class="mr-3"
+          >
             <p>
-              <b>Autor(a): </b><span class="subLinhas">{{ livroSelecionado.autores }}</span>
+              <b>Autor(a): </b
+              ><span class="subLinhas">{{ livroSelecionado.autores }}</span>
             </p>
           </div>
-          <div *ngIf="
+          <div
+            *ngIf="
               livroSelecionado.editora != '' && livroSelecionado.editora != null
-            " class="mr-3">
+            "
+            class="mr-3"
+          >
             <p>
-              <b>Editora: </b><span class="subLinhas">{{ livroSelecionado.editora }}</span>
+              <b>Editora: </b
+              ><span class="subLinhas">{{ livroSelecionado.editora }}</span>
             </p>
           </div>
         </div>
 
         <div class=" d-flex flexAcerto">
-          <div *ngIf="
+          <div
+            *ngIf="
               livroSelecionado.linkLoja != '' &&
               livroSelecionado.linkLoja != null
-            " class="mr-3 mb-4">
-            <a class="completo" [href]="livroSelecionado.linkLoja" target="_blank"><i class="fa fa-book"></i> Loja
-              Online</a>
+            "
+            class="mr-3 mb-4"
+          >
+            <a
+              class="completo"
+              [href]="livroSelecionado.linkLoja"
+              target="_blank"
+              ><i class="fa fa-book"></i> Loja Online</a
+            >
           </div>
-          <div *ngIf="
+          <div
+            *ngIf="
               livroSelecionado.linkPdf != '' && livroSelecionado.linkPdf != null
-            " class="mr-3 mb-4">
-            <a class="completo" [href]="livroSelecionado.linkPdf" target="_blank"><i class="fa fa-file"></i> Link para a
-              entrevista na integra</a>
+            "
+            class="mr-3 mb-4"
+          >
+            <a
+              class="completo"
+              [href]="livroSelecionado.linkPdf"
+              target="_blank"
+              ><i class="fa fa-file"></i> Link para a entrevista na integra</a
+            >
           </div>
-          <div *ngIf="
+          <div
+            *ngIf="
               livroSelecionado.linkIngles != '' &&
               livroSelecionado.linkIngles != null
-            " class="mr-3 mb-4">
-            <a class="completo" [href]="livroSelecionado.linkIngles" target="_blank"><i class="fa fa-file"></i> Versão
-              em Inglês</a>
+            "
+            class="mr-3 mb-4"
+          >
+            <a
+              class="completo"
+              [href]="livroSelecionado.linkIngles"
+              target="_blank"
+              ><i class="fa fa-file"></i> Versão em Inglês</a
+            >
           </div>
         </div>
       </div>
     </ng-template>
 
-
-
-    <h3 class="text-primary mb-3">APRESENTAÇÕES:<a href="https://www.slideshare.net/edmea" style="color:blue;"
-        target="_blank"> Ir para
-        SlideShare</a></h3>
-
-
+    <h3 class="text-primary mb-3">
+      APRESENTAÇÕES:<a
+        href="https://www.slideshare.net/edmea"
+        style="color:blue;"
+        target="_blank"
+      >
+        Ir para SlideShare</a
+      >
+    </h3>
   </section>
 </div>

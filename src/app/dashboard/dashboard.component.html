@@ -7,84 +7,23 @@
           src="../assets/clarence.jpeg"
         />
       </span>
-      <h1 class="mb-3 mt-lg-5 d-none d-lg-block d-md-block">
-        Edméa
-        <span class="text-primary">Santos</span>
-      </h1>
 
-      <h2 class="mb-0 d-lg-none d-md-none text-center">
-        Edméa
-        <span class="text-primary">Santos</span>
-      </h2>
+      <select id="cboMenu">
+        <option value=""></option>
+        <option value="">About</option>
+        <option value="sa">Projeto</option>
+        <option value="sbc">Orientação</option>
+        <option value="sbc">Sites</option>
+        <option value="sbc">Acervo</option>
+        <option value="sbc">Mídia</option>
+        <option value="sbc">Artigo</option>
+      </select>
 
-      <div class="subheading mb-5">
-        Professora Titular-Livre da Universidade Federal Rural do Rio de Janeiro
-        (UFRRJ).<br />
-        <a class="email" href="mailto:edmeabaiana@gmail.com">
-          edmeabaiana@gmail.com</a
-        >
-      </div>
-
-      <div class="social-icons">
-        <a
-          class="mb-3"
-          title="Docência Online"
-          href="https://www.docenciaonline.pro.br"
-          target="_blank"
-        >
-          <i class="fa fa-graduation-cap"></i>
-        </a>
-        <a
-          class="mb-3"
-          href="https://www.instagram.com/measantos/"
-          target="_blank"
-        >
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a class="mb-3" href="https://twitter.com/edmeabaiana" target="_blank">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a
-          class="mb-3"
-          href="https://www.facebook.com/edmea.santos"
-          target="_blank"
-        >
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a
-          class="mb-3"
-          href="https://www.youtube.com/channel/UCJAKi4458pPaIndUKU6zhuw"
-          target="_blank"
-        >
-          <i class="fab fa-youtube"></i>
-        </a>
-        <a class="mb-3" href="https://wa.me/55021996212804" target="_blank">
-          <i class="fab fa-whatsapp"></i>
-        </a>
-        <a class="mb-3" href="https://www.slideshare.net/edmea" target="_blank">
-          <i class="fab fa-slideshare"></i>
-        </a>
-      </div>
+      <select>
+        <option *ngFor="let i of cboMenu">
+          {{ i.nome }}
+        </option>
+      </select>
     </div>
   </section>
 </div>
-
-<ng-template id="template" #template>
-  <div class="modal-header">
-    <h4 class="modal-title pull-left">Novidades!</h4>
-    <button
-      type="button"
-      class="close pull-right"
-      aria-label="Close"
-      (click)="modalRef.hide()"
-    >
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    Acaba de sair o meu mais novo livro. Acesse o menu
-    <b style="color:orangered">"Livros"</b> e fique por dentro desta novidade
-    <br />
-    <img src="../assets/news/novidade.jpg" class="img-fluid capa-livro" />
-  </div>
-</ng-template>
