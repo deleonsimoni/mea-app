@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
   constructor() {}
-  comboMenu: any = [
+  cboMenu: any = [
     {
       id: 1,
       nome: 'About'

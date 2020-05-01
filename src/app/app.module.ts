@@ -8,6 +8,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
 import { HomeModule } from './home/home.module';
+import { DashboardModule } from './dashboard/dashboard.module';
+
 import { ShellModule } from './shell/shell.module';
 import { LoginModule } from './login/login.module';
 import { AppComponent } from './app.component';
@@ -27,6 +29,7 @@ import { ModalModule, BsModalRef } from 'ngx-bootstrap/modal';
     HomeModule,
     LoginModule,
     ModalModule.forRoot(),
+    DashboardModule,
 
     AppRoutingModule // must be imported as the last module as it contains the fallback route
   ],
