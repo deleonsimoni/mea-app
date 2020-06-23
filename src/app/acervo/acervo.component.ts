@@ -7,32 +7,32 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
   styleUrls: ['./acervo.component.scss']
 })
 export class AcervoComponent implements OnInit {
-  constructor(private modalService: BsModalService) { }
+  constructor(private modalService: BsModalService) {}
 
   modalRef: BsModalRef;
   livroSelecionado: any;
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   openModal(template: TemplateRef<any>, livro: any) {
     this.livroSelecionado = livro;
     this.modalRef = this.modalService.show(template);
   }
+  // tslint:disable-next-line: member-ordering
   autorais = [
     {
       titulo: 'Pesquisa Formação na Cibercultura',
-      descricao:
-        '',
+      descricao: '',
       autores: 'Edméa Santos',
       editora: 'edufpi',
       comoCitar: '',
       imagem: '../assets/Pesquisa-formação na cibercultura.jpg',
       arquivo: '',
-      linkLoja:
-        '',
+      linkLoja: '',
       fontePdf: '',
       linkPdf: '',
-      download: '../assets/livros/Livro PESQUISA-FORMAÇÃO NA CIBERCULTURA_E-BOOK.pdf',
+      download:
+        '../assets/livros/Livro PESQUISA-FORMAÇÃO NA CIBERCULTURA_E-BOOK.pdf',
       fonteIngles: '',
       linkIngles: ''
     },
@@ -51,6 +51,23 @@ export class AcervoComponent implements OnInit {
       linkPdf: '',
       fonteIngles: '',
       linkIngles: ''
+    },
+    {
+      titulo: 'INVESTIGACIÓN Y FORMACIÓN EN LA CIBERCULTURA',
+      descricao:
+        // tslint:disable-next-line: max-line-length
+        '',
+      autores: 'Edméa Santos',
+      editora: 'EDUFPI',
+      comoCitar: '',
+      imagem: '../assets/investigacion y formacion en la cibercultura.jpg',
+      download:
+        '../assets/livros/Livro INVESTIGACIÃ_N y FORMACIÃ_N EN LA CIBERCULTURA_E-BOOK.pdf',
+
+      fontePdf: '',
+      linkPdf: '',
+      fonteIngles: '',
+      linkIngles: ''
     }
   ];
 
@@ -64,8 +81,7 @@ export class AcervoComponent implements OnInit {
   organizados = [
     {
       titulo: 'APP-EDUCATION',
-      descricao:
-        `App-Education, ou “educação baseada em aplicativos”, seria uma nova roupagem para o software
+      descricao: `App-Education, ou “educação baseada em aplicativos”, seria uma nova roupagem para o software
         educacional, geralmente instrucionista, que se popularizou na década de 1990? Seria uma didática
         neotecnicista? A presente obra acaba com essas dúvidas e descontrói preconceitos.
         Na primeira parte do livro, sobre Fundamentos e Contextos, fi ca evidente que não se trata de
@@ -88,8 +104,7 @@ export class AcervoComponent implements OnInit {
       linkLoja:
         'https://www.amazon.com.br/Facebook-educa%C3%A7%C3%A3o-publicar-curtir-compartilhar-ebook/dp/B0187Q5LE8/ref=sr_1_3?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&keywords=edmea+santos&qid=1571014338&sr=8-3',
       fontePdf: '',
-      linkPdf:
-        '',
+      linkPdf: '',
       fonteIngles: '',
       linkIngles: ''
     },
@@ -97,15 +112,14 @@ export class AcervoComponent implements OnInit {
       titulo: 'O LIVRO NA CIBER CULTURA',
       descricao:
         'Para que servem os encontros entre pares ? O que é supervisionar  um pós-doc ? Este livro é um dos produtos de um encontro muito fecundo entre Edméa Santos e Cristiane Porto no Proped/UERJ. Preocupadas com temos de conteúdo , forma , linguagens , metodologias , fundamentos , dilemas , práticas e dispositivos queríamos  saber “como o livro vem se apresentando na cibercultura ? “. Este livro coletivo , por nós idealizado, contou com a participação de gente muito importante . Gente que faz educação , comunicação e que vem pesquisando o tema . Muitos pesquisam, outros fazer , muitos outros fazem para saber ! E editora parceira já disponibilizou o pdf ! Isso mesmo, o conteúdo é obra aberta para a partilha . Que venham as práticas , mais pensamentos , autorias . Aproveitemos e partilhemos  para o mundo da língua portuguesa ! Bora , bora porque não viemos a este mundo para fazer mais do mesmo.',
-      autores:
-        'Cristiane Porto, Edméa Santos',
+      autores: 'Cristiane Porto, Edméa Santos',
       editora: 'Universitária Leopoldianum',
       comoCitar: '',
       imagem: '../assets/olivronacibercultura.jpg',
       arquivo: '',
-      linkLoja:
-        '',
-      linkPdf: 'https://www.unisantos.br/wp-content/uploads/2019/11/Cibercultura.pdf',
+      linkLoja: '',
+      linkPdf:
+        'https://www.unisantos.br/wp-content/uploads/2019/11/Cibercultura.pdf',
       fonteIngles: '',
       linkIngles: ''
     },
@@ -200,8 +214,7 @@ export class AcervoComponent implements OnInit {
       autores: 'Edméa Santos e Lynn Alves',
       editora: 'e-papers',
       comoCitar: '',
-      imagem:
-        '../assets/praticas pedagogicas.jpg',
+      imagem: '../assets/praticas pedagogicas.jpg',
       arquivo: '',
       linkLoja:
         'http://www.e-papers.com.br/produtos.asp?codigo_produto=861&promo=0',
@@ -263,10 +276,8 @@ export class AcervoComponent implements OnInit {
 
   internacionais = [
     {
-      titulo:
-        'FACEBOOK AND EDUCATION post, like & share',
-      descricao:
-        '',
+      titulo: 'FACEBOOK AND EDUCATION post, like & share',
+      descricao: '',
       autores: 'Alexandre Chagas, Cristiane Porto, Edméa Santos',
       editora: 'Editora da Universidade Estadual da Paraíba',
       comoCitar: '',
@@ -274,7 +285,8 @@ export class AcervoComponent implements OnInit {
       arquivo: '',
       linkLoja: '',
       fontePdf: '',
-      linkPdf: 'http://www.uepb.edu.br/download/ebooks/Facebook-and-Education.pdf',
+      linkPdf:
+        'http://www.uepb.edu.br/download/ebooks/Facebook-and-Education.pdf',
       fonteIngles: '',
       linkIngles: ''
     },
