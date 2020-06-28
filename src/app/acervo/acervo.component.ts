@@ -276,6 +276,25 @@ export class AcervoComponent implements OnInit {
 
   internacionais = [
     {
+      titulo:
+        'Experiences and perceptions of pedagogical practices with Game-Based Learning & Gamification',
+      descricao: '',
+      autores:
+        'Edited by Bento Duarte da Silva, José Alberto Lencastre, Marco Bento, António J. Osório',
+      editora: 'Research Centre on Education (CIEd)',
+      comoCitar: '',
+      imagem: './assets/pressStart.jpg',
+      arquivo: '',
+      linkLoja: '',
+      fontePdf: '',
+      download:
+        '../assets/livros/Livro Book_Experiences_and_perceptions_of_pedagogical_practices_with_Games.pdf',
+      linkPdf:
+        'http://repositorium.sdum.uminho.pt/bitstream/1822/62047/1/2019_Book_Experiences_and_perceptions_of_pedagogical_practices_with_Games.pdf',
+      fonteIngles: '',
+      linkIngles: ''
+    },
+    {
       titulo: 'FACEBOOK AND EDUCATION post, like & share',
       descricao: '',
       autores: 'Alexandre Chagas, Cristiane Porto, Edméa Santos',

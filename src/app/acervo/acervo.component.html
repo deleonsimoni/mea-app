@@ -166,6 +166,23 @@
           </div>
           <div
             *ngIf="
+              internacional.download != '' && internacional.download != null
+            "
+            class="mr-3 mb-4"
+          >
+            <a
+              class="completo"
+              [href]="internacional.download"
+              download="{{
+                internacional.download.substring(
+                  internacional.download.indexOf('Livro') + 5
+                )
+              }}"
+              ><i class="fa fa-file"></i> Download PDF</a
+            >
+          </div>
+          <div
+            *ngIf="
               internacional.linkIngles != '' && internacional.linkIngles != null
             "
             class="mr-3 mb-4"
