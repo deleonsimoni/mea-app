@@ -68,6 +68,22 @@ export class AcervoComponent implements OnInit {
       linkPdf: '',
       fonteIngles: '',
       linkIngles: ''
+    },
+    {
+      titulo:
+        'O Caminhar na Educação: Narrativas de Aprendizagens, Pesquisa e Formação',
+      descricao:
+        // tslint:disable-next-line: max-line-length
+        '',
+      autores: 'Edméa Santos, Leonardo Rangel dos Reis',
+      editora: 'Atena Editora',
+      comoCitar: '',
+      imagem: '../assets/caminharNaEducacao.jpg',
+      fontePdf: '',
+      linkPdf:
+        'https://www.finersistemas.com/atenaeditora/index.php/admin/api/ebookPDF/3350',
+      fonteIngles: '',
+      linkIngles: ''
     }
   ];
 
