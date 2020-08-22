@@ -1,5 +1,6 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { GoogleAnalyticsService } from '@app/service/google-analytics.service';
 
 @Component({
   selector: 'app-acervo',
@@ -7,12 +8,17 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
   styleUrls: ['./acervo.component.scss']
 })
 export class AcervoComponent implements OnInit {
-  constructor(private modalService: BsModalService) {}
+  constructor(
+    private modalService: BsModalService,
+    private googleAnalytics: GoogleAnalyticsService
+  ) {}
 
   modalRef: BsModalRef;
   livroSelecionado: any;
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.googleAnalytics.eventEmitter('Mea', 'Livros', 'Page', 'Click', 1);
+  }
 
   openModal(template: TemplateRef<any>, livro: any) {
     this.livroSelecionado = livro;
