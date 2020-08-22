@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GoogleAnalyticsService } from '@app/service/google-analytics.service';
 
 @Component({
   selector: 'app-dissertacao',
@@ -6,11 +7,70 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dissertacao.component.scss']
 })
 export class DissertacaoComponent implements OnInit {
-  constructor() { }
+  constructor(private googleAnalytics: GoogleAnalyticsService) {}
 
-  ngOnInit() { }
+  dissertacoesChoose: any = [];
+  type: any = 2;
+  ngOnInit() {
+    this.dissertacoesChoose = this.dissertacoes.filter(
+      dissertacao => dissertacao.type == 2
+    );
+  }
+
+  selectType(type: any) {
+    //1 - iniciacao cientifica
+    //2 - mestrado
+    //3 - doutorado
+    //4 - pos doc
+    this.type = type;
+
+    switch (type) {
+      case 1:
+        this.googleAnalytics.eventEmitter(
+          'Mea',
+          'Dissertação',
+          'Iniciação Cientifica',
+          'Click',
+          1
+        );
+        break;
+      case 2:
+        this.googleAnalytics.eventEmitter(
+          'Mea',
+          'Dissertação',
+          'Mestrado',
+          'Click',
+          1
+        );
+        break;
+      case 3:
+        this.googleAnalytics.eventEmitter(
+          'Mea',
+          'Dissertação',
+          'Doutorado',
+          'Click',
+          1
+        );
+        break;
+      case 4:
+        this.googleAnalytics.eventEmitter(
+          'Mea',
+          'Dissertação',
+          'Pós Doc',
+          'Click',
+          1
+        );
+        break;
+    }
+
+    this.dissertacoesChoose = this.dissertacoes.filter(
+      dissertacao => dissertacao.type == type
+    );
+  }
+
   dissertacoes = [
     {
+      type: 2,
       titulo: 'ATOS DE CURRÍCULO NA PERSPECTIVA DE APP-LEARNING',
       autor: 'WALLACE CARRIÇO DE ALMEIDA',
       resumo:
@@ -21,6 +81,7 @@ export class DissertacaoComponent implements OnInit {
         'http://www.proped.pro.br/teses/teses_pdf/1509072016_1-1553-ME.pdf'
     },
     {
+      type: 3,
       titulo: 'VISUALIDADES SURDAS NA CIBERCULTURA: APRENDIZAGENS EM REDE',
       autor: 'RACHEL CAPUCHO COLACIQUE',
       resumo:
@@ -31,6 +92,7 @@ export class DissertacaoComponent implements OnInit {
         'http://www.proped.pro.br/teses/teses_pdf/1739142009_1-560-DO.pdf'
     },
     {
+      type: 2,
       titulo: 'DOCÊNCIA ONLINE: UMA PESQUISA-FORMAÇÃO NA CIBERCULTURA',
       autor: 'Alexsandra Barbosa da Silva',
       resumo:
@@ -41,6 +103,7 @@ export class DissertacaoComponent implements OnInit {
         'http://www.proped.pro.br/teses/teses_pdf/1827202011_2-942-ME.pdf'
     },
     {
+      type: 3,
       titulo:
         'DIGITAL STORYTELLING: UMA EXPERIÊNCIA DE PESQUISA-FORMAÇÃO NA CIBERCULTURA',
       autor: 'TANIA LUCÍA MADDALENA',
@@ -52,6 +115,7 @@ export class DissertacaoComponent implements OnInit {
         'http://www.proped.pro.br/teses/teses_pdf/1721342013_1-1125-DO.pdf'
     },
     {
+      type: 2,
       titulo:
         'OS CIBERVÍDEOS NA EDUCAÇÃO ONLINE: UMA PESQUISA-FORMAÇÃO NA CIBERCULTURA',
       autor: 'VIVIAN MARTINS LOPES DE SOUZA',
@@ -62,6 +126,7 @@ export class DissertacaoComponent implements OnInit {
       linkPdf: 'http://www.proped.pro.br/teses/teses_pdf/2016_1-1576-ME.pdf'
     },
     {
+      type: 2,
       titulo:
         'GERAÇÃO TOMBAMENTO E SEUS OLHARES UMA PESQUISA-FORMAÇÃO COM FOTOGRAFIA DIGITAL NA CIBERCULTURA',
       autor: 'CARINA NASCIMENTO D AVILA',
@@ -72,6 +137,7 @@ export class DissertacaoComponent implements OnInit {
       linkPdf: 'http://www.proped.pro.br/teses/teses_pdf/2014_1-1259-ME.pdf'
     },
     {
+      type: 2,
       titulo: 'ATOS DE CURRÍCULO NA EDUCAÇÃO ONLINE',
       autor: 'FELIPE DA SILVA PONTE DE CARVALHO',
       resumo:
@@ -81,6 +147,7 @@ export class DissertacaoComponent implements OnInit {
       linkPdf: 'http://www.proped.pro.br/teses/teses_pdf/2013_2-1195-ME.pdf'
     },
     {
+      type: 3,
       titulo:
         'PESQUISA-DESIGN FORMAÇÃO: UMA PROPOSTA METODOLÓGICA PARA PRODUÇÃO DE RECURSOS EDUCACIONAIS ABERTOS NA CIBERCULTURA',
       autor: 'TATIANA STOFELLA SODRÉ ROSSINI',
@@ -91,6 +158,7 @@ export class DissertacaoComponent implements OnInit {
       linkPdf: 'http://www.proped.pro.br/teses/teses_pdf/2012_1-969-DO.pdf'
     },
     {
+      type: 3,
       titulo:
         'A SALA DE AULA NO CONTEXTO DA CIBERCULTURA: FORMAÇÃO DOCENTE E DISCENTE EM ATOS DE CURRÍCULO',
       autor: 'MAYRA RODRIGUES FERNANDES RIBEIRO',
@@ -101,6 +169,7 @@ export class DissertacaoComponent implements OnInit {
       linkPdf: 'http://www.proped.pro.br/teses/teses_pdf/2013_1-1113-DO.pdf'
     },
     {
+      type: 3,
       titulo:
         'FORMAÇÃO DE FORMADORES E EDUCAÇÃO SUPERIOR NA CIBERCULTURA: ITINERÂNCIAS DE GRUPOS DE PESQUISA NO FACEBOOK',
       autor: 'ROSEMARY DOS SANTOS',
@@ -111,6 +180,7 @@ export class DissertacaoComponent implements OnInit {
       linkPdf: 'http://www.proped.pro.br/teses/teses_pdf/2010_1-505-DO.pdf'
     },
     {
+      type: 2,
       titulo:
         'A INFORMÁTICA NA EDUCAÇÃO NO ENSINO SUPERIOR: DO CURRÍCULO EM EAD PARA O CURRÍCULO EM EDUCAÇÃO ON LINE.',
       autor: 'CRISTIANE MARCELINO SANT´ANNA',
@@ -121,6 +191,7 @@ export class DissertacaoComponent implements OnInit {
       linkPdf: 'http://www.proped.pro.br/teses/teses_pdf/2010_1-670-ME.pdf'
     },
     {
+      type: 2,
       titulo:
         'ACESSIBILIDADE PARA SURDOS, NA CIBERCULTURA: OS COTIDIANOS NAS REDES E NA EDUCAÇÃO SUPERIOR ONLINE',
       autor: 'RACHEL COLACIQUE GOMES',
@@ -131,6 +202,7 @@ export class DissertacaoComponent implements OnInit {
       linkPdf: 'http://www.proped.pro.br/teses/teses_pdf/2009_1-560-ME.pdf'
     },
     {
+      type: 3,
       titulo: 'EDUCAÇÃO E CIBERCULTURA: NARRATIVAS DE MOBILIDADE UBÍQUA',
       autor: 'ALINE ANDRADE WEBER NUNES DA ROCHA',
       resumo:
@@ -140,6 +212,7 @@ export class DissertacaoComponent implements OnInit {
       linkPdf: 'http://www.proped.pro.br/teses/teses_pdf/2011_1-763-ME.pdf'
     },
     {
+      type: 3,
       titulo:
         'A TESSITURA DO CONHECIMENTO VIA MÍDIAS DIGITAIS E REDES SOCIAIS: ITINERÂNCIAS DE UMA PESQUISA-FORMAÇÃO MULTIRREFERENCIAL',
       autor: 'ROSEMARY DOS SANTOS',
@@ -150,6 +223,7 @@ export class DissertacaoComponent implements OnInit {
       linkPdf: 'http://www.proped.pro.br/teses/teses_pdf/2010_1-505-ME.pdf'
     },
     {
+      type: 2,
       titulo:
         "O JORNAL ELETRÔNICO EDUCAÇÃO & IMAGEM - ''ESPAÇOTEMPO'' DE TESSITURA DE CONHECIMENTOS ATRAVÉS DE PRÁTICAS DE PROFESSORES COM IMAGEM E NARRATIVAS DE PROFESSORES COM IMAGEM E ESCRITA ",
       autor: 'ROSANGELA LANNES COUTO CORDEIRO',
@@ -160,18 +234,19 @@ export class DissertacaoComponent implements OnInit {
       linkPdf: 'http://www.proped.pro.br/teses/teses_pdf/2008_1-435-ME.pdf'
     },
     {
+      type: 2,
       titulo:
-        "EVENTOS CIENTÍFICOS ONLINE: UM FENÔMENO DA EDUCAÇAO NA CIBERCULTURA",
+        'EVENTOS CIENTÍFICOS ONLINE: UM FENÔMENO DA EDUCAÇAO NA CIBERCULTURA',
       autor: 'ALICE MARIA FIGUEIRA REIS DA COSTA',
-      resumo:
-        '',
+      resumo: '',
       orientador: 'Edméa Oliveira dos Santos ',
       dataPublicacao: '19/03/2018',
       linkPdf: 'http://www.proped.pro.br/'
     },
     {
+      type: 2,
       titulo:
-        "E-ACESSIBILIDADE E FORMAÇÃO DOCENTE: INCLUSÃO DE ESTUDANTES COM DEFICIÊNCIA VISUAL TOTAL EM CURSOS SUPERIORES ONLINE E NA CIBERCULTURA",
+        'E-ACESSIBILIDADE E FORMAÇÃO DOCENTE: INCLUSÃO DE ESTUDANTES COM DEFICIÊNCIA VISUAL TOTAL EM CURSOS SUPERIORES ONLINE E NA CIBERCULTURA',
       autor: 'VALERIA DE OLIVEIRA SILVA',
       resumo: '',
       orientador: 'Edméa Oliveira dos Santos ',

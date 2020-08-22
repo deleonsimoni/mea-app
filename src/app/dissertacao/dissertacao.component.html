@@ -1,8 +1,47 @@
 <div class="container-fluid p-0">
   <section class="p-3 pt-lg-5 align-items-center">
     <h3 class="mb-3">Dissertacões e teses</h3>
+
+    <div class="btn-group mb-2">
+      <button
+        type="button"
+        (click)="selectType(1)"
+        class="btn btn-second"
+        [ngClass]="{ 'btn-primary': type == '1' }"
+      >
+        Iniciação Cientifíca
+      </button>
+      <button
+        type="button"
+        (click)="selectType(2)"
+        class="btn btn-default"
+        [ngClass]="{ 'btn-primary': type == '2' }"
+      >
+        Mestrado
+      </button>
+      <button
+        type="button"
+        (click)="selectType(3)"
+        class="btn btn-default"
+        [ngClass]="{ 'btn-primary': type == '3' }"
+      >
+        Doutorado
+      </button>
+      <button
+        type="button"
+        (click)="selectType(4)"
+        class="btn btn-default"
+        [ngClass]="{ 'btn-primary': type == '4' }"
+      >
+        Pós Doc
+      </button>
+    </div>
+
     <div class="row ml-lg-4">
-      <div class="col-sm-12 pb-5" *ngFor="let dessertacao of dissertacoes">
+      <div
+        class="col-sm-12 pb-5"
+        *ngFor="let dessertacao of dissertacoesChoose"
+      >
         <h5>
           {{ dessertacao.dataPublicacao }} -
           <strong>{{ dessertacao.titulo }}</strong>

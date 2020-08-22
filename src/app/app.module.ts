@@ -16,6 +16,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ModalModule, BsModalRef } from 'ngx-bootstrap/modal';
 import { GoogleAnalyticsService } from './service/google-analytics.service';
+import { MatTabsModule } from '@angular/material/tabs';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
@@ -28,10 +30,11 @@ import { GoogleAnalyticsService } from './service/google-analytics.service';
     SharedModule,
     ShellModule,
     HomeModule,
+    NoopAnimationsModule,
     LoginModule,
     ModalModule.forRoot(),
     DashboardModule,
-
+    MatTabsModule,
     AppRoutingModule // must be imported as the last module as it contains the fallback route
   ],
   declarations: [AppComponent],
