@@ -435,6 +435,25 @@ export class AcervoComponent implements OnInit {
       linkIngles: ''
     }
   ];
+
+  capitulos = [
+    {
+      titulo:
+        'Conversas ubíquas via whatsapp: ambiências formativas multirreferenciais',
+      descricao: '',
+      autores: 'Porto, Cristiane; Oliveira, Kaio Eduardo; Chagas, Alexandre',
+      editora: 'EDUFBA',
+      comoCitar: '',
+      imagem: './assets/wpp-capitulos-livros.jpg',
+      arquivo: '',
+      linkLoja: '',
+      fontePdf: '',
+      download: '',
+      linkPdf: 'http://books.scielo.org/id/r3xgc/11',
+      fonteIngles: '',
+      linkIngles: ''
+    }
+  ];
   /* {
       titulo: '',
       descricao: '',

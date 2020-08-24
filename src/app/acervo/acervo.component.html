@@ -133,7 +133,7 @@
       Livros internacionais
     </h3>
     <h3 class="text-primary mb-4 mt-4 d-lg-none d-md-none">
-      Capitulos em livros internacionais
+      Capítulos em livros internacionais
     </h3>
     <div class="row ml-lg-4" *ngIf="internacionais">
       <div
@@ -198,6 +198,68 @@
       </div>
     </div>
     <!-- FIM DOS INTERNACIONAIS -->
+
+    <!-- LIVROS CAPITULOS EM LIVROS -->
+    <h3 class="text-primary mb-4 mt-4 d-none d-lg-block">
+      Capítulos em livros
+    </h3>
+    <h3 class="text-primary mb-4 mt-4 d-lg-none d-md-none">
+      Capítulos em livros
+    </h3>
+    <div class="row ml-lg-4" *ngIf="internacionais">
+      <div
+        class="col-sm-12 col-md-6 col-lg-4 align-self-center"
+        *ngFor="let capitulo of capitulos"
+      >
+        <img
+          [src]="capitulo.imagem"
+          (click)="openModal(template, capitulo)"
+          class="img-fluid capa-livro"
+        />
+        <div class=" d-flex flexAcerto">
+          <div
+            *ngIf="capitulo.linkLoja != '' && capitulo.linkLoja != null"
+            class="mr-3 mb-4"
+          >
+            <a class="completo" [href]="capitulo.linkLoja" target="_blank"
+              ><i class="fa fa-book"></i> Loja Online</a
+            >
+          </div>
+          <div
+            *ngIf="capitulo.linkPdf != '' && capitulo.linkPdf != null"
+            class="mr-3 mb-4"
+          >
+            <a class="completo" [href]="capitulo.linkPdf" target="_blank"
+              ><i class="fa fa-file"></i> Versão em PDF</a
+            >
+          </div>
+          <div
+            *ngIf="capitulo.download != '' && capitulo.download != null"
+            class="mr-3 mb-4"
+          >
+            <a
+              class="completo"
+              [href]="capitulo.download"
+              download="{{
+                capitulo.download.substring(
+                  internacional.download.indexOf('Livro') + 5
+                )
+              }}"
+              ><i class="fa fa-file"></i> Download PDF</a
+            >
+          </div>
+          <div
+            *ngIf="capitulo.linkIngles != '' && capitulo.linkIngles != null"
+            class="mr-3 mb-4"
+          >
+            <a class="completo" [href]="capitulo.linkIngles" target="_blank"
+              ><i class="fa fa-file"></i> Versão em Inglês</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FIM DOS CAPITULOS EM LIVROS -->
   </section>
 </div>
 

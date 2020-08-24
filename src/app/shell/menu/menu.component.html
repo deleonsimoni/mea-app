@@ -57,9 +57,13 @@
       </li>
       <li class="nav-item">
         <a
-          (click)="isCollapsed = true"
           class="nav-link js-scroll-trigger"
-          routerLink="/ArtigosEPeriodicos"
+          (click)="
+            isCollapsed = true;
+            openExternalLink(
+              'https://scholar.google.com.br/citations?hl=pt-PT&user=5KZzT7QAAAAJ&view_op=list_works&citft=1&citft=2&email_for_op=edmeabaiana%40gmail.com&sortby=pubdate'
+            )
+          "
           ><span></span>Artigos e Periódicos</a
         >
       </li>
