@@ -93,6 +93,14 @@
       </li>
       <li class="nav-item">
         <a
+          (click)="isCollapsed = true"
+          class="nav-link js-scroll-trigger"
+          routerLink="/lives"
+          ><span></span>Lives</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
           style="cursor: pointer"
           (click)="
             isCollapsed = true;

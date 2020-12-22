@@ -1,0 +1,158 @@
+.iframe-container {
+  overflow: hidden;
+  // Calculated from the aspect ration of the content (in case of 16:9 it is 9/16= 0.5625)
+  padding-top: 56.25%;
+  position: relative;
+}
+
+.iframe-container iframe {
+  border: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.iframe-container-instagram iframe {
+  border: 0;
+  height: 70%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.first-item {
+  display: none;
+}
+.entCont {
+  flex-flow: row wrap;
+}
+.box {
+  max-width: 50%;
+}
+.capa-livro {
+  border-radius: 10px;
+  margin: 5px 0px;
+  cursor: pointer;
+}
+.programa-title {
+  font-weight: 700;
+  font-size: 20px;
+  margin: 10px 0px;
+}
+.botao-link {
+  color: white !important;
+  border-radius: 5px;
+  font-weight: 700;
+  padding: 10px;
+  background-color: #f45622;
+}
+.botao-link:hover {
+  color: white !important;
+}
+.conteudo-hover {
+}
+.conteudo-hover .titulo {
+  margin: 15px 0px !important;
+  font-size: 14px !important;
+  font-weight: 700;
+}
+.conteudo-hover .descricao {
+  /* background-color: #e9ecef; */
+  border-left: solid 3px #f45622;
+  font-size: 11px !important;
+  color: #495057 !important;
+  padding: 0px 10px !important;
+  margin: 10px 0px !important;
+  overflow-y: auto;
+  height: 70%;
+}
+.conteudo-hover a {
+  margin-top: 20px !important;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #f45622;
+}
+.conteudo-hover a:hover {
+  color: white;
+  background-color: #f45622;
+}
+.capa-livro {
+  border-radius: 10px;
+  margin: 5px 0px;
+  cursor: pointer;
+}
+.capa-livro:hover {
+  opacity: 0.9;
+}
+.modal-body {
+  max-height: 80vh;
+  overflow-y: scroll;
+}
+.modal-header {
+  background-color: #f45622;
+}
+.modal-title {
+  color: white;
+}
+.close {
+  color: white;
+}
+.flexAcerto {
+  flex-flow: row wrap;
+}
+.descricao {
+  flex-flow: row wrap;
+  border-left: solid #f45622 3px;
+  /* background-color: #e9ecef; */
+  color: #495057;
+  padding: 0px 10px;
+}
+strong {
+  color: #f45622;
+  font-weight: 500;
+}
+.subLinhas {
+  font-style: italic;
+  color: #007bff;
+  font-weight: 700;
+}
+.completo {
+  text-transform: uppercase;
+  text-shadow: 600;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f45622;
+}
+.completo:hover {
+  color: white;
+  background-color: #f45622;
+}
+
+.iframe-slideshare-4x3 {
+  padding-bottom: calc(75% + 38px);
+}
+
+.iframe-slideshare-16x9 {
+  padding-bottom: calc(56.25% + 38px);
+}
+
+.iframe-slideshare-16x9,
+.iframe-slideshare-4x3 {
+  position: relative;
+  width: 100%;
+  height: 0;
+}
+
+.iframe-slideshare-16x9 iframe,
+.iframe-slideshare-4x3 iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ccc;
+}

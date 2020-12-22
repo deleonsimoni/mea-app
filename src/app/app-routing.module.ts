@@ -7,6 +7,8 @@ const routes: Routes = [
     { path: 'curriculo', loadChildren: './about/about.module#AboutModule' },
     { path: 'agenda', loadChildren: './agenda/agenda.module#AgendaModule' },
     { path: 'midia', loadChildren: './midia/midia.module#MidiaModule' },
+    { path: 'lives', loadChildren: './lives/lives.module#LivesModule' },
+
     { path: 'livros', loadChildren: './acervo/acervo.module#AcervoModule' },
     { path: 'gpdoc', loadChildren: './gpdoc/gpdoc.module#GpdocModule' },
     {
