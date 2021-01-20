@@ -1,26 +1,18 @@
 /* Overwrite the styles of the mat-dialog-container element globally, but only for those
 that have an id of `modal-component` */
 /* https://stackoverflow.com/a/48689004/9263761 */
-mat-dialog-container#modal-component {
-  border: 3px solid #262626;
-  border-radius: 11px;
-  background-color: #1a1a1a;
+.modal-body {
+  max-height: 80vh;
+  overflow-y: scroll;
 }
-
-#modal-title {
-  font-size: 22px;
+.modal-header {
+  background-color: #f45622;
 }
-
-#modal-footer {
-  justify-self: right;
-  align-self: center;
+.modal-title {
+  color: white;
 }
-
-#modal-action-button {
-  margin-right: 30px;
-  background-color: #3b3b3b;
-}
-
-#modal-cancel-button {
-  background-color: #4e4e4e;
+.modal-live {
+  width: 600px;
+  color: white;
+  background-color: white;
 }

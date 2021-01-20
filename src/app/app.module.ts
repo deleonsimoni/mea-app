@@ -20,7 +20,6 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { LivesModalComponent } from './modals/lives-modal/lives-modal.component';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   imports: [
     BrowserModule,
@@ -33,7 +32,6 @@ import { MatDialogModule } from '@angular/material/dialog';
     ShellModule,
     HomeModule,
     MatButtonModule,
-    MatDialogModule,
     NoopAnimationsModule,
     LoginModule,
     ModalModule.forRoot(),

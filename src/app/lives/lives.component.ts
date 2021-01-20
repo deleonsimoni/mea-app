@@ -5,7 +5,6 @@ import {
   TemplateRef,
   ViewChild
 } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DomSanitizer } from '@angular/platform-browser';
 import { LivesModalComponent } from '@app/modals/lives-modal/lives-modal.component';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
@@ -17,13 +16,16 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 export class LivesComponent implements OnInit {
   constructor(
     protected _sanitizer: DomSanitizer,
-    public matDialog: MatDialog
+    private modalService: BsModalService
   ) {}
 
+  @ViewChild('template', { static: false }) templateRef: TemplateRef<any>;
   modalRef: BsModalRef;
   livroSelecionado: any;
   pageOfItems: Array<any>;
   livesSplit: any;
+  title: any;
+  dataModal: any;
 
   ngOnInit() {
     this.lives.forEach((live: any) => {
@@ -40,27 +42,23 @@ export class LivesComponent implements OnInit {
   }
 
   openModal(idModal: any) {
-    const dialogConfig = new MatDialogConfig();
-    // The user can't close the dialog by clicking outside its body
-    dialogConfig.disableClose = true;
-    dialogConfig.id = 'modal-component';
-    dialogConfig.height = '350px';
-    dialogConfig.width = '600px';
-
     switch (idModal) {
       case 1:
         this.livesSplit = this.livesCovid;
-        // https://material.angular.io/components/dialog/overview
-        const modalDialog = this.matDialog.open(
-          LivesModalComponent,
-          dialogConfig
-        );
+        this.title = 'Lives COVID';
 
         break;
 
       default:
         break;
     }
+
+    this.dataModal = { lives: this.livesSplit, title: this.title };
+    this.modalRef = this.modalService.show(LivesModalComponent, {
+      initialState: {
+        lives: this.dataModal
+      }
+    });
   }
 
   livesCovid: any = [

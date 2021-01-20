@@ -52,9 +52,22 @@
         <p class="text-left pt-1 pb-1 descricao">{{ dessertacao.resumo }}</p>
         <!-- <h6>Orientadora - <span class="subLinhas">{{ dessertacao.orientador }}</span></h6> -->
         <div class="mt-3 mb-3">
-          <a [href]="dessertacao.linkPdf" target="_blank" class="completo"
-            ><i class="fa fa-file mr-2"></i> Acesse ao documento completo</a
+          <a
+            *ngIf="type != 4"
+            [href]="dessertacao.linkPdf"
+            target="_blank"
+            class="completo"
           >
+            <i class="fa fa-file mr-2"></i> Acesse o documento completo
+          </a>
+          <a
+            *ngIf="type == 4"
+            [href]="dessertacao.linkPdf"
+            target="_blank"
+            class="completo"
+          >
+            <i class="fa fa-file mr-2"></i> Curriculo Lattes
+          </a>
         </div>
       </div>
     </div>

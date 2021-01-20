@@ -1,23 +1,55 @@
-<div id="modal-content-wrapper">
-  <header id="modal-header">
-    <h1 id="modal-title">Are you sure you want to logout?</h1>
-  </header>
-  <section id="modal-body">
-    <p>
-      If you logout bad things might happen, but don't mind me, I'm just the
-      description in a modal...
-    </p>
-  </section>
-  <footer id="modal-footer">
+<div class="modal-live">
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">{{ title }}</h4>
     <button
-      mat-raised-button
-      id="modal-action-button"
-      (click)="actionFunction()"
+      type="button"
+      class="close pull-right"
+      aria-label="Close"
+      (click)="close()"
     >
-      Logout
+      <span aria-hidden="true">&times;</span>
     </button>
-    <button mat-raised-button id="modal-cancel-button" (click)="closeModal()">
-      Go back
-    </button>
-  </footer>
+  </div>
+  <div class="modal-body">
+    <div class="container-fluid p-0">
+      <section class="p-3 pt-lg-5 align-items-center">
+        <div *ngFor="let live of lives">
+          <h3 class="mb-3 text-primary">{{ live.nome }}</h3>
+          <div class="row mb-5 ml-lg-4 no-gutters">
+            <div class="col-12 col-md-6">
+              <div *ngIf="live.link">
+                <div *ngIf="live.showVideo" class="iframe-container">
+                  <iframe
+                    [src]="live.linkSafe"
+                    width="560"
+                    height="315"
+                    style="border: none; overflow: hidden;"
+                    scrolling="no"
+                    frameborder="0"
+                    allowTransparency="true"
+                    allowFullScreen="true"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+
+                <div *ngIf="!live.showVideo">
+                  <div *ngIf="live.link">
+                    <a href="{{ live.link }}" target="_blank">
+                      <button class="btn btn-primary">
+                        Acessar
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf="!live.link && !live.openModal">
+                Evento fechado
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
 </div>

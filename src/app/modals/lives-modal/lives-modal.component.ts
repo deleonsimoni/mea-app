@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { DomSanitizer } from '@angular/platform-browser';
+import { BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-lives-modal',
@@ -7,18 +8,28 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./lives-modal.component.scss']
 })
 export class LivesModalComponent implements OnInit {
-  constructor(public dialogRef: MatDialogRef<LivesModalComponent>) {}
+  lives: any;
+  title: any;
+  public products: any[];
 
-  ngOnInit() {}
+  constructor(
+    protected _sanitizer: DomSanitizer,
+    private modalService: BsModalRef
+  ) {}
 
-  actionFunction() {
-    alert('You have logged out.');
-    this.closeModal();
+  close() {
+    this.modalService.hide();
   }
 
-  // If the user clicks the cancel button a.k.a. the go back button, then\
-  // just close the modal
-  closeModal() {
-    this.dialogRef.close();
+  ngOnInit() {
+    this.title = this.lives.title;
+    this.lives = this.lives.lives;
+
+    this.lives.forEach((live: any) => {
+      if (live.link && live.link.includes('watch')) {
+        live.link = live.link.replace('watch?v=', 'embed/');
+      }
+      live.linkSafe = this._sanitizer.bypassSecurityTrustResourceUrl(live.link);
+    });
   }
 }

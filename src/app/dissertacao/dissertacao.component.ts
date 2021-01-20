@@ -252,6 +252,30 @@ export class DissertacaoComponent implements OnInit {
       orientador: 'Edméa Oliveira dos Santos ',
       dataPublicacao: '09/08/2013',
       linkPdf: 'http://www.proped.pro.br/'
+    },
+    {
+      type: 4,
+      autor: 'Cristiane Porto',
+      linkPdf:
+        'http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4700096J0'
+    },
+    {
+      type: 4,
+      autor: 'Miriam Maia do Amaral',
+      linkPdf:
+        'http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4233076T8'
+    },
+    {
+      type: 4,
+      autor: 'Simone de Lucena',
+      linkPdf:
+        'http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4700714D1'
+    },
+    {
+      type: 4,
+      autor: 'Terezinha Fernandes',
+      linkPdf:
+        'http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4121288J7'
     }
     /* {
       titulo:"",
