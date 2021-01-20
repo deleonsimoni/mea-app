@@ -5,7 +5,9 @@ import {
   TemplateRef,
   ViewChild
 } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DomSanitizer } from '@angular/platform-browser';
+import { LivesModalComponent } from '@app/modals/lives-modal/lives-modal.component';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 @Component({
   selector: 'app-lives',
@@ -13,15 +15,19 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
   styleUrls: ['./lives.component.scss']
 })
 export class LivesComponent implements OnInit {
-  constructor(protected _sanitizer: DomSanitizer) {}
+  constructor(
+    protected _sanitizer: DomSanitizer,
+    public matDialog: MatDialog
+  ) {}
 
   modalRef: BsModalRef;
   livroSelecionado: any;
   pageOfItems: Array<any>;
+  livesSplit: any;
 
   ngOnInit() {
     this.lives.forEach((live: any) => {
-      if (live.link.includes('watch')) {
+      if (live.link && live.link.includes('watch')) {
         live.link = live.link.replace('watch?v=', 'embed/');
       }
       live.linkSafe = this._sanitizer.bypassSecurityTrustResourceUrl(live.link);
@@ -33,7 +39,126 @@ export class LivesComponent implements OnInit {
     this.pageOfItems = pageOfItems;
   }
 
+  openModal(idModal: any) {
+    const dialogConfig = new MatDialogConfig();
+    // The user can't close the dialog by clicking outside its body
+    dialogConfig.disableClose = true;
+    dialogConfig.id = 'modal-component';
+    dialogConfig.height = '350px';
+    dialogConfig.width = '600px';
+
+    switch (idModal) {
+      case 1:
+        this.livesSplit = this.livesCovid;
+        // https://material.angular.io/components/dialog/overview
+        const modalDialog = this.matDialog.open(
+          LivesModalComponent,
+          dialogConfig
+        );
+
+        break;
+
+      default:
+        break;
+    }
+  }
+
+  livesCovid: any = [
+    {
+      nome: 'Interatividade na Docência Online ',
+      link: 'https://www.youtube.com/watch?v=ALrxcaaYgMk',
+      data: '2020-08-18',
+      instituicao: 'UFRRJ',
+      showVideo: true
+    },
+    {
+      nome: 'Comunicação Síncrona, Potenciais dos Bate-Papos (Chat) ',
+      link: 'https://www.youtube.com/watch?v=dZ5kHRhFXZE',
+      data: '2020-08-24',
+      instituicao: 'UNIRIO',
+      showVideo: true
+    },
+    {
+      nome: 'Cibervídeos na Educação Online ',
+      link: 'https://www.youtube.com/watch?v=qxLIaYm6_tI',
+      data: '2020-08-03',
+      instituicao: 'IFRJ',
+      showVideo: true
+    },
+    {
+      nome: 'Conteúdos em Hipertexto: Potenciais para Educação Online',
+      link: 'https://www.youtube.com/watch?v=fJ6t1nFa5Lg',
+      data: '2020-09-14',
+      instituicao: 'UERJ',
+      showVideo: true
+    },
+    {
+      nome: 'e-Acessibilidade em Ambientes Virtuais de Aprendizagem ',
+      link: 'https://www.youtube.com/watch?v=T3ujp35-OJo',
+      data: '2020-09-21',
+      instituicao: 'UERJ',
+      showVideo: true
+    },
+    {
+      nome: 'Escrita Colaborativa e Interface Wiki',
+      link: 'https://www.youtube.com/watch?v=Yk5u3EZoECM',
+      data: '2020-09-28',
+      instituicao: 'UERJ',
+      showVideo: true
+    },
+    {
+      nome: 'Avaliação da Aprendizagem Online na Área de Exatas',
+      link: 'https://www.youtube.com/watch?v=lIJas60P_M4',
+      data: '2020-10-19',
+      instituicao: 'UFRRJ',
+      showVideo: true
+    },
+    {
+      nome: 'Ensino de Engenharia Online ',
+      link: 'https://www.youtube.com/watch?v=GrOB-uLAjPo',
+      data: '2020-10-26',
+      instituicao: 'FURB',
+      showVideo: true
+    },
+    {
+      nome: 'Docência Colaborativa',
+      link: 'https://www.youtube.com/watch?v=vrpsVLAa7b4',
+      data: '2020-11-09',
+      instituicao: 'UERJ',
+      showVideo: true
+    },
+    {
+      nome: 'Educação Museal On-line',
+      link: 'https://www.youtube.com/watch?v=7MZA1tf-MD4',
+      data: '2020-11-16',
+      instituicao: 'UERJ',
+      showVideo: true
+    },
+    {
+      nome: 'Coreografias Didáticas na Educação On-Line',
+      link: 'https://www.youtube.com/watch?v=kZJ1F1f51J4',
+      data: '2020-11-23',
+      instituicao: 'UFPE',
+      showVideo: true
+    },
+    {
+      nome: 'Didática Universitária: desafio da formação docente',
+      link: 'https://www.youtube.com/watch?v=mTht7kegOI0',
+      data: '2020-11-30',
+      instituicao: 'UFBA',
+      showVideo: true
+    }
+  ];
+
   lives: any = [
+    {
+      nome: 'Lives e conversas na pandemia COVID 19',
+      link: null,
+      data: '2020-01-19',
+      instituicao: '',
+      showVideo: false,
+      openModal: true
+    },
     {
       nome:
         'Educação em roda de conversas: fazeres e reconfigurações no contexto atual',

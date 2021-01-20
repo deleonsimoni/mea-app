@@ -18,7 +18,9 @@ import { ModalModule, BsModalRef } from 'ngx-bootstrap/modal';
 import { GoogleAnalyticsService } from './service/google-analytics.service';
 import { MatTabsModule } from '@angular/material/tabs';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-
+import { LivesModalComponent } from './modals/lives-modal/lives-modal.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   imports: [
     BrowserModule,
@@ -30,6 +32,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     SharedModule,
     ShellModule,
     HomeModule,
+    MatButtonModule,
+    MatDialogModule,
     NoopAnimationsModule,
     LoginModule,
     ModalModule.forRoot(),
@@ -37,7 +41,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     MatTabsModule,
     AppRoutingModule // must be imported as the last module as it contains the fallback route
   ],
-  declarations: [AppComponent],
+  entryComponents: [LivesModalComponent],
+  declarations: [AppComponent, LivesModalComponent],
   providers: [BsModalRef, GoogleAnalyticsService],
   bootstrap: [AppComponent]
 })

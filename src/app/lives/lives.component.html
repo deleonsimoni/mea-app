@@ -20,15 +20,28 @@
             </div>
 
             <div *ngIf="!live.showVideo">
-              <a href="{{ live.link }}" target="_blank">
-                <button class="btn btn-primary">
+              <div *ngIf="live.link">
+                <a href="{{ live.link }}" target="_blank">
+                  <button class="btn btn-primary">
+                    Acessar
+                  </button>
+                </a>
+              </div>
+              <div *ngIf="!live.link">
+                <button (click)="openModal(1)" class="btn btn-primary">
                   Acessar
                 </button>
-              </a>
+              </div>
             </div>
           </div>
 
-          <div *ngIf="!live.link">
+          <div *ngIf="!live.link && live.openModal">
+            <button (click)="openModal(1)" class="btn btn-primary">
+              Acessar
+            </button>
+          </div>
+
+          <div *ngIf="!live.link && !live.openModal">
             Evento fechado
           </div>
         </div>

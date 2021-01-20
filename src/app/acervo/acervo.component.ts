@@ -102,31 +102,27 @@ export class AcervoComponent implements OnInit {
 
   organizados = [
     {
-      titulo: 'APP-EDUCATION',
-      descricao: `App-Education, ou “educação baseada em aplicativos”, seria uma nova roupagem para o software
-        educacional, geralmente instrucionista, que se popularizou na década de 1990? Seria uma didática
-        neotecnicista? A presente obra acaba com essas dúvidas e descontrói preconceitos.
-        Na primeira parte do livro, sobre Fundamentos e Contextos, fi ca evidente que não se trata de
-        uma nova roupagem para a educação bancária.Os aplicativos são estruturantes da cultura
-        contemporânea, são artefatos técnico- culturais que instituem linguagens e espaços de convivência,
-        instauram e potencializam redes educativas que nos formam a partir de práticas culturais e
-        processos de subjetivação.
-        Na segunda parte do livro, sobre Práticas Educativas em Mobilidade, conhecemos alguns exemplos
-        de como professores e pesquisadores vêm praticando a App - Education em diversas áreas e níveis
-        educacionais.Os relatos e refl exões ilustram como a cultura digital vem modifi cando os processos
-        educacionais convencionais e nos convidam a repensar nossas próprias práticas pedagógicas.
-        Com o diálogo entre teoria e prática, este livro nos ajuda a compreender e a conceber uma
-        educação em tempos de Cibercultura.
-        Profº Dr.Mariano Pimentel(UNIRIO)'`,
+      titulo:
+        'PROCESSOS FORMATIVOS E APRENDIZAGENS NA CIBERCULTURA: EXPERIÊNCIAS COM DISPOSITIVOS MÓVEIS',
+      descricao: `Na Cibercultura, tem-se observado a presença cotidiana
+      das tecnologias móveis e os mais diversos aplicativos se tornaram populares. Estes auxiliam milhares de pessoas conectadas
+      a organizarem, de maneira diferente, a sua forma de viver,
+      pensar e agir individualmente ou em sociedade. Observa-se o
+      crescimento intenso do desenvolvimento e uso de aplicativos
+      dentro e fora das salas de aula, assim como aumenta a demanda por uma formação docente realmente inovadora que proponha (e pesquise) novas pedagogias e metodologias de pesquisa diante de uma educação ao alcance das mãos. Os alunos
+      por meio do uso de seus tablets, computadores e smartphones,
+      têm contato com inovações tecnológicas, mas precisam com a
+      mediação competente de seus docentes se desenvolvem como
+      cidadãos do nosso tempo.`,
       autores: 'Cristiane Porto, Edméa Oliveira dos Santos',
-      editora: 'EDUFBA',
+      editora: 'EDUNIT',
       comoCitar: '',
-      imagem: '../assets/app-education.jpg',
+      imagem: '../assets/processos_formativos.jpg',
       arquivo: '',
-      linkLoja:
-        'https://www.amazon.com.br/Facebook-educa%C3%A7%C3%A3o-publicar-curtir-compartilhar-ebook/dp/B0187Q5LE8/ref=sr_1_3?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&keywords=edmea+santos&qid=1571014338&sr=8-3',
+      linkLoja: '',
       fontePdf: '',
-      linkPdf: '',
+      linkPdf:
+        'https://editoratiradentes.com.br/adm/wp-content/uploads/2020/12/Processos-formativos_2.pdf',
       fonteIngles: '',
       linkIngles: ''
     },
