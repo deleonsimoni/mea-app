@@ -103,6 +103,21 @@ export class AcervoComponent implements OnInit {
   organizados = [
     {
       titulo:
+        'DIÁRIO DE PESQUISA NA CIBERCULTURA: NARRATIVAS MULTIRREFERENCIAIS COM OS COTIDIANOS',
+      descricao: '',
+      autores: 'Edméa Santos, Stela guedes Caputo',
+      editora: 'omode',
+      comoCitar: '',
+      imagem: '../assets/diario-cibercultura.jpg',
+      arquivo: '',
+      linkLoja: '',
+      linkPdf:
+        'https://uneboffice365-my.sharepoint.com/:f:/g/personal/axavier_uneb_br/EihCNDuxEONPu3WtCeOkiHABqkMJZ425yZhoa2c2ydKd0A?e=Pvan35',
+      fonteIngles: '',
+      linkIngles: ''
+    },
+    {
+      titulo:
         'PROCESSOS FORMATIVOS E APRENDIZAGENS NA CIBERCULTURA: EXPERIÊNCIAS COM DISPOSITIVOS MÓVEIS',
       descricao: `Na Cibercultura, tem-se observado a presença cotidiana
       das tecnologias móveis e os mais diversos aplicativos se tornaram populares. Estes auxiliam milhares de pessoas conectadas
@@ -446,6 +461,40 @@ export class AcervoComponent implements OnInit {
       fontePdf: '',
       download: '',
       linkPdf: 'http://books.scielo.org/id/r3xgc/11',
+      fonteIngles: '',
+      linkIngles: ''
+    },
+    {
+      titulo: 'Processos formativos, tecnologias imersivas e novos letramento ',
+      descricao: '',
+      autores:
+        'CLAUDIA COELHO HARDAGH, EDUARDO FOFONCA, NURIA PONS VILARDELL CAMAS',
+      editora: 'Collaborativa',
+      comoCitar: '',
+      imagem: './assets/processos-formativos.jpg',
+      arquivo: '',
+      linkLoja:
+        'https://loja-or-editora-collaborativa.lojaintegrada.com.br/e-book-processos-formativos-tecnologias-imersivas-e-novos-letramentos-convergencias-e-desdobramentos',
+      fontePdf: '',
+      download:
+        '../assets/livros/LIVRO_VERSÃO DIGITAL _PROCESSOS FORMATIVOS, TECNOLOGIAS IMERSIVAS E NOVOS LETRAMENTOS.pdf',
+      linkPdf: '',
+      fonteIngles: '',
+      linkIngles: ''
+    },
+    {
+      titulo: 'REFLEXÕES E EXPERIÊNCIAS DIDÁTICAS COM TECNOLOGIAS DIGITAIS',
+      descricao: '',
+      autores: 'Diene Eire de Méllo',
+      editora: 'MADREPÉROLA',
+      comoCitar: '',
+      imagem: './assets/reflexoes-experiencias.jpg',
+      arquivo: '',
+      linkLoja: '',
+      fontePdf: '',
+      download: '',
+      linkPdf:
+        'https://99c7e852-8f5b-42a2-9853-a530135e88b4.filesusr.com/ugd/515fe8_e91a1c6cf9ef4e90844a07f0684ee0cc.pdf',
       fonteIngles: '',
       linkIngles: ''
     }
