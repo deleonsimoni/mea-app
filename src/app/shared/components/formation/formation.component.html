@@ -21,7 +21,9 @@
       <p class="group__data">{{ formation.grade }}</p>
     </div>
 
-    <ng-container *ngIf="formation.activities.length > 0">
+    <ng-container
+      *ngIf="formation.activities && formation.activities.length > 0"
+    >
       <div class="group">
         <p class="group__label">Setores de atividade:</p>
         <p

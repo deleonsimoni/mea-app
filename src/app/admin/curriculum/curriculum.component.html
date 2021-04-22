@@ -3,23 +3,28 @@
     <div class="row align-items-center mb-3">
       <div class="col-sm-12 col-lg-12 flex-align">
         <h3 class="formation__title">Formação</h3>
-        <button class="btn" (click)="addFormation()">
+        <button class="btn" (click)="newFormation = true">
           Adicionar formação +
         </button>
       </div>
     </div>
-    <div class="row">
+    <div
+      class="row"
+      *ngIf="curriculum.formations && curriculum.formations.length > 0"
+    >
       <div
         class="col-sm-12 col-lg-6"
-        *ngFor="let formation of formations$ | async"
+        *ngFor="let formation of curriculum.formations"
       >
         <app-formation
           [formation]="formation"
-          (deleteFormation)="deleteFormation($event)"
+          (deleteFormation)="removeFormation($event)"
         ></app-formation>
       </div>
       <div class="col-sm-12 col-lg-6" *ngIf="newFormation">
-        <app-add-formation></app-add-formation>
+        <app-add-formation
+          (createFormation)="addFormation($event)"
+        ></app-add-formation>
       </div>
     </div>
   </section>
