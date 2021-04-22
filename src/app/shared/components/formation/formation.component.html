@@ -1,0 +1,41 @@
+<div class="formation">
+  <div class="row">
+    <div class="col-lg-10">
+      <h5 class="formation__type">{{ formation.type }}</h5>
+      <p class="formation__institution">{{ formation.institutionName }}</p>
+    </div>
+    <div class="col-lg-2">
+      <button class="action action--delete" (click)="delete(formation._id)">
+        <i class="fas fa-trash action__icon"></i>
+      </button>
+      <button class="action action--edit">
+        <i class="fas fa-edit action__icon"></i>
+      </button>
+    </div>
+  </div>
+  <div class="d-flex formation__description">
+    <p class="formation__title">{{ formation.title }}</p>
+
+    <div class="group" *ngIf="formation.grade">
+      <p class="group__label">Grade:</p>
+      <p class="group__data">{{ formation.grade }}</p>
+    </div>
+
+    <ng-container *ngIf="formation.activities.length > 0">
+      <div class="group">
+        <p class="group__label">Setores de atividade:</p>
+        <p
+          class="group__data group__data--next"
+          *ngFor="let activity of formation.activities"
+        >
+          {{ activity.name }}
+        </p>
+      </div>
+    </ng-container>
+
+    <div class="group" *ngIf="formation.advisor">
+      <p class="group__label">Orientador:</p>
+      <p class="group__data">{{ formation.advisor }}</p>
+    </div>
+  </div>
+</div>

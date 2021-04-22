@@ -1,0 +1,111 @@
+@mixin interactive-styles($height: 34px) {
+  &::placeholder {
+    font-weight: normal;
+    text-transform: none;
+  }
+
+  &:focus {
+    height: $height;
+    outline-style: none;
+    border-width: 0px 0px 1px 0px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+
+  &:not(:focus) {
+    height: $height;
+    border-radius: 4px;
+    border: 1px solid #0000000d;
+  }
+}
+
+.add-formation {
+  padding: 8px;
+  box-shadow: 0px 0px 16px 2px #00000038;
+  border-radius: 4px;
+
+  &__type {
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #343a40;
+    width: 100%;
+    margin-bottom: 2px;
+
+    @include interactive-styles;
+  }
+
+  &__institution {
+    font-style: italic;
+    color: #007bff;
+
+    @include interactive-styles;
+  }
+
+  &__content {
+    flex-flow: row wrap;
+    border-left: solid #f45622 3px;
+    color: #495057;
+    padding: 0px 0px 0px 16px;
+  }
+}
+
+.group {
+  margin-bottom: 12px;
+
+  &__label {
+    font-weight: 700;
+    color: #000;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+
+  &__input {
+    color: #495057;
+    font-size: 15px;
+    font-weight: 400;
+    min-width: 100%;
+
+    @include interactive-styles;
+  }
+
+  &__text-box {
+    resize: none;
+    color: #495057;
+    font-size: 15px;
+    font-weight: 400;
+    min-width: 100%;
+
+    @include interactive-styles(none);
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-bottom: 14px;
+}
+
+.action-content {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+
+  &__cancel {
+    margin: 0px;
+    cursor: pointer;
+    color: #ff0000;
+    text-decoration: underline !important;
+  }
+}
+
+.btn {
+  border-radius: 4px;
+  background-color: #057bfe;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 14px;
+  display: flex;
+}

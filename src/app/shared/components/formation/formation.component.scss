@@ -1,0 +1,79 @@
+@mixin label-properties() {
+  font-weight: 700;
+  color: #000;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.formation {
+  margin: 0px 0px 20px 0px;
+
+  &__type {
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+
+  &__title {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+
+  &__institution {
+    font-style: italic;
+    color: #007bff;
+    margin-bottom: 14px;
+  }
+
+  &__description {
+    flex-flow: row wrap;
+    border-left: solid #f45622 3px;
+    color: #495057;
+    padding: 0px 0px 0px 16px;
+  }
+}
+
+.action {
+  border-radius: 4px;
+  border: 1px transparent;
+
+  &:not(:last-child) {
+    margin-right: 8px;
+  }
+
+  &__icon {
+    font-size: 14px;
+    color: white;
+  }
+
+  &--delete {
+    background-color: red;
+  }
+
+  &--edit {
+    background-color: #007bff;
+  }
+}
+
+.group {
+  flex-flow: row wrap;
+
+  &:not(:last-child) {
+    margin-bottom: 12px;
+  }
+
+  &__label {
+    @include label-properties;
+  }
+
+  &__data {
+    font-size: 15px;
+    margin-bottom: 0px;
+
+    &--next {
+      &:not(:last-child) {
+        margin-bottom: 8px;
+      }
+    }
+  }
+}

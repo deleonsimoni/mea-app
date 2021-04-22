@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 import { environment } from '@env/environment';
+import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-about',
@@ -9,17 +11,27 @@ import { environment } from '@env/environment';
 })
 export class AboutComponent implements OnInit {
   version: string | null = environment.version;
+  public profile: any;
 
-  constructor() {}
+  constructor(private readonly httpClient: HttpClient) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.httpClient
+      .get('http://localhost:8080/api/admin/curriculum')
+      .pipe(map(curriculum => curriculum[0]))
+      .subscribe(success => {
+        console.log(success);
+        this.profile = success;
+      });
+  }
 
   formacaoAcad = [
     {
       formacao: 'Doutorado em Educação',
       data: '2002 - 2005',
       instituicao: 'Universidade Federal da Bahia/UFBA - Brasil.',
-      titulo: 'Educação online - Cibercultura e Pesquisa-Formação na Prática Docente.',
+      titulo:
+        'Educação online - Cibercultura e Pesquisa-Formação na Prática Docente.',
       grade: 'Grande área - Ciências Humanas.',
       orientador: 'Orientador - Roberto Sidney Macedo.',
       atividades: [
@@ -27,7 +39,10 @@ export class AboutComponent implements OnInit {
           atividade:
             'Setores de atividade - Formação Permanente e Outras Atividades de Ensino, Inclusive Educação À Distância e Educação Especial.'
         },
-        { atividade: 'Educação Superior - Educação Média de Formação Técnica Ou Profissional.' }
+        {
+          atividade:
+            'Educação Superior - Educação Média de Formação Técnica Ou Profissional.'
+        }
       ]
     },
     {
@@ -57,41 +72,52 @@ export class AboutComponent implements OnInit {
       data: '2013 - 2014',
       instituicao: 'Universidade Aberta de Lisboa/UAB-PT - Portugal.',
       titulo: 'O Currículo e o Digital - Educação presencial e a distância.',
-      grade: 'Grande área - Ciências Humanas / Área: Educação / Subárea: Educação à Distância on-line.'
+      grade:
+        'Grande área - Ciências Humanas / Área: Educação / Subárea: Educação à Distância on-line.'
     }
   ];
   atuProf = [
     {
-      instituicao: 'Universidade Federal Rural do Rio de Janeiro/UFRRJ - Brasil.',
+      instituicao:
+        'Universidade Federal Rural do Rio de Janeiro/UFRRJ - Brasil.',
       vinculos: [
         {
           data: '2018',
-          funcao: 'Professora PROPED/UERJ, Enquadramento Funcional - Professor permante no Proped/UERJ',
+          funcao:
+            'Professora PROPED/UERJ, Enquadramento Funcional - Professor permante no Proped/UERJ',
           obs:
             'Professora adjunto da Faculdade de Educação da UERJ, atua no PROPED - Programa de Pós-Graduação em Educação da UERJ , na Linha de Pesquisa: Contidiano , redes educativas e processos culturais. Atividades de Pesquisa Líder do GPDOC - Grupo de Pesquisa Docência e Cibercultura. Professora do curso de Pedagogia. Atividades de Ensino Ministra as disciplinas da graduação presencial de Pedagogia: Tecnologia na Educação Didática Cotidiano Escolar Informática na Educação Educação Online Processos de formação de leitores e escritóres Ministra disciplinas da Pós-Graduação no Proepd/UERJ : Cibercultura, redes educativas e processos culturais (eletiva para mestrado e doutorado) Multiplas linguagens e currículo (eletiva para mestrando e doutorado) Pesquisa com os cotidianos (obrigatória para mestrado e doutorado) Atua na Gestão de atividaddes acadêmicas: Comissão de bolsas (2014/2006) Coordenação da linha de pesquisa (2015 até a presente data) Comissão de seleção de mestrado (2008-2010) Coordena a área de Informática na Educação no curso de Pedagogia a distância do Consórcio CEDERJ/UERJ, no período de (2007 até a presente data) Coordenadora e docente no Curso de Especialização em Educação com Aplicação da Informática (EDAI) no período de (2008-2013).'
         },
-        { data: '2007 - 2018', funcao: 'Servidor Público, Enquadramento Funcional - Professor adjunto' }
+        {
+          data: '2007 - 2018',
+          funcao:
+            'Servidor Público, Enquadramento Funcional - Professor adjunto'
+        }
       ],
       atividades: [
         {
           data: '06/2008',
           atividade: 'Direção e administração, Faculdade de Educação',
-          obs: "Cargo ou função - Coordenação do curso de especialização 'Educação com aplicação da Informática'."
+          obs:
+            "Cargo ou função - Coordenação do curso de especialização 'Educação com aplicação da Informática'."
         },
         {
           data: '04/2008',
           atividade: 'Direção e administração, Faculdade de Educação',
-          obs: 'Cargo ou função - Coordenação de Tutoria do curso de Pedagogia a Distância da UERJ/CEDERJ.'
+          obs:
+            'Cargo ou função - Coordenação de Tutoria do curso de Pedagogia a Distância da UERJ/CEDERJ.'
         },
         {
           data: '04/2007',
           atividade: 'Ensino, Pedagogia, Nível: Graduação',
-          obs: 'Disciplinas ministradas Informática na Educação Pesquisa e Prática Pedagógica'
+          obs:
+            'Disciplinas ministradas Informática na Educação Pesquisa e Prática Pedagógica'
         },
         {
           data: '12/2006',
           atividade: 'Pesquisa e desenvolvimento , Faculdade de Educação',
-          obs: 'Linhas de pesquisa - Cotidianos, Redes Educativas e Processos Culturais'
+          obs:
+            'Linhas de pesquisa - Cotidianos, Redes Educativas e Processos Culturais'
         }
       ]
     },
@@ -100,7 +126,8 @@ export class AboutComponent implements OnInit {
       vinculos: [
         {
           data: '2006 - 2007',
-          funcao: 'Professor Visitante, Enquadramento Funcional: Professora visitante e pesquisadora.'
+          funcao:
+            'Professor Visitante, Enquadramento Funcional: Professora visitante e pesquisadora.'
         }
       ],
       atividades: [
@@ -128,7 +155,8 @@ export class AboutComponent implements OnInit {
     {
       data: '2018',
       titulo: 'App-docência: experiências de pesquisa-formação na cibercultura',
-      alunos: 'Alunos envolvidos - Graduação(1) / Mestrado acadêmico(1) / Doutorado(4)',
+      alunos:
+        'Alunos envolvidos - Graduação(1) / Mestrado acadêmico(1) / Doutorado(4)',
       desc:
         ' Nesta pesquisa procuramos compreender como formam e se formam docentes, com os potenciais das tecnologias móveis e ubíquas, mais precisamente com os dispositivos móveis e aplicativos para celulares (App), em diferentes contextos de pesquisa-formação na cibercultura. Metodologicamente, daremos continuidade aos estudos das epistemologias das práticas (Freire, Nóvoa, Josso, D?villa), com ênfase na abordagem multirreferencial (Ardoino, Macedo, Morin, Babier, Beger) e as pesquisas com os cotidianos (Alves). Atualizaremos o método da pesquisa-formação na cibercultura (Santos e coletivo GPDOC), método por nós consolidado e atualizado a cada nova pesquisa. Pesquisamos em contextos de docência, desta forma não separamos a pesquisa acadêmica do cotidiano de nossas salas de aula, sejam elas presenciais e ou online. Atuamos em rede, com a formação de professores na graduação e pós-graduação em Educação da UERJ, bem como em diferentes redes educativas e espaços multireferenciais na relação cidade/ciberespaço. Para tanto, desenvolveremos dispositivos e atos de currículos, mediados pelo digital em rede, mais especificamente com aplicativos para celulares inteligentes (App). Os celulares são artefatos culturais que estão nas palmas das mãos de todos os praticantes de nossas pesquisas, dessa forma, vamos atuar com os cotidianos de formação ubíqua dos praticantes culturais (professores e pesquisadores em formação, docentes, educadores de museus, dentre outros). Nosso campo de pesquisa será forjado nas mais diferentes redes educativas e espaços multirreferenciais. Nestes campos de pesquisas, produziremos material de pesquisa que se materializará em narrativas, imagens e sons. Com este material de pesquisa (dados) ?conversaremos? no intuito de instituir uma ?análise?, pela compreensão da compreensão (Morin) dos praticantes da pesquisa que formam e nos formam em contexto. Faremos interpretação hermenêutica (Macedo). Como resultados prevemos a formação dos praticantes envolvidos na pesquisa, criação de currículos online, atualização do método da pesquisa-formação na cibercultura, mobilização de saberes e multiletramentos didáticos, científicos e urbanos. Esta é uma pesquisa institucional que de desdobrará em eixos e sub-projetos, onde teremos a coautoria de bolsistas de iniciação científica, mestrandos e doutorandos do GPDOC ? Grupo de pesquisa docência e cibercultura.',
       integrantes:

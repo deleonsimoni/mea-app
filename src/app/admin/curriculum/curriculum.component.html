@@ -1,0 +1,26 @@
+<div class="container">
+  <section class="formation" id="formation">
+    <div class="row align-items-center mb-3">
+      <div class="col-sm-12 col-lg-12 flex-align">
+        <h3 class="formation__title">Formação</h3>
+        <button class="btn" (click)="addFormation()">
+          Adicionar formação +
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div
+        class="col-sm-12 col-lg-6"
+        *ngFor="let formation of formations$ | async"
+      >
+        <app-formation
+          [formation]="formation"
+          (deleteFormation)="deleteFormation($event)"
+        ></app-formation>
+      </div>
+      <div class="col-sm-12 col-lg-6" *ngIf="newFormation">
+        <app-add-formation></app-add-formation>
+      </div>
+    </div>
+  </section>
+</div>

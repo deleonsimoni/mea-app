@@ -18,6 +18,10 @@ const routes: Routes = [
     {
       path: 'OrientacoesConcluidas',
       loadChildren: './dissertacao/dissertacao.module#DissertacaoModule'
+    },
+    {
+      path: 'admin',
+      loadChildren: './admin/admin-routing.module#AdminRoutingModule'
     }
   ]),
   // Fallback when no prior route is matched

@@ -4,9 +4,15 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { AboutRoutingModule } from './about-routing.module';
 import { AboutComponent } from './about.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  imports: [CommonModule, TranslateModule, AboutRoutingModule],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    TranslateModule,
+    AboutRoutingModule
+  ],
   declarations: [AboutComponent]
 })
 export class AboutModule {}
