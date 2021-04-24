@@ -29,15 +29,20 @@
       </div>
     </div>
     <div class="footer">
-      <pagination
-        class="footer__paginator"
-        previousText="Anterior"
-        nextText="Próximo"
-        [totalItems]="transmitions.length"
-        itemsPerPage="6"
-        [(ngModel)]="currentPage"
-        (pageChanged)="onChangePage($event)"
-      ></pagination>
+      <p *ngIf="transmitions && transmitions.length < 1" class="error">
+        {{ noHasData }}
+      </p>
+      <ng-container *ngIf="transmitions && transmitions.length > 0">
+        <pagination
+          class="footer__paginator"
+          previousText="Anterior"
+          nextText="Próximo"
+          [totalItems]="transmitions.length"
+          itemsPerPage="6"
+          [(ngModel)]="currentPage"
+          (pageChanged)="onChangePage($event)"
+        ></pagination>
+      </ng-container>
     </div>
   </div>
 </div>
