@@ -27,7 +27,7 @@ export class ListTransmitionsComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.transmitions.currentValue) {
-      this.pageOfItems = changes.transmitions.currentValue;
+      this.pageOfItems = changes.transmitions.currentValue.slice(0, 6);
     }
   }
 
@@ -41,5 +41,17 @@ export class ListTransmitionsComponent implements OnChanges {
   public deleteLive(id: string): void {
     this.deleteTransmition.emit(id);
     this.currentPage = 1;
+  }
+
+  get noHasData() {
+    let type;
+
+    if (this.type == 'midia') {
+      type = this.type.replace('i', 'í');
+    } else {
+      type = this.type;
+    }
+
+    return `Não há ${type}s cadastradas!`;
   }
 }

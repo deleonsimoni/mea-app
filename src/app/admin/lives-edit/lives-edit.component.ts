@@ -9,6 +9,7 @@ import { Live } from '@ng-bootstrap/ng-bootstrap/util/accessibility/live';
 })
 export class LivesEditComponent implements OnInit {
   lives: Array<Live> = [];
+  formFields = ['title', 'link', 'date', 'institution'];
 
   constructor(private readonly liveService: LiveService) {}
 
