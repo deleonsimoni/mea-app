@@ -1,30 +1,74 @@
 <div class="container">
-  <section class="formation" id="formation">
+  <section>
+    <div class="row align-items-center mb-3">
+      <div class="col-sm-12 col-lg-12">
+        <app-personal-apresentation
+          [curriculum]="curriculum"
+          (personalData)="savePersonalData($event)"
+        ></app-personal-apresentation>
+      </div>
+    </div>
+  </section>
+
+  <section class="curriculum" id="formation">
     <div class="row align-items-center mb-3">
       <div class="col-sm-12 col-lg-12 flex-align">
-        <h3 class="formation__title">Formação</h3>
+        <h3 class="curriculum__title">Formação</h3>
         <button class="btn" (click)="newFormation = true">
           Adicionar formação +
         </button>
       </div>
     </div>
-    <div
-      class="row"
-      *ngIf="curriculum.formations && curriculum.formations.length > 0"
-    >
+    <div class="row" *ngIf="curriculum && curriculum.formations">
+      <div class="col-sm-12 col-lg-6" *ngIf="newFormation">
+        <app-add-formation
+          (createFormation)="addFormation($event)"
+          [create]="true"
+        ></app-add-formation>
+      </div>
       <div
         class="col-sm-12 col-lg-6"
         *ngFor="let formation of curriculum.formations"
       >
-        <app-formation
-          [formation]="formation"
-          (deleteFormation)="removeFormation($event)"
-        ></app-formation>
-      </div>
-      <div class="col-sm-12 col-lg-6" *ngIf="newFormation">
         <app-add-formation
+          [formation]="formation"
           (createFormation)="addFormation($event)"
+          (deleteFormation)="removeFormation($event)"
         ></app-add-formation>
+      </div>
+    </div>
+  </section>
+
+  <section class="curriculum">
+    <div class="row align-items-center mb-3">
+      <div class="col-sm-12 col-lg-12 flex-align">
+        <h3 class="curriculum__title">Atuação profissional</h3>
+        <button class="btn" (click)="newPerformance = true">
+          Adicionar formação +
+        </button>
+      </div>
+    </div>
+    <div class="row" *ngIf="newPerformance">
+      <div class="col-sm-12 col-lg-12">
+        <app-professional-performance
+          [createPerformance]="true"
+          (deleteProfessionalPerformance)="deletePerformance($event)"
+          (updateProfessionalPerformance)="updatePerformance($event)"
+        ></app-professional-performance>
+      </div>
+    </div>
+    <div class="row" *ngIf="curriculum && curriculum.professionalPerformances">
+      <div
+        class="col-sm-12 col-lg-12"
+        *ngFor="
+          let professionalPerformance of curriculum.professionalPerformances
+        "
+      >
+        <app-professional-performance
+          [professionalPerformance]="professionalPerformance"
+          (updateProfessionalPerformance)="updatePerformance($event)"
+          (deleteProfessionalPerformance)="deletePerformance($event)"
+        ></app-professional-performance>
       </div>
     </div>
   </section>

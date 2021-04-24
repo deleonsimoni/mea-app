@@ -1,12 +1,21 @@
 <div class="add-formation">
   <form [formGroup]="formationForm" (ngSubmit)="regiterFormation()">
     <div class="form-group">
-      <input
-        type="text"
-        class="add-formation__type"
-        placeholder="Nível da gradução"
-        formControlName="type"
-      />
+      <div class="row">
+        <div class="col-lg-10">
+          <input
+            type="text"
+            class="add-formation__type"
+            placeholder="Nível da gradução"
+            formControlName="type"
+          />
+        </div>
+        <div class="col-lg-2" (click)="removeFormation()">
+          <button class="action action--delete action--full">
+            <i class="fas fa-times-circle action__icon"></i>
+          </button>
+        </div>
+      </div>
       <input
         type="text"
         class="add-formation__institution"
@@ -61,9 +70,8 @@
       </div>
     </div>
 
-    <div class="row justify-content-center">
-      <div class="col-lg-6 action-content">
-        <p class="action-content__cancel">Cancelar</p>
+    <div class="row justify-content-center" *ngIf="showSaveButton">
+      <div class="col-lg-4">
         <button class="btn">Salvar</button>
       </div>
     </div>

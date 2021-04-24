@@ -1,0 +1,23 @@
+<div class="apresentation">
+  <input
+    type="text"
+    class="apresentation__name mt-3 mb-3"
+    placeholder="Digite seu nome"
+    [(ngModel)]="name"
+    [value]="curriculum.name"
+  />
+  <textarea
+    class="apresentation__description apresentation--text-box"
+    name=""
+    id=""
+    rows="15"
+    [(ngModel)]="description"
+    [value]="curriculum.description"
+  ></textarea>
+
+  <div class="row mt-2 justify-content-end">
+    <div class="col-md-3 text-right">
+      <button class="btn" (click)="save()">Salvar</button>
+    </div>
+  </div>
+</div>

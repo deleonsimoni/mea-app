@@ -6,7 +6,12 @@ import { MidiaComponent } from './midia.component';
 import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
 
 @NgModule({
-  imports: [CommonModule, TranslateModule, MidiaRoutingModule, NgxTwitterTimelineModule],
+  imports: [
+    CommonModule,
+    TranslateModule,
+    MidiaRoutingModule,
+    NgxTwitterTimelineModule
+  ],
   declarations: [MidiaComponent]
 })
-export class MidiaModule { }
+export class MidiaModule {}

@@ -6,14 +6,6 @@ const FormationSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  // initialData: {
-  //   type: String,
-  //   required: true
-  // },
-  // finalDate: {
-  //   type: String,
-  //   required: true
-  // },
   institutionName: {
     type: String,
     required: true

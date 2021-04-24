@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const formation = require('./formation.schema').schema;
 const referenceLink = require('./reference-link.schema').schema;
+const professionalPerformance = require('./professional-performance').schema;
 
 const CurriculumSchema = new mongoose.Schema(
   {
@@ -13,7 +14,8 @@ const CurriculumSchema = new mongoose.Schema(
       required: true
     },
     profileLinks: [referenceLink],
-    formations: [formation]
+    formations: [formation],
+    professionalPerformances: [professionalPerformance]
   },
   {
     versionKey: false
