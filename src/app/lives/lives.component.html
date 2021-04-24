@@ -45,6 +45,7 @@
 
     <div class="card-footer pb-0 pt-3">
       <jw-pagination
+        [pageSize]="pageSize"
         [items]="lives"
         (changePage)="onChangePage($event)"
       ></jw-pagination>

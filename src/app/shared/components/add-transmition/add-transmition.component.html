@@ -1,0 +1,46 @@
+<div class="transmition">
+  <p class="transmition__subtitle">Cadastrar {{ type }}</p>
+  <form [formGroup]="transmitionForm" (ngSubmit)="addTransmition()">
+    <div class="row">
+      <div class="col-sm-6 col-lg-6">
+        <input
+          type="text"
+          class="transmition__input"
+          formControlName="title"
+          placeholder="Nome da live"
+        />
+      </div>
+      <div class="col-sm-6 col-lg-6">
+        <input
+          type="text"
+          class="transmition__input"
+          formControlName="link"
+          placeholder="Link da live"
+        />
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-sm-6 col-lg-6">
+        <input
+          type="text"
+          class="transmition__input"
+          formControlName="date"
+          placeholder="Data da live"
+        />
+      </div>
+      <div class="col-sm-6 col-lg-6">
+        <input
+          type="text"
+          class="transmition__input"
+          formControlName="institution"
+          placeholder="Instituição da live"
+        />
+      </div>
+    </div>
+    <div class="row justify-content-center mt-3 text-center">
+      <div class="col-sm-4 col-lg-4">
+        <button class="transmition__btn" type="submit">Salvar</button>
+      </div>
+    </div>
+  </form>
+</div>

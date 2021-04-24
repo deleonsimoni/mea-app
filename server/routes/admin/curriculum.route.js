@@ -5,13 +5,13 @@ const CurriculumController = require('../../controllers/admin/curriculum.control
 
 router.get('/', async (req, res) => {
   const curriculum = await CurriculumController.list();
-  console.log(curriculum);
   res.json(curriculum);
 });
 
 router.post('/', async (req, res) => {
   const body = req.body;
-  const curriculum = await CurriculumController.create(body);
+  await CurriculumController.create(body);
+
   res.json({
     status: 200,
     message: 'Currículo cadastrado com sucesso!'
@@ -20,7 +20,8 @@ router.post('/', async (req, res) => {
 
 router.put('/', async (req, res) => {
   const body = req.body;
-  const curriculum = await CurriculumController.update(body);
+  await CurriculumController.update(body);
+
   res.json({
     status: 200,
     message: 'Currículo atualizado com sucesso!'

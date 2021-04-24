@@ -1,0 +1,24 @@
+<div class="container">
+  <section class="lives">
+    <div class="row align-items-center mb-2">
+      <div class="col-sm-12 col-lg-12">
+        <h3 class="lives__title">Lives</h3>
+      </div>
+    </div>
+    <div class="row align-items-center justify-content-center mt-3 mb-3">
+      <div class="col-sm-8 col-lg-8">
+        <app-add-transmition
+          type="live"
+          (saveTransmition)="addLive($event)"
+        ></app-add-transmition>
+      </div>
+    </div>
+
+    <app-list-transmitions
+      type="live"
+      title="Lives cadastradas"
+      [transmitions]="lives"
+      (deleteTransmition)="deleteLive($event)"
+    ></app-list-transmitions>
+  </section>
+</div>
