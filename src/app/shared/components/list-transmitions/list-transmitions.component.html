@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-sm-12 col-lg-12">
+    <div class="transmition-list">
+      <h4 class="transmition-list__title">{{ title }}</h4>
+
+      <div
+        class="row transmition-list__item align-items-center"
+        *ngFor="let transmition of pageOfItems"
+      >
+        <div class="col-sm-8 col-lg-8">
+          <p class="transmition-list__data">{{ transmition.title }}</p>
+        </div>
+        <div class="col-sm-2 col-lg-2 text-right">
+          <a
+            class="transmition-list__link"
+            [href]="transmition.link"
+            target="_blank"
+            >acessar</a
+          >
+        </div>
+        <div class="col-sm-2 col-lg-2 text-right">
+          <button
+            class="action action--delete"
+            (click)="deleteLive(transmition._id)"
+          >
+            <i class="fas fa-times-circle action__icon"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <pagination
+        class="footer__paginator"
+        previousText="Anterior"
+        nextText="Próximo"
+        [totalItems]="transmitions.length"
+        itemsPerPage="6"
+        [(ngModel)]="currentPage"
+        (pageChanged)="onChangePage($event)"
+      ></pagination>
+    </div>
+  </div>
+</div>
