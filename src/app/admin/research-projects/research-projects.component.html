@@ -1,0 +1,39 @@
+<div class="container">
+  <section class="research mt-4">
+    <div class="row align-items-center mb-2">
+      <div class="col-sm-10 col-lg-10">
+        <h3 class="research__title">Projetos de pesquisa</h3>
+      </div>
+      <div class="col-lg-2 text-right">
+        <button class="btn" (click)="newProject = true">
+          Adicionar +
+        </button>
+      </div>
+    </div>
+
+    <ng-container *ngIf="newProject">
+      <app-project
+        class="card mb-4"
+        (saveProject)="addProject($event)"
+        (cancelCreation)="newProject = false"
+      >
+      </app-project>
+    </ng-container>
+
+    <ng-container *ngFor="let project of projects">
+      <app-project
+        [project]="project"
+        (saveProject)="addProject($event)"
+        (removeProject)="deleteProject($event)"
+      >
+      </app-project>
+    </ng-container>
+
+    <p
+      *ngIf="(!projects || projects.length < 1) && !newProject"
+      class="error mt-5"
+    >
+      Não há projetos cadastrados!
+    </p>
+  </section>
+</div>
