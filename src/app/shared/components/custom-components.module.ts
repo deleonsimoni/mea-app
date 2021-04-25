@@ -11,6 +11,7 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { ProjectComponent } from './project/project.component';
 import { DissertationComponent } from './dissertation/dissertation.component';
 import { BookComponent } from './book/book.component';
+import { ProfileLinksComponent } from './profile-links/profile-links.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { BookComponent } from './book/book.component';
     ListTransmitionsComponent,
     ProjectComponent,
     DissertationComponent,
-    BookComponent
+    BookComponent,
+    ProfileLinksComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +41,8 @@ import { BookComponent } from './book/book.component';
     ListTransmitionsComponent,
     ProjectComponent,
     DissertationComponent,
-    BookComponent
+    BookComponent,
+    ProfileLinksComponent
   ]
 })
 export class CustomComponentsModule {}

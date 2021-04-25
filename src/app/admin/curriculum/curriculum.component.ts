@@ -82,4 +82,12 @@ export class CurriculumComponent implements OnInit {
 
     this.curriculumService.update(this.curriculum).subscribe(x => this.list());
   }
+
+  public saveProfileLink(ev: any): void {
+    this.curriculumService.update({ profileLinks: ev }).subscribe();
+  }
+
+  public deleteProfileLink(ev: any): void {
+    this.curriculumService.update({ profileLinks: ev }).subscribe();
+  }
 }

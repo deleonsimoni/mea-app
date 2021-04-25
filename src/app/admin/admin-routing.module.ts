@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'livros' },
+  { path: '', pathMatch: 'full', redirectTo: 'curriculum' },
   {
     path: 'curriculum',
     loadChildren: './curriculum/curriculum.module#CurriculumModule'

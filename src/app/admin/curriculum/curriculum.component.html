@@ -6,6 +6,11 @@
           [curriculum]="curriculum"
           (personalData)="savePersonalData($event)"
         ></app-personal-apresentation>
+        <app-profile-links
+          (saveLink)="saveProfileLink($event)"
+          (deleteLink)="deleteProfileLink($event)"
+          [profileLinks]="curriculum?.profileLinks"
+        ></app-profile-links>
       </div>
     </div>
   </section>
