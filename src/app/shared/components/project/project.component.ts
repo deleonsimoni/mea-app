@@ -32,7 +32,9 @@ export class ProjectComponent implements OnChanges {
       description: [null],
       searchGroup: [null],
       financing: [null],
-      keywords: this.formBuilder.array([this.createField()])
+      keywords: this.formBuilder.array([this.createField()]),
+      generalObjectives: [null],
+      specificObjectives: [null]
     });
   }
 
@@ -49,7 +51,9 @@ export class ProjectComponent implements OnChanges {
         topics: project.currentValue.topics,
         description: project.currentValue.description,
         searchGroup: project.currentValue.searchGroup,
-        financing: project.currentValue.financing
+        financing: project.currentValue.financing,
+        generalObjectives: project.currentValue.generalObjectives,
+        specificObjectives: project.currentValue.specificObjectives
       });
 
       project.currentValue.keywords.forEach((el: any, key: number) => {

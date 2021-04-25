@@ -33,6 +33,12 @@ const ProjectSchema = new mongoose.Schema(
     keywords: {
       type: Array,
       required: true
+    },
+    generalObjectives: {
+      type: String
+    },
+    specificObjectives: {
+      type: String
     }
   },
   {
