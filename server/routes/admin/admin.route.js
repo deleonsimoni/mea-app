@@ -7,6 +7,7 @@ const liveRoutes = require('./live.route');
 const mediaRoutes = require('./media.route');
 const researchProjectRoutes = require('./research-project.route');
 const completedGuidelinesRoutes = require('./completed-guidelines.route');
+const bookRoutes = require('./book.route');
 
 // router.use(passport.authenticate('jwt', { session: false }))
 router.use('/curriculum', curriculumRoutes);
@@ -14,5 +15,6 @@ router.use('/lives', liveRoutes);
 router.use('/media', mediaRoutes);
 router.use('/research-project', researchProjectRoutes);
 router.use('/completed-guidelines', completedGuidelinesRoutes);
+router.use('/book', bookRoutes);
 
 module.exports = router;

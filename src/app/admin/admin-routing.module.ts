@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'orientacoes-concluidas' },
+  { path: '', pathMatch: 'full', redirectTo: 'livros' },
   {
     path: 'curriculum',
     loadChildren: './curriculum/curriculum.module#CurriculumModule'
@@ -24,6 +24,10 @@ const routes: Routes = [
     path: 'orientacoes-concluidas',
     loadChildren:
       './completed-guidelines/completed-guidelines.module#CompletedGuidelinesModule'
+  },
+  {
+    path: 'livros',
+    loadChildren: './books/books.module#BooksModule'
   }
 ];
 

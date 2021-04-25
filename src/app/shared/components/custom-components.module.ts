@@ -10,6 +10,7 @@ import { ListTransmitionsComponent } from './list-transmitions/list-transmitions
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { ProjectComponent } from './project/project.component';
 import { DissertationComponent } from './dissertation/dissertation.component';
+import { BookComponent } from './book/book.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DissertationComponent } from './dissertation/dissertation.component';
     AddTransmitionComponent,
     ListTransmitionsComponent,
     ProjectComponent,
-    DissertationComponent
+    DissertationComponent,
+    BookComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +38,8 @@ import { DissertationComponent } from './dissertation/dissertation.component';
     AddTransmitionComponent,
     ListTransmitionsComponent,
     ProjectComponent,
-    DissertationComponent
+    DissertationComponent,
+    BookComponent
   ]
 })
 export class CustomComponentsModule {}
