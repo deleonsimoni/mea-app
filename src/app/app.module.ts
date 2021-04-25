@@ -20,6 +20,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { LivesModalComponent } from './modals/lives-modal/lives-modal.component';
 import { MatButtonModule } from '@angular/material/button';
+
 @NgModule({
   imports: [
     BrowserModule,
