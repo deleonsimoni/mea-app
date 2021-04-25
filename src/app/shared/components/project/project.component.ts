@@ -106,7 +106,10 @@ export class ProjectComponent implements OnChanges {
 
       this.saveProject.emit({ exist: true, project: this.project });
     } else {
-      this.saveProject.emit({ exist: false, project: this.project });
+      this.saveProject.emit({
+        exist: false,
+        project: this.formProject.getRawValue()
+      });
     }
   }
 

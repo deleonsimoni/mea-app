@@ -1,0 +1,39 @@
+<div class="container">
+  <section class="guidelines mt-4">
+    <div class="row align-items-center mb-2">
+      <div class="col-sm-10 col-lg-10">
+        <h3 class="guidelines__title">DISSERTACÕES E TESES</h3>
+      </div>
+      <div class="col-lg-2 text-right">
+        <button class="btn" (click)="newDissertation = true">
+          Adicionar +
+        </button>
+      </div>
+    </div>
+
+    <ng-container *ngIf="newDissertation">
+      <app-dissertation
+        class="card mb-4"
+        (saveDissertation)="addDissertation($event)"
+        (cancelCreation)="newDissertation = false"
+      >
+      </app-dissertation>
+    </ng-container>
+
+    <ng-container *ngFor="let dissertation of dissertations">
+      <app-dissertation
+        [dissertation]="dissertation"
+        (saveDissertation)="addDissertation($event)"
+        (removeDissertation)="deleteDissertation($event)"
+      >
+      </app-dissertation>
+    </ng-container>
+
+    <p
+      *ngIf="(!dissertations || dissertations.length < 1) && !newDissertation"
+      class="error mt-5"
+    >
+      Não há dissertações/teses cadastradas!
+    </p>
+  </section>
+</div>

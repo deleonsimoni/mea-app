@@ -9,6 +9,7 @@ import { AddTransmitionComponent } from './add-transmition/add-transmition.compo
 import { ListTransmitionsComponent } from './list-transmitions/list-transmitions.component';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { ProjectComponent } from './project/project.component';
+import { DissertationComponent } from './dissertation/dissertation.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ProjectComponent } from './project/project.component';
     ProfessionalPerformanceComponent,
     AddTransmitionComponent,
     ListTransmitionsComponent,
-    ProjectComponent
+    ProjectComponent,
+    DissertationComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +35,8 @@ import { ProjectComponent } from './project/project.component';
     ProfessionalPerformanceComponent,
     AddTransmitionComponent,
     ListTransmitionsComponent,
-    ProjectComponent
+    ProjectComponent,
+    DissertationComponent
   ]
 })
 export class CustomComponentsModule {}
