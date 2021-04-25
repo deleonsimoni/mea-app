@@ -26,9 +26,12 @@ export class PersonalApresentationComponent implements OnInit, OnChanges {
   constructor() {}
 
   ngOnChanges(changes: SimpleChanges) {
-    const currentValue = changes.curriculum.currentValue;
-    this.name = currentValue.name;
-    this.description = currentValue.description;
+    const curriculum = changes.curriculum;
+
+    if (curriculum && curriculum.currentValue) {
+      this.name = curriculum.currentValue.name;
+      this.description = curriculum.currentValue.description;
+    }
   }
 
   ngOnInit() {}

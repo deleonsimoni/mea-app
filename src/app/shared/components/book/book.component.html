@@ -1,0 +1,83 @@
+<form [formGroup]="bookForm" (ngSubmit)="addBook()" class="book">
+  <div class="row align-items-center justify-content-center">
+    <div class="col-lg-4">
+      <img [src]="bookImage" class="book__image" alt="" />
+    </div>
+    <div class="col-lg-8 align-self-center">
+      <div class="row mb-2">
+        <div [ngClass]="{ 'col-lg-12': !book, 'col-lg-10': book }">
+          <input
+            type="text"
+            class="book__input-text"
+            placeholder="Título"
+            formControlName="title"
+          />
+        </div>
+        <div class="col-lg-2" *ngIf="book">
+          <button
+            class="action action--delete action--full"
+            (click)="deleteBook()"
+          >
+            <i class="fas fa-times-circle action__icon"></i>
+          </button>
+        </div>
+      </div>
+
+      <input
+        type="text"
+        class="book__input-text"
+        placeholder="Autor(es)"
+        formControlName="authors"
+      />
+
+      <div class="row mb-2">
+        <div class="col-lg-6">
+          <input
+            type="text"
+            class="book__input-text"
+            placeholder="Editora"
+            formControlName="publishingCompany"
+          />
+        </div>
+        <div class="col-lg-6">
+          <select class="book__select" formControlName="type">
+            <option *ngFor="let type of bookTypes" [value]="type.id">{{
+              type.label
+            }}</option>
+          </select>
+        </div>
+      </div>
+
+      <input
+        type="text"
+        class="book__input-text"
+        placeholder="Link do livro"
+        formControlName="link"
+      />
+      <input
+        type="text"
+        class="book__input-text"
+        placeholder="Upload pdf"
+        formControlName="archive"
+      />
+      <input
+        type="text"
+        class="book__input-text"
+        placeholder="Upload capa do livro"
+        formControlName="image"
+      />
+
+      <div
+        class="row align-items-center justify-content-center mt-3"
+        *ngIf="showSaveButton"
+      >
+        <div class="col-lg-2" *ngIf="!book">
+          <a class="close" (click)="cancelBook()">Cancelar</a>
+        </div>
+        <div class="col-lg-2">
+          <button class="btn btn--full" type="submit">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
