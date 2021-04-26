@@ -36,7 +36,6 @@ export class DissertacaoComponent implements OnInit {
       )
       .subscribe((dissertations: Array<Dissertation>) => {
         this.dissertations = dissertations;
-        console.log(dissertations);
       });
   }
 
@@ -89,6 +88,10 @@ export class DissertacaoComponent implements OnInit {
     this.dissertacoesChoose = this.dissertations.filter(
       dissertation => dissertation.type == type
     );
+  }
+
+  public getLink(link: string): string {
+    return `https://profedmeasantos.s3.us-east-2.amazonaws.com/${link}`;
   }
 
   // dissertacoes = [

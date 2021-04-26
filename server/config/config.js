@@ -8,21 +8,26 @@ const envVarsSchema = Joi.object({
   NODE_ENV: Joi.string()
     .allow(['development', 'production', 'test', 'provision'])
     .default('development'),
-  SERVER_PORT: Joi.number()
-    .default(4040),
-  MONGOOSE_DEBUG: Joi.boolean()
-    .when('NODE_ENV', {
-      is: Joi.string().equal('development'),
-      then: Joi.boolean().default(true),
-      otherwise: Joi.boolean().default(false)
-    }),
-  JWT_SECRET: Joi.string().required()
+  SERVER_PORT: Joi.number().default(4040),
+  MONGOOSE_DEBUG: Joi.boolean().when('NODE_ENV', {
+    is: Joi.string().equal('development'),
+    then: Joi.boolean().default(true),
+    otherwise: Joi.boolean().default(false)
+  }),
+  JWT_SECRET: Joi.string()
+    .required()
     .description('JWT Secret required to sign'),
-  MONGO_HOST: Joi.string().required()
+  MONGO_HOST: Joi.string()
+    .required()
     .description('Mongo DB host url'),
-  MONGO_PORT: Joi.number()
-    .default(27017)
-}).unknown()
+  MONGO_PORT: Joi.number().default(27017),
+  AWS_ACCESS_KEY: Joi.string().description('Secret Main'),
+  AWS_SECRET_ACCESS_KEY: Joi.string().description('Secret Main'),
+  PATH_S3_DEV: Joi.string()
+    .allow('')
+    .description('Path Developer AWS S3')
+})
+  .unknown()
   .required();
 
 const { error, value: envVars } = Joi.validate(process.env, envVarsSchema);
@@ -39,7 +44,10 @@ const config = {
   mongo: {
     host: envVars.MONGO_HOST,
     port: envVars.MONGO_PORT
-  }
+  },
+  PATH_S3_DEV: envVars.PATH_S3_DEV,
+  AWS_ACCESS_KEY: envVars.AWS_ACCESS_KEY,
+  AWS_SECRET_ACCESS_KEY: envVars.AWS_SECRET_ACCESS_KEY
 };
 
 module.exports = config;

@@ -12,7 +12,7 @@
           *ngIf="book.type === '1'"
         >
           <img
-            [src]="book.image"
+            [src]="getLink(book.image)"
             (click)="openModal(template, book)"
             class="img-fluid capa-livro"
           />
@@ -23,7 +23,11 @@
               >
             </div>
             <div *ngIf="book.archive" class="mr-3 mb-4">
-              <a class="completo" [href]="book.archive" target="_blank">
+              <a
+                class="completo"
+                [href]="getLink(book.archive)"
+                target="_blank"
+              >
                 <i class="fa fa-file"></i> Versão em PDF</a
               >
             </div>
@@ -57,7 +61,7 @@
         >
           <div class=" d-flex flexAcerto">
             <div class="mr-3 mb-4">
-              <a class="completo" [href]="book.archive" target="_blank"
+              <a class="completo" [href]="getLink(book.archive)" target="_blank"
                 ><i class="fa fa-file"></i> Acessar Web Livro Social</a
               >
             </div>
@@ -81,7 +85,7 @@
           *ngIf="book.type === '3'"
         >
           <img
-            [src]="book.image"
+            [src]="getLink(book.image)"
             (click)="openModal(template, book)"
             class="img-fluid capa-livro"
           />
@@ -92,7 +96,7 @@
               >
             </div>
             <div *ngIf="book.archive" class="mr-3 mb-4">
-              <a class="completo" [href]="book.archive" target="_blank"
+              <a class="completo" [href]="getLink(book.archive)" target="_blank"
                 ><i class="fa fa-file"></i> Versão em PDF</a
               >
             </div>
@@ -120,7 +124,7 @@
           *ngIf="book.type === '4'"
         >
           <img
-            [src]="book.image"
+            [src]="getLink(book.image)"
             (click)="openModal(template, book)"
             class="img-fluid capa-livro"
           />
@@ -131,7 +135,7 @@
               >
             </div>
             <div *ngIf="book.archive" class="mr-3 mb-4">
-              <a class="completo" [href]="book.archive" target="_blank"
+              <a class="completo" [href]="getLink(book.archive)" target="_blank"
                 ><i class="fa fa-file"></i> Versão em PDF</a
               >
             </div>
@@ -170,7 +174,7 @@
           *ngIf="book.type === '5'"
         >
           <img
-            [src]="book.image"
+            [src]="getLink(book.image)"
             (click)="openModal(template, book)"
             class="img-fluid capa-livro"
           />
@@ -181,7 +185,7 @@
               >
             </div>
             <div *ngIf="book.archive" class="mr-3 mb-4">
-              <a class="completo" [href]="book.archive" target="_blank"
+              <a class="completo" [href]="getLink(book.archive)" target="_blank"
                 ><i class="fa fa-file"></i> Versão em PDF</a
               >
             </div>
@@ -242,7 +246,7 @@
         >
       </div>
       <div *ngIf="book.archive != '' && book.archive != null" class="mr-3 mb-4">
-        <a class="completo" [href]="book.archive" target="_blank"
+        <a class="completo" [href]="getLink(book.archive)" target="_blank"
           ><i class="fa fa-file"></i> Versão em PDF</a
         >
       </div>

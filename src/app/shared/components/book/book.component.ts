@@ -1,10 +1,12 @@
 import {
   Component,
+  ElementRef,
   EventEmitter,
   Input,
   OnChanges,
   Output,
-  SimpleChanges
+  SimpleChanges,
+  ViewChild
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Book } from '@app/models/book';
@@ -20,8 +22,15 @@ export class BookComponent implements OnChanges {
   @Output() saveBook: EventEmitter<{
     exist: boolean;
     book: Book;
+    fileCapa: any;
+    fileBook: any;
   }> = new EventEmitter();
   @Output() removeBook: EventEmitter<string> = new EventEmitter();
+  @ViewChild('fileInput', { static: false }) fileInput: ElementRef;
+  @ViewChild('fileInput2', { static: false }) fileInput2: ElementRef;
+
+  private fileCapa: FileList;
+  private fileBook: FileList;
 
   public bookForm: FormGroup;
   public showSaveButton: boolean = true;
@@ -55,9 +64,9 @@ export class BookComponent implements OnChanges {
         title: book.currentValue.title,
         authors: book.currentValue.authors,
         publishingCompany: book.currentValue.publishingCompany,
-        image: book.currentValue.image,
+        image: this.getLink(book.currentValue.image),
         link: book.currentValue.link,
-        archive: book.currentValue.archive,
+        archive: this.getLink(book.currentValue.archive),
         type: book.currentValue.type
       });
 
@@ -85,9 +94,19 @@ export class BookComponent implements OnChanges {
           ...this.bookForm.getRawValue()
         };
 
-        this.saveBook.emit({ exist: true, book: this.book });
+        this.saveBook.emit({
+          exist: true,
+          book: this.book,
+          fileCapa: this.fileCapa[0] || null,
+          fileBook: this.fileBook[0] || null
+        });
       } else {
-        this.saveBook.emit({ exist: false, book: this.bookForm.getRawValue() });
+        this.saveBook.emit({
+          exist: false,
+          book: this.bookForm.getRawValue(),
+          fileCapa: this.fileCapa[0] || null,
+          fileBook: this.fileBook[0] || null
+        });
       }
 
       this.bookForm.reset();
@@ -100,6 +119,33 @@ export class BookComponent implements OnChanges {
 
   get bookImage() {
     const image = this.bookForm.get('image').value;
+    console.log(image);
     return image ? image : 'https://via.placeholder.com/300x400';
+  }
+
+  public getFileNameCapa(): string {
+    let msg;
+
+    return this.fileCapa ? this.fileCapa[0].name : msg;
+  }
+
+  public setFileNameCapa(files: FileList): void {
+    this.showSaveButton = true;
+    this.fileCapa = files;
+  }
+
+  public getFileNameBook(): string {
+    let msg;
+
+    return this.fileBook ? this.fileBook[0].name : msg;
+  }
+
+  public setFileNameBook(files: FileList): void {
+    this.showSaveButton = true;
+    this.fileBook = files;
+  }
+
+  public getLink(link: string): string {
+    return `https://profedmeasantos.s3.us-east-2.amazonaws.com/${link}`;
   }
 }

@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const fileUpload = require('express-fileupload');
 
 const CompletedGuidelinesController = require('../../controllers/admin/completed-guidelines.controller');
 
@@ -8,9 +9,10 @@ router.get('/', async (req, res) => {
   res.json(guidelines);
 });
 
-router.post('/', async (req, res) => {
+router.post('/', [fileUpload()], async (req, res) => {
   const body = req.body;
-  await CompletedGuidelinesController.create(body);
+  const archive = req.files.fileArray || null;
+  await CompletedGuidelinesController.create({ body, archive });
 
   res.json({
     status: 200,

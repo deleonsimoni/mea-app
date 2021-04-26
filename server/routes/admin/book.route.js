@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const fileUpload = require('express-fileupload');
 
 const BookController = require('../../controllers/admin/book.controller');
 
@@ -8,9 +9,11 @@ router.get('/', async (req, res) => {
   res.json(books);
 });
 
-router.post('/', async (req, res) => {
+router.post('/', [fileUpload()], async (req, res) => {
   const body = req.body;
-  await BookController.create(body);
+  const fileCapa = req.files.fileArray[0] || null;
+  const fileBook = req.files.fileArray[1] || null;
+  await BookController.create(body, fileCapa, fileBook);
 
   res.json({
     status: 200,

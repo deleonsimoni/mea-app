@@ -1,4 +1,11 @@
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Sanitizer,
+  TemplateRef,
+  ViewChild
+} from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Media } from '@app/models';
 import { MediaService } from '@app/service/media.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
@@ -14,7 +21,8 @@ export class MidiaComponent implements OnInit {
 
   constructor(
     private modalService: BsModalService,
-    private readonly mediaService: MediaService
+    private readonly mediaService: MediaService,
+    private readonly sanitize: DomSanitizer
   ) {
     this.listAllMedia();
   }
@@ -24,12 +32,17 @@ export class MidiaComponent implements OnInit {
   listAllMedia() {
     this.mediaService.list().subscribe((media: Array<Media>) => {
       this.media = media;
+      console.log(media);
     });
   }
 
   openModal(template: TemplateRef<any>, livro: any) {
     this.livroSelecionado = livro;
     this.modalRef = this.modalService.show(template);
+  }
+
+  safeLink(link: string) {
+    return this.sanitize.bypassSecurityTrustResourceUrl(link);
   }
 
   // entrevistas = [

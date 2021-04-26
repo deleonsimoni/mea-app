@@ -27,7 +27,9 @@ export class BooksComponent implements OnInit {
     if (ev.exist) {
       this.bookService.update(ev.book).subscribe(() => this.listAll());
     } else {
-      this.bookService.create(ev.book).subscribe(() => this.listAll());
+      this.bookService
+        .create(ev.book, ev.fileCapa, ev.fileBook)
+        .subscribe(() => this.listAll());
     }
   }
 

@@ -1,5 +1,5 @@
 <form [formGroup]="bookForm" (ngSubmit)="addBook()" class="book">
-  <div class="row align-items-center justify-content-center mb-3">
+  <div class="row align-items-center justify-content-center">
     <div class="col-lg-4">
       <img [src]="bookImage" class="book__image" alt="" />
     </div>
@@ -54,18 +54,35 @@
         placeholder="Link do livro"
         formControlName="link"
       />
-      <input
-        type="text"
-        class="book__input-text"
-        placeholder="Upload pdf"
-        formControlName="archive"
-      />
-      <input
-        type="text"
-        class="book__input-text"
-        placeholder="Upload capa do livro"
-        formControlName="image"
-      />
+      <!-- <input type="text" class="book__input-text" placeholder="Upload pdf" formControlName="archive" />
+      <input type="text" class="book__input-text" placeholder="Upload capa do livro" formControlName="image" /> -->
+      <div class="custom-file mt-2">
+        <input
+          type="file"
+          class="custom-file-input"
+          data-max-size="2048"
+          id="customPreReadFile"
+          (change)="setFileNameBook($event.target.files)"
+          #fileInput
+        />
+        <label class="custom-file-label" for="customPreReadFile">{{
+          getFileNameBook()
+        }}</label>
+      </div>
+
+      <div class="custom-file mt-2">
+        <input
+          type="file"
+          class="custom-file-input"
+          data-max-size="2048"
+          id="customPreReadFile2"
+          (change)="setFileNameCapa($event.target.files)"
+          #fileInput2
+        />
+        <label class="custom-file-label" for="customPreReadFile2">{{
+          getFileNameCapa()
+        }}</label>
+      </div>
 
       <div
         class="row align-items-center justify-content-center mt-3"

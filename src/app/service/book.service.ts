@@ -9,8 +9,14 @@ export class BookService {
 
   constructor(private readonly httpClient: HttpClient) {}
 
-  public create(live: any) {
-    return this.httpClient.post(this.api, live);
+  public create(book: any, fileCapa: File, fileBook: File) {
+    const formData: FormData = new FormData();
+    formData.append('fileArray', fileCapa, fileCapa.name);
+    formData.append('fileArray', fileBook, fileBook.name);
+
+    formData.append('formulario', JSON.stringify(book));
+
+    return this.httpClient.post(this.api, formData);
   }
 
   public list() {

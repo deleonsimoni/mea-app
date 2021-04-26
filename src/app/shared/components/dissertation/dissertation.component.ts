@@ -1,10 +1,12 @@
 import {
   Component,
+  ElementRef,
   EventEmitter,
   Input,
   OnChanges,
   Output,
-  SimpleChanges
+  SimpleChanges,
+  ViewChild
 } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Dissertation } from '@app/models/dissertation';
@@ -19,12 +21,15 @@ export class DissertationComponent implements OnChanges {
   @Output() saveDissertation: EventEmitter<{
     exist: boolean;
     dissertation: Dissertation;
+    filePdf: any;
   }> = new EventEmitter();
   @Output() cancelCreation: EventEmitter<boolean> = new EventEmitter();
   @Output() removeDissertation: EventEmitter<string> = new EventEmitter();
+  @ViewChild('fileInput', { static: false }) fileInput: ElementRef;
 
   public dissertationForm: FormGroup;
   public showSaveButton: boolean = true;
+  private filePdf: FileList;
   public dissertationlevels: Array<{ id: number; label: string }> = [
     { id: 1, label: 'Iniciação Científica' },
     { id: 2, label: 'Mestrado' },
@@ -79,12 +84,14 @@ export class DissertationComponent implements OnChanges {
 
       this.saveDissertation.emit({
         exist: true,
-        dissertation: this.dissertation
+        dissertation: this.dissertation,
+        filePdf: this.filePdf[0] || null
       });
     } else {
       this.saveDissertation.emit({
         exist: false,
-        dissertation: this.dissertationForm.getRawValue()
+        dissertation: this.dissertationForm.getRawValue(),
+        filePdf: this.filePdf[0] || null
       });
     }
 
@@ -97,5 +104,17 @@ export class DissertationComponent implements OnChanges {
 
   public deleteDissertation(): void {
     this.removeDissertation.emit(this.dissertation._id);
+  }
+
+  public getFileName(): string {
+    const fileName = this.filePdf
+      ? this.filePdf[0].name
+      : 'Selecione o arquivo';
+    return fileName;
+  }
+
+  public setFileName(files: FileList): void {
+    this.showSaveButton = true;
+    this.filePdf = files;
   }
 }

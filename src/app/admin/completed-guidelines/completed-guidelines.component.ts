@@ -33,7 +33,7 @@ export class CompletedGuidelinesComponent implements OnInit {
         .subscribe(() => this.listAll());
     } else {
       this.dissertationService
-        .create(ev.dissertation)
+        .create(ev.dissertation, ev.filePdf)
         .subscribe(() => this.listAll());
     }
 

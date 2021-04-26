@@ -37,6 +37,10 @@ export class AcervoComponent implements OnInit {
     this.book = livro;
     this.modalRef = this.modalService.show(template);
   }
+
+  public getLink(link: string): string {
+    return `https://profedmeasantos.s3.us-east-2.amazonaws.com/${link}`;
+  }
   // tslint:disable-next-line: member-ordering
   // autorais = [
   //   {
