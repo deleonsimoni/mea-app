@@ -28,12 +28,14 @@ export class ResearchProjectsComponent implements OnInit {
     if (ev.exist) {
       this.researchProjectService
         .update(ev.project)
-        .subscribe(() => this.listAll());
+        .subscribe(() => this.listAll(), e => console.log(e));
     } else {
       this.researchProjectService
         .create(ev.project)
         .subscribe(() => this.listAll());
     }
+
+    this.newProject = false;
   }
 
   deleteProject(id: string) {

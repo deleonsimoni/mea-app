@@ -5,58 +5,42 @@
     <h3 class="text-primary mb-4 mt-4 d-lg-none d-md-none">
       Autorais
     </h3>
-    <div class="row ml-lg-4" *ngIf="autorais">
-      <div
-        class="col-sm-12 col-md-6 col-lg-4 align-self-center"
-        *ngFor="let autoral of autorais"
-      >
-        <img
-          [src]="autoral.imagem"
-          (click)="openModal(template, autoral)"
-          class="img-fluid capa-livro"
-        />
-        <div class=" d-flex flexAcerto">
-          <div
-            *ngIf="autoral.linkLoja != '' && autoral.linkLoja != null"
-            class="mr-3 mb-4"
-          >
-            <a class="completo" [href]="autoral.linkLoja" target="_blank"
-              ><i class="fa fa-book"></i> Loja Online</a
-            >
-          </div>
-          <div
-            *ngIf="autoral.linkPdf != '' && autoral.linkPdf != null"
-            class="mr-3 mb-4"
-          >
-            <a class="completo" [href]="autoral.linkPdf" target="_blank">
-              <i class="fa fa-file"></i> Versão em PDF</a
-            >
-          </div>
-          <div
-            *ngIf="autoral.download != '' && autoral.download != null"
-            class="mr-3 mb-4"
-          >
-            <a
-              class="completo"
-              [href]="autoral.download"
-              download="{{
-                autoral.download.substring(
-                  autoral.download.indexOf('Livro') + 5
-                )
-              }}"
-              ><i class="fa fa-file"></i> Download PDF</a
-            >
-          </div>
-          <div
-            *ngIf="autoral.linkIngles != '' && autoral.linkIngles != null"
-            class="mr-3 mb-4"
-          >
-            <a class="completo" [href]="autoral.linkIngles" target="_blank"
-              ><i class="fa fa-file"></i> Versão em Inglês</a
-            >
+    <div class="row ml-lg-4">
+      <ng-container *ngFor="let book of books">
+        <div
+          class="col-sm-12 col-md-6 col-lg-4 align-self-center"
+          *ngIf="book.type === '1'"
+        >
+          <img
+            [src]="book.image"
+            (click)="openModal(template, book)"
+            class="img-fluid capa-livro"
+          />
+          <div class=" d-flex flexAcerto">
+            <div *ngIf="book.link" class="mr-3 mb-4">
+              <a class="completo" [href]="book.link" target="_blank"
+                ><i class="fa fa-book"></i> Loja Online</a
+              >
+            </div>
+            <div *ngIf="book.archive" class="mr-3 mb-4">
+              <a class="completo" [href]="book.archive" target="_blank">
+                <i class="fa fa-file"></i> Versão em PDF</a
+              >
+            </div>
+            <!-- <div *ngIf="autoral.download != '' && autoral.download != null" class="mr-3 mb-4">
+              <a class="completo" [href]="autoral.download" download="{{
+                  autoral.download.substring(
+                    autoral.download.indexOf('Livro') + 5
+                  )
+                }}"><i class="fa fa-file"></i> Download PDF</a>
+            </div> -->
+            <!-- <div *ngIf="autoral.linkIngles != '' && autoral.linkIngles != null" class="mr-3 mb-4">
+              <a class="completo" [href]="autoral.linkIngles" target="_blank"><i class="fa fa-file"></i> Versão em
+                Inglês</a>
+            </div> -->
           </div>
         </div>
-      </div>
+      </ng-container>
     </div>
     <!-- FIM DOS AUTORAIS -->
 
@@ -65,19 +49,21 @@
     <h3 class="text-primary mb-4 mt-4 d-lg-none d-md-none">
       Web Livro Social
     </h3>
-    <div class="row ml-lg-4" *ngIf="autorais">
-      <div
-        class="col-sm-12 col-md-6 col-lg-4 align-self-center"
-        *ngFor="let webSocial of webLivroSocial"
-      >
-        <div class=" d-flex flexAcerto">
-          <div class="mr-3 mb-4">
-            <a class="completo" [href]="webSocial.linkPdf" target="_blank"
-              ><i class="fa fa-file"></i> Acessar Web Livro Social</a
-            >
+    <div class="row ml-lg-4">
+      <ng-container *ngFor="let book of books">
+        <div
+          class="col-sm-12 col-md-6 col-lg-4 align-self-center"
+          *ngIf="book.type === '2'"
+        >
+          <div class=" d-flex flexAcerto">
+            <div class="mr-3 mb-4">
+              <a class="completo" [href]="book.archive" target="_blank"
+                ><i class="fa fa-file"></i> Acessar Web Livro Social</a
+              >
+            </div>
           </div>
         </div>
-      </div>
+      </ng-container>
     </div>
     <!-- FIM DO WEB LIVRO SOCIAL -->
 
@@ -88,43 +74,35 @@
     <h3 class="text-primary mb-4 mt-4 d-lg-none d-md-none">
       Organizados
     </h3>
-    <div class="row ml-lg-4" *ngIf="organizados">
-      <div
-        class="col-sm-12 col-md-6 col-lg-4 align-self-center"
-        *ngFor="let organizado of organizados"
-      >
-        <img
-          [src]="organizado.imagem"
-          (click)="openModal(template, organizado)"
-          class="img-fluid capa-livro"
-        />
-        <div class=" d-flex flexAcerto">
-          <div
-            *ngIf="organizado.linkLoja != '' && organizado.linkLoja != null"
-            class="mr-3 mb-4"
-          >
-            <a class="completo" [href]="organizado.linkLoja" target="_blank"
-              ><i class="fa fa-book"></i> Loja Online</a
-            >
-          </div>
-          <div
-            *ngIf="organizado.linkPdf != '' && organizado.linkPdf != null"
-            class="mr-3 mb-4"
-          >
-            <a class="completo" [href]="organizado.linkPdf" target="_blank"
-              ><i class="fa fa-file"></i> Versão em PDF</a
-            >
-          </div>
-          <div
-            *ngIf="organizado.linkIngles != '' && organizado.linkIngles != null"
-            class="mr-3 mb-4"
-          >
-            <a class="completo" [href]="organizado.linkIngles" target="_blank"
-              ><i class="fa fa-file"></i> Versão em Inglês</a
-            >
+    <div class="row ml-lg-4">
+      <ng-container *ngFor="let book of books">
+        <div
+          class="col-sm-12 col-md-6 col-lg-4 align-self-center"
+          *ngIf="book.type === '3'"
+        >
+          <img
+            [src]="book.image"
+            (click)="openModal(template, book)"
+            class="img-fluid capa-livro"
+          />
+          <div class=" d-flex flexAcerto">
+            <div *ngIf="book.link" class="mr-3 mb-4">
+              <a class="completo" [href]="book.link" target="_blank"
+                ><i class="fa fa-book"></i> Loja Online</a
+              >
+            </div>
+            <div *ngIf="book.archive" class="mr-3 mb-4">
+              <a class="completo" [href]="book.archive" target="_blank"
+                ><i class="fa fa-file"></i> Versão em PDF</a
+              >
+            </div>
+            <!-- <div *ngIf="organizado.linkIngles != '' && organizado.linkIngles != null" class="mr-3 mb-4">
+              <a class="completo" [href]="organizado.linkIngles" target="_blank"><i class="fa fa-file"></i> Versão em
+                Inglês</a>
+            </div> -->
           </div>
         </div>
-      </div>
+      </ng-container>
     </div>
     <!-- FIM DOS ORGANIZADOS -->
 
@@ -135,67 +113,46 @@
     <h3 class="text-primary mb-4 mt-4 d-lg-none d-md-none">
       Capítulos em livros internacionais
     </h3>
-    <div class="row ml-lg-4" *ngIf="internacionais">
-      <div
-        class="col-sm-12 col-md-6 col-lg-4 align-self-center"
-        *ngFor="let internacional of internacionais"
-      >
-        <img
-          [src]="internacional.imagem"
-          (click)="openModal(template, internacional)"
-          class="img-fluid capa-livro"
-        />
-        <div class=" d-flex flexAcerto">
-          <div
-            *ngIf="
-              internacional.linkLoja != '' && internacional.linkLoja != null
-            "
-            class="mr-3 mb-4"
-          >
-            <a class="completo" [href]="internacional.linkLoja" target="_blank"
-              ><i class="fa fa-book"></i> Loja Online</a
-            >
-          </div>
-          <div
-            *ngIf="internacional.linkPdf != '' && internacional.linkPdf != null"
-            class="mr-3 mb-4"
-          >
-            <a class="completo" [href]="internacional.linkPdf" target="_blank"
-              ><i class="fa fa-file"></i> Versão em PDF</a
-            >
-          </div>
-          <div
-            *ngIf="
-              internacional.download != '' && internacional.download != null
-            "
-            class="mr-3 mb-4"
-          >
-            <a
-              class="completo"
-              [href]="internacional.download"
-              download="{{
-                internacional.download.substring(
-                  internacional.download.indexOf('Livro') + 5
-                )
-              }}"
-              ><i class="fa fa-file"></i> Download PDF</a
-            >
-          </div>
-          <div
-            *ngIf="
-              internacional.linkIngles != '' && internacional.linkIngles != null
-            "
-            class="mr-3 mb-4"
-          >
-            <a
-              class="completo"
-              [href]="internacional.linkIngles"
-              target="_blank"
-              ><i class="fa fa-file"></i> Versão em Inglês</a
-            >
+    <div class="row ml-lg-4">
+      <ng-container *ngFor="let book of books">
+        <div
+          class="col-sm-12 col-md-6 col-lg-4 align-self-center"
+          *ngIf="book.type === '4'"
+        >
+          <img
+            [src]="book.image"
+            (click)="openModal(template, book)"
+            class="img-fluid capa-livro"
+          />
+          <div class=" d-flex flexAcerto">
+            <div *ngIf="book.link" class="mr-3 mb-4">
+              <a class="completo" [href]="book.link" target="_blank"
+                ><i class="fa fa-book"></i> Loja Online</a
+              >
+            </div>
+            <div *ngIf="book.archive" class="mr-3 mb-4">
+              <a class="completo" [href]="book.archive" target="_blank"
+                ><i class="fa fa-file"></i> Versão em PDF</a
+              >
+            </div>
+            <!-- <div *ngIf="
+                internacional.download != '' && internacional.download != null
+              " class="mr-3 mb-4">
+              <a class="completo" [href]="internacional.download" download="{{
+                  internacional.download.substring(
+                    internacional.download.indexOf('Livro') + 5
+                  )
+                }}"><i class="fa fa-file"></i> Download PDF</a>
+            </div>
+            <div *ngIf="
+                internacional.linkIngles != '' && internacional.linkIngles != null
+              " class="mr-3 mb-4">
+              <a class="completo" [href]="internacional.linkIngles" target="_blank"><i class="fa fa-file"></i> Versão em
+                Inglês</a>
+            </div> -->
           </div>
         </div>
-      </div>
+      </ng-container>
     </div>
     <!-- FIM DOS INTERNACIONAIS -->
 
@@ -206,58 +163,42 @@
     <h3 class="text-primary mb-4 mt-4 d-lg-none d-md-none">
       Capítulos em livros
     </h3>
-    <div class="row ml-lg-4" *ngIf="internacionais">
-      <div
-        class="col-sm-12 col-md-6 col-lg-4 align-self-center"
-        *ngFor="let capitulo of capitulos"
-      >
-        <img
-          [src]="capitulo.imagem"
-          (click)="openModal(template, capitulo)"
-          class="img-fluid capa-livro"
-        />
-        <div class=" d-flex flexAcerto">
-          <div
-            *ngIf="capitulo.linkLoja != '' && capitulo.linkLoja != null"
-            class="mr-3 mb-4"
-          >
-            <a class="completo" [href]="capitulo.linkLoja" target="_blank"
-              ><i class="fa fa-book"></i> Loja Online</a
-            >
-          </div>
-          <div
-            *ngIf="capitulo.linkPdf != '' && capitulo.linkPdf != null"
-            class="mr-3 mb-4"
-          >
-            <a class="completo" [href]="capitulo.linkPdf" target="_blank"
-              ><i class="fa fa-file"></i> Versão em PDF</a
-            >
-          </div>
-          <div
-            *ngIf="capitulo.download != '' && capitulo.download != null"
-            class="mr-3 mb-4"
-          >
-            <a
-              class="completo"
-              [href]="capitulo.download"
-              download="{{
-                capitulo.download.substring(
-                  capitulo.download.indexOf('Livro') + 5
-                )
-              }}"
-              ><i class="fa fa-file"></i> Download PDF</a
-            >
-          </div>
-          <div
-            *ngIf="capitulo.linkIngles != '' && capitulo.linkIngles != null"
-            class="mr-3 mb-4"
-          >
-            <a class="completo" [href]="capitulo.linkIngles" target="_blank"
-              ><i class="fa fa-file"></i> Versão em Inglês</a
-            >
+    <div class="row ml-lg-4">
+      <ng-container *ngFor="let book of books">
+        <div
+          class="col-sm-12 col-md-6 col-lg-4 align-self-center"
+          *ngIf="book.type === '5'"
+        >
+          <img
+            [src]="book.image"
+            (click)="openModal(template, book)"
+            class="img-fluid capa-livro"
+          />
+          <div class=" d-flex flexAcerto">
+            <div *ngIf="book.link" class="mr-3 mb-4">
+              <a class="completo" [href]="book.link" target="_blank"
+                ><i class="fa fa-book"></i> Loja Online</a
+              >
+            </div>
+            <div *ngIf="book.archive" class="mr-3 mb-4">
+              <a class="completo" [href]="book.archive" target="_blank"
+                ><i class="fa fa-file"></i> Versão em PDF</a
+              >
+            </div>
+            <!-- <div *ngIf="capitulo.download != '' && capitulo.download != null" class="mr-3 mb-4">
+              <a class="completo" [href]="capitulo.download" download="{{
+                  capitulo.download.substring(
+                    capitulo.download.indexOf('Livro') + 5
+                  )
+                }}"><i class="fa fa-file"></i> Download PDF</a>
+            </div>
+            <div *ngIf="capitulo.linkIngles != '' && capitulo.linkIngles != null" class="mr-3 mb-4">
+              <a class="completo" [href]="capitulo.linkIngles" target="_blank"><i class="fa fa-file"></i> Versão em
+                Inglês</a>
+            </div> -->
           </div>
         </div>
-      </div>
+      </ng-container>
     </div>
     <!-- FIM DOS CAPITULOS EM LIVROS -->
   </section>
@@ -265,7 +206,7 @@
 
 <ng-template #template>
   <div class="modal-header">
-    <h4 class="modal-title pull-left">{{ livroSelecionado.titulo }}</h4>
+    <h4 class="modal-title pull-left">{{ book.title }}</h4>
     <button
       type="button"
       class="close pull-right"
@@ -276,64 +217,42 @@
     </button>
   </div>
   <div class="modal-body">
-    <p class="descricao">{{ livroSelecionado.descricao }}</p>
+    <p class="descricao">{{ book?.description }}</p>
     <div class=" d-flex flexAcerto">
-      <div
-        *ngIf="
-          livroSelecionado.autores != '' && livroSelecionado.autores != null
-        "
-        class="mr-3"
-      >
+      <div *ngIf="book.authors != '' && book.authors != null" class="mr-3">
         <p>
-          <b>Autor(a): </b
-          ><span class="subLinhas">{{ livroSelecionado.autores }}</span>
+          <b>Autor(a): </b><span class="subLinhas">{{ book.authors }}</span>
         </p>
       </div>
       <div
-        *ngIf="
-          livroSelecionado.editora != '' && livroSelecionado.editora != null
-        "
+        *ngIf="book.publishingCompany != '' && book.publishingCompany != null"
         class="mr-3"
       >
         <p>
           <b>Editora: </b
-          ><span class="subLinhas">{{ livroSelecionado.editora }}</span>
+          ><span class="subLinhas">{{ book.publishingCompany }}</span>
         </p>
       </div>
     </div>
 
     <div class=" d-flex flexAcerto">
-      <div
-        *ngIf="
-          livroSelecionado.linkLoja != '' && livroSelecionado.linkLoja != null
-        "
-        class="mr-3 mb-4"
-      >
-        <a class="completo" [href]="livroSelecionado.linkLoja" target="_blank"
+      <div *ngIf="book.link != '' && book.link != null" class="mr-3 mb-4">
+        <a class="completo" [href]="book.link" target="_blank"
           ><i class="fa fa-book"></i> Loja Online</a
         >
       </div>
-      <div
-        *ngIf="
-          livroSelecionado.linkPdf != '' && livroSelecionado.linkPdf != null
-        "
-        class="mr-3 mb-4"
-      >
-        <a class="completo" [href]="livroSelecionado.linkPdf" target="_blank"
+      <div *ngIf="book.archive != '' && book.archive != null" class="mr-3 mb-4">
+        <a class="completo" [href]="book.archive" target="_blank"
           ><i class="fa fa-file"></i> Versão em PDF</a
         >
       </div>
-      <div
-        *ngIf="
-          livroSelecionado.linkIngles != '' &&
-          livroSelecionado.linkIngles != null
-        "
-        class="mr-3 mb-4"
-      >
-        <a class="completo" [href]="livroSelecionado.linkIngles" target="_blank"
-          ><i class="fa fa-file"></i> Versão em Inglês</a
-        >
-      </div>
+      <!-- <div *ngIf="
+          book.linkIngles != '' &&
+          book.linkIngles != null
+        " class="mr-3 mb-4">
+        <a class="completo" [href]="book.linkIngles" target="_blank"><i class="fa fa-file"></i> Versão em
+          Inglês</a>
+      </div> -->
     </div>
   </div>
 </ng-template>

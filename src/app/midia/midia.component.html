@@ -252,12 +252,12 @@
     <div class="row mb-5 ml-lg-4">
       <div
         class="col-12 col-md-4 d-flex entCont"
-        *ngFor="let entrevista of entrevistas"
+        *ngFor="let entrevista of media"
       >
         <img
           class="img-fluid capa-livro"
           (click)="openModal(template, entrevista)"
-          [src]="entrevista.imagem"
+          [src]="entrevista.image"
         />
       </div>
     </div>
@@ -276,7 +276,7 @@
 
     <ng-template #template>
       <div class="modal-header">
-        <h4 class="modal-title pull-left">{{ livroSelecionado.titulo }}</h4>
+        <h4 class="modal-title pull-left">{{ livroSelecionado.title }}</h4>
         <button
           type="button"
           class="close pull-right"
@@ -287,72 +287,10 @@
         </button>
       </div>
       <div class="modal-body">
-        <p class="descricao">{{ livroSelecionado.descricao }}</p>
         <div class="d-flex flexAcerto">
-          <div
-            *ngIf="
-              livroSelecionado.autores != '' && livroSelecionado.autores != null
-            "
-            class="mr-3"
-          >
-            <p>
-              <b>Autor(a): </b
-              ><span class="subLinhas">{{ livroSelecionado.autores }}</span>
-            </p>
-          </div>
-          <div
-            *ngIf="
-              livroSelecionado.editora != '' && livroSelecionado.editora != null
-            "
-            class="mr-3"
-          >
-            <p>
-              <b>Editora: </b
-              ><span class="subLinhas">{{ livroSelecionado.editora }}</span>
-            </p>
-          </div>
-        </div>
-
-        <div class="d-flex flexAcerto">
-          <div
-            *ngIf="
-              livroSelecionado.linkLoja != '' &&
-              livroSelecionado.linkLoja != null
-            "
-            class="mr-3 mb-4"
-          >
-            <a
-              class="completo"
-              [href]="livroSelecionado.linkLoja"
-              target="_blank"
-              ><i class="fa fa-book"></i> Loja Online</a
-            >
-          </div>
-          <div
-            *ngIf="
-              livroSelecionado.linkPdf != '' && livroSelecionado.linkPdf != null
-            "
-            class="mr-3 mb-4"
-          >
-            <a
-              class="completo"
-              [href]="livroSelecionado.linkPdf"
-              target="_blank"
+          <div *ngIf="livroSelecionado.link" class="mr-3 mb-4">
+            <a class="completo" [href]="livroSelecionado.link" target="_blank"
               ><i class="fa fa-file"></i> Link para a entrevista na integra</a
-            >
-          </div>
-          <div
-            *ngIf="
-              livroSelecionado.linkIngles != '' &&
-              livroSelecionado.linkIngles != null
-            "
-            class="mr-3 mb-4"
-          >
-            <a
-              class="completo"
-              [href]="livroSelecionado.linkIngles"
-              target="_blank"
-              ><i class="fa fa-file"></i> Versão em Inglês</a
             >
           </div>
         </div>

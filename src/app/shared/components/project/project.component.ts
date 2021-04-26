@@ -58,7 +58,6 @@ export class ProjectComponent implements OnChanges {
 
       project.currentValue.keywords.forEach((el: any, key: number) => {
         if (key == 0) {
-          console.log(this.formProject.get('keywords')['controls']);
           this.formProject.get('keywords')['controls'][0].patchValue({
             word: el.word
           });
@@ -110,6 +109,8 @@ export class ProjectComponent implements OnChanges {
         exist: false,
         project: this.formProject.getRawValue()
       });
+
+      this.formProject.reset();
     }
   }
 

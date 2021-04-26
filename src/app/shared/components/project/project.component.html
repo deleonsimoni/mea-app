@@ -1,170 +1,172 @@
 <form [formGroup]="formProject">
-  <div class="row">
-    <div class="col-lg-2">
-      <input
-        type="text"
-        class="project__input-text"
-        placeholder="Data início"
-        formControlName="startDate"
-      />
-    </div>
-    <div class="col-lg-2">
-      <input
-        type="text"
-        class="project__input-text"
-        placeholder="Data fim"
-        formControlName="endDate"
-      />
-    </div>
-    <div class="col-lg-7">
-      <input
-        type="text"
-        class="project__input-text project--spotlight"
-        placeholder="Título da pesquisa/projeto"
-        formControlName="title"
-      />
-    </div>
-    <div class="col-lg-1">
-      <button
-        class="action action--delete action--full"
-        (click)="deleteProject()"
-      >
-        <i class="fas fa-times-circle action__icon"></i>
-      </button>
-    </div>
-  </div>
-  <div class="row align-items-center mt-3">
-    <div class="col-lg-2">
-      <p class="project__label">Linha de pesquisa:</p>
-    </div>
-    <div class="col-lg-10">
-      <input
-        type="text"
-        class="project__input-text"
-        placeholder=""
-        formControlName="topics"
-      />
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-lg-12">
-      <div class="project__content">
-        <textarea
-          name=""
-          class="project__text-box"
-          placeholder="Descrição"
-          formControlName="description"
-          cols="30"
-          rows="10"
-        ></textarea>
+  <div class="mb-4 mt-4">
+    <div class="row">
+      <div class="col-lg-2">
+        <input
+          type="text"
+          class="project__input-text"
+          placeholder="Data início"
+          formControlName="startDate"
+        />
       </div>
-    </div>
-  </div>
-
-  <div class="row mt-3">
-    <div class="col-lg-12">
-      <p class="project__label">Objetivos gerais</p>
-      <div class="project__content">
-        <textarea
-          name=""
-          class="project__text-box"
-          placeholder="Descrição"
-          formControlName="description"
-          cols="30"
-          rows="10"
-        ></textarea>
+      <div class="col-lg-2">
+        <input
+          type="text"
+          class="project__input-text"
+          placeholder="Data fim"
+          formControlName="endDate"
+        />
       </div>
-    </div>
-  </div>
-
-  <div class="row mt-3">
-    <div class="col-lg-12">
-      <p class="project__label">Objetivos específicos</p>
-      <div class="project__content">
-        <textarea
-          name=""
-          class="project__text-box"
-          placeholder="Descrição"
-          formControlName="description"
-          cols="30"
-          rows="10"
-        ></textarea>
+      <div class="col-lg-7">
+        <input
+          type="text"
+          class="project__input-text project--spotlight"
+          placeholder="Título da pesquisa/projeto"
+          formControlName="title"
+        />
       </div>
-    </div>
-  </div>
-
-  <div class="row align-items-center mt-3">
-    <div class="col-lg-2">
-      <p class="project__label">Grupo de pesquisa:</p>
-    </div>
-    <div class="col-lg-4">
-      <input
-        type="text"
-        class="project__input-text"
-        placeholder=""
-        formControlName="searchGroup"
-      />
-    </div>
-    <div class="col-lg-2">
-      <p class="project__label">Financiamento:</p>
-    </div>
-    <div class="col-lg-4">
-      <input
-        type="text"
-        class="project__input-text"
-        placeholder=""
-        formControlName="financing"
-      />
-    </div>
-  </div>
-  <div class="row align-items-center mt-2">
-    <div class="col-lg-2">
-      <p class="project__label">PALAVRAS CHAVES:</p>
-    </div>
-    <div class="col-lg-10">
-      <div class="row">
-        <ng-container formArrayName="keywords">
-          <ng-container
-            *ngFor="
-              let keyword of formProject.get('keywords').controls;
-              let i = index
-            "
-            [formGroupName]="i"
-          >
-            <div class="input-group">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Palavra chave"
-                formControlName="word"
-              />
-              <div
-                class="input-group-append"
-                *ngIf="i > 0"
-                (click)="removeWordControl(i)"
-              >
-                <span class="input-group-text">
-                  <i class="fas fa-times-circle action__icon"></i>
-                </span>
-              </div>
-            </div>
-          </ng-container>
-        </ng-container>
-        <button class="btn" (click)="addWordControl()">
-          +
+      <div class="col-lg-1">
+        <button
+          class="action action--delete action--full"
+          (click)="deleteProject()"
+        >
+          <i class="fas fa-times-circle action__icon"></i>
         </button>
       </div>
     </div>
-  </div>
-  <div
-    class="row align-items-center justify-content-center mt-3"
-    *ngIf="showSaveButton"
-  >
-    <div class="col-lg-2" *ngIf="!project">
-      <a class="close" (click)="cancelProject()">Cancelar</a>
+    <div class="row align-items-center mt-3">
+      <div class="col-lg-2">
+        <p class="project__label">Linha de pesquisa:</p>
+      </div>
+      <div class="col-lg-10">
+        <input
+          type="text"
+          class="project__input-text"
+          placeholder=""
+          formControlName="topics"
+        />
+      </div>
     </div>
-    <div class="col-lg-2">
-      <button class="btn btn--full" (click)="addProject()">Salvar</button>
+    <div class="row mt-3">
+      <div class="col-lg-12">
+        <div class="project__content">
+          <textarea
+            name=""
+            class="project__text-box"
+            placeholder="Descrição"
+            formControlName="description"
+            cols="30"
+            rows="10"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-lg-12">
+        <p class="project__label">Objetivos gerais</p>
+        <div class="project__content">
+          <textarea
+            name=""
+            class="project__text-box"
+            placeholder="Descrição"
+            formControlName="generalObjectives"
+            cols="30"
+            rows="10"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-lg-12">
+        <p class="project__label">Objetivos específicos</p>
+        <div class="project__content">
+          <textarea
+            name=""
+            class="project__text-box"
+            placeholder="Descrição"
+            formControlName="specificObjectives"
+            cols="30"
+            rows="10"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="row align-items-center mt-3">
+      <div class="col-lg-2">
+        <p class="project__label">Grupo de pesquisa:</p>
+      </div>
+      <div class="col-lg-4">
+        <input
+          type="text"
+          class="project__input-text"
+          placeholder=""
+          formControlName="searchGroup"
+        />
+      </div>
+      <div class="col-lg-2">
+        <p class="project__label">Financiamento:</p>
+      </div>
+      <div class="col-lg-4">
+        <input
+          type="text"
+          class="project__input-text"
+          placeholder=""
+          formControlName="financing"
+        />
+      </div>
+    </div>
+    <div class="row align-items-center mt-2">
+      <div class="col-lg-2">
+        <p class="project__label">PALAVRAS CHAVES:</p>
+      </div>
+      <div class="col-lg-10">
+        <div class="row">
+          <ng-container formArrayName="keywords">
+            <ng-container
+              *ngFor="
+                let keyword of formProject.get('keywords').controls;
+                let i = index
+              "
+              [formGroupName]="i"
+            >
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Palavra chave"
+                  formControlName="word"
+                />
+                <div
+                  class="input-group-append"
+                  *ngIf="i > 0"
+                  (click)="removeWordControl(i)"
+                >
+                  <span class="input-group-text">
+                    <i class="fas fa-times-circle action__icon"></i>
+                  </span>
+                </div>
+              </div>
+            </ng-container>
+          </ng-container>
+          <button class="btn" (click)="addWordControl()">
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="row align-items-center justify-content-center mt-3"
+      *ngIf="showSaveButton"
+    >
+      <div class="col-lg-2" *ngIf="!project">
+        <a class="close" (click)="cancelProject()">Cancelar</a>
+      </div>
+      <div class="col-lg-2">
+        <button class="btn btn--full" (click)="addProject()">Salvar</button>
+      </div>
     </div>
   </div>
 </form>

@@ -40,21 +40,23 @@
     <div class="row ml-lg-4">
       <div
         class="col-sm-12 pb-5"
-        *ngFor="let dessertacao of dissertacoesChoose"
+        *ngFor="let dissertacao of dissertacoesChoose"
       >
         <h5>
-          {{ dessertacao.dataPublicacao }} -
-          <strong>{{ dessertacao.titulo }}</strong>
+          {{ dissertacao.date }} -
+          <strong>{{ dissertacao.title }}</strong>
         </h5>
         <h6>
-          Autor(a) - <span class="subLinhas">{{ dessertacao.autor }}</span>
+          Autor(a) - <span class="subLinhas">{{ dissertacao.author }}</span>
         </h6>
-        <p class="text-left pt-1 pb-1 descricao">{{ dessertacao.resumo }}</p>
-        <!-- <h6>Orientadora - <span class="subLinhas">{{ dessertacao.orientador }}</span></h6> -->
+        <p class="text-left pt-1 pb-1 descricao">
+          {{ dissertacao.description }}
+        </p>
+        <!-- <h6>Orientadora - <span class="subLinhas">{{ dissertacao.orientador }}</span></h6> -->
         <div class="mt-3 mb-3">
           <a
             *ngIf="type != 4"
-            [href]="dessertacao.linkPdf"
+            [href]="dissertacao.link"
             target="_blank"
             class="completo"
           >
@@ -62,7 +64,7 @@
           </a>
           <a
             *ngIf="type == 4"
-            [href]="dessertacao.linkPdf"
+            [href]="dissertacao.link"
             target="_blank"
             class="completo"
           >

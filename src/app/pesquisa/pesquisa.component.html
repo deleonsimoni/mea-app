@@ -2,47 +2,47 @@
   <section class="p-3 pt-lg-5 align-items-center">
     <h3 class="mb-3">Projetos de Pesquisa</h3>
     <div class="row ml-lg-4">
-      <div class="col-sm-12 pb-5" *ngFor="let projeto of projPes">
+      <div class="col-sm-12 pb-5" *ngFor="let project of projects">
         <h5>
-          {{ projeto.periodo }} - <strong>{{ projeto.titulo }}</strong>
+          {{ project.startDate + ' - ' + project.endDate }} -
+          <strong>{{ project.title }}</strong>
         </h5>
         <h6>
           Linha de Pesquisa -
-          <span class="subLinhas">{{ projeto.linhaPesquisa }}</span>
+          <span class="subLinhas">{{ project.topics }}</span>
         </h6>
-        <p class="descricao pt-1 pb-1">{{ projeto.resumo }}</p>
-        <div *ngIf="projeto.objGeral[0] != null">
+        <p class="descricao pt-1 pb-1">{{ project.description }}</p>
+        <div *ngIf="project.generalObjectives">
           <h6>Objetivos Gerais</h6>
           <ul class="descricao">
-            <li class="obj mb-2 mt-2" *ngFor="let objGeral of projeto.objGeral">
-              {{ objGeral.obj }}
+            <li class="obj mb-2 mt-2">
+              {{ project.generalObjectives }}
             </li>
           </ul>
         </div>
-        <div *ngIf="projeto.objEspecifico[0] != null">
+        <div *ngIf="project.specificObjectives">
           <h6>Objetivos Especificos</h6>
           <ul class="descricao">
-            <li
-              class="obj mb-2 mt-2"
-              *ngFor="let objEspecifico of projeto.objEspecifico"
-            >
-              {{ objEspecifico.obj }}
+            <li class="obj mb-2 mt-2">
+              {{ project.specificObjectives }}
             </li>
           </ul>
         </div>
         <p>
           <span class="strong">Grupo de Pesquisa - </span
-          ><span class="subLinhas mr-2">{{ projeto.grupoPesquisa }}</span>
+          ><span class="subLinhas mr-2">{{ project.searchGroup }}</span>
           <span class="strong">Financiamento - </span
-          ><span class="subLinhas">{{ projeto.financiamento }}</span>
+          ><span class="subLinhas">{{ project.financing }}</span>
         </p>
         <div class="d-flex flexAcerto">
-          <div><h6 class="pt-1 pb-1 mt-1 mb-1">Palavras Chaves -</h6></div>
+          <div>
+            <h6 class="pt-1 pb-1 mt-1 mb-1">Palavras Chaves -</h6>
+          </div>
           <div
-            *ngFor="let chave of projeto.palavraChave"
+            *ngFor="let keyword of project.keywords"
             class="palavraChave p-1 m-1"
           >
-            {{ chave.palavra }}
+            {{ keyword.word }}
           </div>
         </div>
       </div>

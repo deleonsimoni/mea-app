@@ -1,73 +1,20 @@
 <div class="container-fluid p-0">
   <section class="p-3 mt-lg-5 d-flex align-items-center">
     <div>
-      <h2 class="mb-3 text-primary">Edméa Santos</h2>
-      <p class="lead ml-lg-4 " style="text-align: letf;">
-        Professora Titular-Livre da Universidade Federal Rural do Rio de Janeiro
-        (UFRRJ). Atua no Instituto de Educação e no Programa de Pós-Graduação em
-        Educação (PPGEDUC), na linha de pesquisa " Linha 1: Estudos
-        Contemporâneos e Práticas Educativas". Foi professora Associada da
-        Faculdade de Educação da Universidade do Estado do Rio de Janeiro
-        (UERJ), atuando na Graduação e no Programa de Pós-Graduação em Educação
-        (PROPED/UERJ), durante o período de 2007 a 2018 (onde colabora, junto à
-        linha de pesquisa "Cotidianos, redes educativas e processos culturais").
-        Professora da disciplina Informática na Educação no curso de Pedagogia a
-        Distância UERJ/CEDERJ.
-      </p>
-      <p class="lead ml-lg-4 ">
-        Editora-chefe da Revista Docência e Cibercultura. Pedagoga pela UCSAL,
-        mestre e doutora em Educação pela UFBA. Pós-doutora em e-learning e EAD
-        pela UAB-PT, onde colabora esporadicamente no MPEL - Mestrado em
-        Pedagogia do e-Learning. Líder do GPDOC - Grupo de Pesquisa Docência e
-        Cibercultura. Membro do Laboratório de Imagem da UERJ.
-      </p>
-      <P class="lead ml-lg-4 ">
-        Coordenadora do GT 16 - "Educação e Comunicação" da ANPED - Associação
-        Brasileira de Pesquisa em Educação, vice-presidente da ABCIBER -
-        Associação de Pesquisadores em Cibercultura. Atua na formação inicial e
-        continuada de professores e pesquisadores.
-      </P>
-      <p class="lead ml-lg-4 ">
-        Áreas de atuação: "Educação e Cibercultura, Pesquisa e Práticas
-        Pedagógicas, Formação de Professores, Didática, Currículos: teorias,
-        práticas e políticas, Informática na Educação, Educação Online, EAD.
-      </p>
+      <h2 class="mb-3 text-primary">{{ profile?.name }}</h2>
+      <p class="description ml-lg-4 " [innerHtml]="profile?.description"></p>
     </div>
   </section>
 
   <section class="pl-3 pr-3 mb-5 align-items-center">
     <div class="d-flex text-center flexAcerto">
-      <div class="p-2 curriculo google">
-        <a
-          class="p-2"
-          href="https://scholar.google.com.br/citations?hl=pt-PT&user=5KZzT7QAAAAJ&view_op=list_works&citft=1&citft=2&email_for_op=edmeabaiana%40gmail.com&sortby=pubdate "
-          target="_blank"
-          >Google Acadêmico</a
-        >
-      </div>
-      <div class="p-2 curriculo academia">
-        <a
-          class="p-2"
-          href="http://independent.academia.edu/Edm%C3%A9aM%C3%A9a"
-          target="_blank"
-          >Academia.com</a
-        >
-      </div>
-      <div class="p-2 curriculo orcid">
-        <a
-          class="p-2"
-          href="http://orcid.org/0000-0003-4978-9818"
-          target="_blank"
-          >ORCID</a
-        >
-      </div>
-      <div class="p-2 curriculo">
-        <a
-          class="p-2"
-          href="http://lattes.cnpq.br/4023554724278836"
-          target="_blank"
-          >Currículo Lattes</a
-        >
+      <div
+        class="p-2 curriculo google"
+        *ngFor="let reference of profile?.profileLinks"
+      >
+        <a class="p-2" [href]="reference.link" target="_blank">{{
+          reference.label
+        }}</a>
       </div>
     </div>
   </section>
@@ -77,17 +24,17 @@
     <div class="row ml-lg-4">
       <div
         class="col-sm-12 col-lg-6 pb-3"
-        *ngFor="let formacao of formacaoAcad"
+        *ngFor="let formation of profile?.formations"
       >
-        <h5>{{ formacao.formacao }}</h5>
-        <p class="subLinhas">{{ formacao.instituicao }}</p>
+        <h5>{{ formation.type }}</h5>
+        <p class="subLinhas">{{ formation.institution }}</p>
         <div class="pl-3 d-flex descricao">
-          <p>{{ formacao.titulo }}</p>
-          <p>{{ formacao.grade }}</p>
-          <p *ngFor="let atividade of formacao.atividades">
-            {{ atividade.atividade }}
+          <p>{{ formation.title }}</p>
+          <p>{{ formation.grade }}</p>
+          <p *ngFor="let activity of formation.activities">
+            {{ activity.name }}
           </p>
-          <p>{{ formacao.orientador }}</p>
+          <p>{{ formation.advisor }}</p>
         </div>
       </div>
     </div>
@@ -96,45 +43,33 @@
   <section class="pl-3 pr-3 mb-5 align-items-center">
     <h3 class="mb-3">Atuação Profissional</h3>
     <div class="row ml-lg-4">
-      <div class="col-sm-12" *ngFor="let trabalho of atuProf">
-        <h5 class="mb-3">{{ trabalho.instituicao }}</h5>
+      <div
+        class="col-sm-12"
+        *ngFor="let performance of profile?.professionalPerformances"
+      >
+        <h5 class="mb-3">{{ performance.institution }}</h5>
         <div class="row">
           <div class="col-sm-12 col-md-6">
             <p class="text-center">Vinculo institucional</p>
-            <div *ngFor="let vinculo of trabalho.vinculos">
+            <div *ngFor="let job of performance.jobs">
               <p>
-                <strong>{{ vinculo.data }}</strong> - {{ vinculo.funcao }}
+                <strong>{{ job.initialDate }}</strong> - {{ job.occupation }}
               </p>
-              <p class="descricao pl-3">{{ vinculo.obs }}</p>
+              <p class="descricao pl-3">{{ job.description }}</p>
             </div>
           </div>
           <div class="col-sm-12 col-md-6">
             <p class="text-center">Atividades</p>
-            <div *ngFor="let atividade of trabalho.atividades">
+            <div *ngFor="let activity of performance.activities">
               <p>
-                <strong>{{ atividade.data }}</strong> -
-                {{ atividade.atividade }}
+                <strong>{{ activity.initialDate }}</strong> -
+                {{ activity.role }}
               </p>
-              <p class="descricao pl-3">{{ atividade.obs }}</p>
+              <p class="descricao pl-3">{{ activity.description }}</p>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- <section class="pl-3 pr-3 align-items-center">
-    <h3 class="mb-2">Projetos de pesquisa</h3>
-    <div class="row ml-lg-4">
-      <div class="col-sm-12 pb-5" *ngFor="let projeto of projPes">
-        <h5>
-          <strong>{{ projeto.data }}</strong> - {{ projeto.titulo }}
-        </h5>
-        <p class="subLinhas">{{ projeto.estatus }}</p>
-        <p class="text-justify descricao">{{ projeto.desc }}</p>
-        <p class="subLinhas mb-1">{{ projeto.alunos }}</p>
-        <p class="subLinhas">{{ projeto.integrantes }}</p>
-      </div>
-    </div>
-  </section> -->
 </div>
