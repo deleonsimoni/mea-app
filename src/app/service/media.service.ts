@@ -1,12 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { env } from '@env/.env';
+import { Api } from '@app/enums/api.enum';
+import { environment } from '@env/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MediaService {
-  private api: string = `${env.serverUrl}/api/admin/media`;
+  private api: string = `${
+    environment.production ? Api.PROD : Api.DEV
+  }/api/admin/media`;
 
   constructor(private readonly httpClient: HttpClient) {}
 

@@ -1,12 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { env } from '@env/.env';
+import { Api } from '@app/enums/api.enum';
+import { environment } from '@env/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
-  private api: string = `${env.serverUrl}/api/admin/book`;
+  private api: string = `${
+    environment.production ? Api.PROD : Api.DEV
+  }/api/admin/book`;
 
   constructor(private readonly httpClient: HttpClient) {}
 
@@ -21,6 +24,7 @@ export class BookService {
   }
 
   public list() {
+    console.log(this.api);
     return this.httpClient.get(this.api);
   }
 

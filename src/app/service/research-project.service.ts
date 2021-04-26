@@ -1,12 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { env } from '@env/.env';
+import { Api } from '@app/enums/api.enum';
+import { environment } from '@env/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ResearchProjectService {
-  private api: string = `${env.serverUrl}/api/admin/research-project`;
+  private api: string = `${
+    environment.production ? Api.PROD : Api.DEV
+  }/api/admin/research-project`;
 
   constructor(private readonly httpClient: HttpClient) {}
 

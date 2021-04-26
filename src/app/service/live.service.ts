@@ -1,13 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { env } from '@env/.env';
-import { map } from 'rxjs/operators';
+import { Api } from '@app/enums/api.enum';
+import { environment } from '@env/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LiveService {
-  private api: string = `${env.serverUrl}/api/admin/lives`;
+  private api: string = `${
+    environment.production ? Api.PROD : Api.DEV
+  }/api/admin/lives`;
 
   constructor(private readonly httpClient: HttpClient) {}
 
