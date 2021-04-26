@@ -112,7 +112,7 @@ export class AcervoComponent implements OnInit {
       arquivo: '',
       linkLoja: '',
       linkPdf:
-        'https://uneboffice365-my.sharepoint.com/:f:/g/personal/axavier_uneb_br/EihCNDuxEONPu3WtCeOkiHABqkMJZ425yZhoa2c2ydKd0A?e=Pvan35',
+        'https://edmea.s3-sa-east-1.amazonaws.com/LIVRO+DI%C3%81RIO+DE+PESQUISA+NA+CIBERCULTURA_compressed.pdf',
       fonteIngles: '',
       linkIngles: ''
     },
