@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { link } from 'fs';
 
 export type MenuItem = {
   name: String;
