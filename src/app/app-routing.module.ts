@@ -12,11 +12,11 @@ const routes: Routes = [
     { path: 'livros', loadChildren: './acervo/acervo.module#AcervoModule' },
     { path: 'gpdoc', loadChildren: './gpdoc/gpdoc.module#GpdocModule' },
     {
-      path: 'ProjetosPesquisa',
+      path: 'projetos-pesquisa',
       loadChildren: './pesquisa/pesquisa.module#PesquisaModule'
     },
     {
-      path: 'OrientacoesConcluidas',
+      path: 'orientacoes-concluidas',
       loadChildren: './dissertacao/dissertacao.module#DissertacaoModule'
     },
     {

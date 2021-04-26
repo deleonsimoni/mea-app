@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { env } from '@env/.env';
 import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CurriculumService {
-  private api: string = 'http://localhost:8080/api/admin/curriculum';
+  private api: string = `${env.serverUrl}/api/admin/curriculum`;
 
   constructor(private readonly httpClient: HttpClient) {}
 

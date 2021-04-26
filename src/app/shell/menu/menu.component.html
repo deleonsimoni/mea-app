@@ -31,115 +31,22 @@
     [ngbCollapse]="isCollapsed"
   >
     <ul class="navbar-nav">
-      <li class="nav-item">
-        <a
-          (click)="isCollapsed = true"
-          class="nav-link js-scroll-trigger"
-          routerLink="/curriculo"
-          ><span></span>Curriculo Lattes</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          (click)="isCollapsed = true"
-          class="nav-link js-scroll-trigger"
-          routerLink="/gpdoc"
-          ><span></span>GPDOC</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          (click)="isCollapsed = true"
-          class="nav-link js-scroll-trigger"
-          routerLink="/ProjetosPesquisa"
-          ><span></span>Projetos de Pesquisa</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          class="nav-link js-scroll-trigger"
-          (click)="
-            isCollapsed = true;
-            openExternalLink(
-              'https://scholar.google.com.br/citations?hl=pt-PT&user=5KZzT7QAAAAJ&view_op=list_works&citft=1&citft=2&email_for_op=edmeabaiana%40gmail.com&sortby=pubdate'
-            )
-          "
-          ><span></span>Artigos e Periódicos</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          (click)="isCollapsed = true"
-          class="nav-link js-scroll-trigger"
-          routerLink="/OrientacoesConcluidas"
-          ><span></span>Orientações Concluídas</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          (click)="isCollapsed = true"
-          class="nav-link js-scroll-trigger"
-          routerLink="/livros"
-          ><span></span>Livros</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          (click)="isCollapsed = true"
-          class="nav-link js-scroll-trigger"
-          routerLink="/midia"
-          ><span></span>Midias</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          (click)="isCollapsed = true"
-          class="nav-link js-scroll-trigger"
-          routerLink="/lives"
-          ><span></span>Lives</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          style="cursor: pointer"
-          (click)="
-            isCollapsed = true;
-            openExternalLink(
-              'https://www.e-publicacoes.uerj.br/index.php/re-doc'
-            )
-          "
-          class="nav-link js-scroll-trigger"
-          class="nav-link js-scroll-trigger"
-          ><span></span>REDOC</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          style="cursor: pointer"
-          (click)="
-            isCollapsed = true;
-            openExternalLink('http://www.docenciaonline.pro.br')
-          "
-          class="nav-link js-scroll-trigger"
-          class="nav-link js-scroll-trigger"
-          ><span></span>AVA Moodle</a
-        >
-      </li>
-      <!--<li class="nav-item">
-        <a
-          (click)="isCollapsed = true"
-          class="nav-link js-scroll-trigger"
-          routerLink="/agenda"
-          ><span></span>Sites Interessantes</a
-        >
-      </li>-->
-      <li class="nav-item">
-        <a
-          (click)="isCollapsed = true"
-          class="nav-link js-scroll-trigger"
-          routerLink="/agenda"
-          ><span></span>Newsletters</a
-        >
+      <li class="nav-item" *ngFor="let itemMenu of listItemMenu">
+        <ng-container *ngIf="!itemMenu.external">
+          <a
+            (click)="isCollapsed = true"
+            class="nav-link js-scroll-trigger"
+            [routerLink]="itemMenu.link"
+            >{{ itemMenu.name }}</a
+          >
+        </ng-container>
+        <ng-container *ngIf="itemMenu.external">
+          <a
+            class="nav-link js-scroll-trigger"
+            (click)="isCollapsed = true; openExternalLink(itemMenu.link)"
+            ><span></span>{{ itemMenu.name }}</a
+          >
+        </ng-container>
       </li>
     </ul>
   </div>
