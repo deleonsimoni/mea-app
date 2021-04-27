@@ -5,8 +5,7 @@ const professionalActivity = require('./professional-activity').schema;
 const ProfessionalPerformanceSchema = new mongoose.Schema(
   {
     institution: {
-      type: String,
-      required: true
+      type: String
     },
     jobs: [job],
     activities: [professionalActivity]

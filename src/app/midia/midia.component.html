@@ -255,28 +255,26 @@
 
     <h3 class="mb-3 text-primary">Entrevistas</h3>
     <div class="row mb-5 ml-lg-4">
-      <ng-container *ngFor="let entrevista of media">
-        <div
-          class="col-12 col-md-4 d-flex entCont"
-          *ngIf="entrevista.type === '1'"
-        >
-          <img
-            class="img-fluid capa-livro"
-            (click)="openModal(template, entrevista)"
-            [src]="entrevista.image"
-          />
-        </div>
-      </ng-container>
+      <div
+        class="col-12 col-md-4 d-flex entCont"
+        *ngFor="let entrevista of entrevistas"
+      >
+        <img
+          class="img-fluid capa-livro"
+          (click)="openModal(template, entrevista)"
+          [src]="entrevista.imagem"
+        />
+      </div>
     </div>
 
     <h3 class="text-primary mb-3">APRESENTAÇÕES:</h3>
-    <ng-container *ngFor="let entrevista of media">
-      <a
-        [href]="entrevista.link"
-        *ngIf="entrevista.type === '2'"
+    <ng-container>
+      APRESENTAÇÕES:<a
+        href="https://www.slideshare.net/edmea"
         style="color: blue;"
         target="_blank"
-        >{{ entrevista.title }}</a
+      >
+        Ir para SlideShare</a
       >
     </ng-container>
 

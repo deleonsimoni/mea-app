@@ -2,12 +2,10 @@ const mongoose = require('mongoose');
 
 const ReferenceLinkSchema = new mongoose.Schema({
   label: {
-    type: String,
-    required: true
+    type: String
   },
   link: {
-    type: String,
-    required: true
+    type: String
   }
 });
 

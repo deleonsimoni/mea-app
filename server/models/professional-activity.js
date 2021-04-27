@@ -2,20 +2,16 @@ const mongoose = require('mongoose');
 
 const ProfessionalActivitySchema = new mongoose.Schema({
   initialDate: {
-    type: String,
-    required: true
+    type: String
   },
   finalDate: {
-    type: String,
-    required: true
+    type: String
   },
   role: {
-    type: String,
-    required: true
+    type: String
   },
   description: {
-    type: String,
-    required: true
+    type: String
   }
 });
 

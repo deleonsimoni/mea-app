@@ -3,24 +3,19 @@ const activity = require('./activity.schema').schema;
 
 const FormationSchema = new mongoose.Schema({
   type: {
-    type: String,
-    required: true
+    type: String
   },
   institutionName: {
-    type: String,
-    required: true
+    type: String
   },
   title: {
-    type: String,
-    required: true
+    type: String
   },
   grade: {
-    type: String,
-    required: true
+    type: String
   },
   advisor: {
-    type: String,
-    required: true
+    type: String
   },
   activities: [activity]
 });
