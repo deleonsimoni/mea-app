@@ -17,7 +17,7 @@
           formControlName="endDate"
         />
       </div>
-      <div class="col-lg-7">
+      <div [ngClass]="{ 'col-lg-7': project, 'col-lg-8': !project }">
         <input
           type="text"
           class="project__input-text project--spotlight"
@@ -25,7 +25,7 @@
           formControlName="title"
         />
       </div>
-      <div class="col-lg-1">
+      <div class="col-lg-1" *ngIf="project">
         <button
           class="action action--delete action--full"
           (click)="deleteProject()"

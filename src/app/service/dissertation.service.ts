@@ -13,10 +13,13 @@ export class DissertationService {
 
   constructor(private readonly httpClient: HttpClient) {}
 
-  public create(data: any, file: File) {
+  public create(data: any, file: File = null) {
     const formData: FormData = new FormData();
-    formData.append('fileArray', file, file.name);
     formData.append('formulario', JSON.stringify(data));
+
+    if (file) {
+      formData.append('fileArray', file, file.name);
+    }
 
     return this.httpClient.post(this.api, formData);
   }
@@ -25,8 +28,15 @@ export class DissertationService {
     return this.httpClient.get(this.api);
   }
 
-  public update(data: any) {
-    return this.httpClient.put(this.api, data);
+  public update(data: any, file: File = null) {
+    const formData: FormData = new FormData();
+    formData.append('formulario', JSON.stringify(data));
+
+    if (file) {
+      formData.append('fileArray', file, file.name);
+    }
+
+    return this.httpClient.put(this.api, formData);
   }
 
   public delete(id: string) {

@@ -22,6 +22,7 @@
 
     <ng-container *ngFor="let dissertation of dissertations">
       <app-dissertation
+        class="card mb-4"
         [dissertation]="dissertation"
         (saveDissertation)="addDissertation($event)"
         (removeDissertation)="deleteDissertation($event)"

@@ -54,15 +54,15 @@
         placeholder="Link do livro"
         formControlName="link"
       />
-      <!-- <input type="text" class="book__input-text" placeholder="Upload pdf" formControlName="archive" />
-      <input type="text" class="book__input-text" placeholder="Upload capa do livro" formControlName="image" /> -->
-      <div class="custom-file mt-2">
+
+      <label for="" class="book__label">PDF</label>
+      <div class="custom-file">
         <input
           type="file"
           class="custom-file-input"
           data-max-size="2048"
           id="customPreReadFile"
-          (change)="setFileNameBook($event.target.files)"
+          (change)="setFileBook($event.target.files)"
           #fileInput
         />
         <label class="custom-file-label" for="customPreReadFile">{{
@@ -70,13 +70,14 @@
         }}</label>
       </div>
 
-      <div class="custom-file mt-2">
+      <label for="" class="book__label">Capa do livro</label>
+      <div class="custom-file">
         <input
           type="file"
           class="custom-file-input"
           data-max-size="2048"
           id="customPreReadFile2"
-          (change)="setFileNameCapa($event.target.files)"
+          (change)="setFileCapa($event.target.files)"
           #fileInput2
         />
         <label class="custom-file-label" for="customPreReadFile2">{{

@@ -22,12 +22,12 @@
 
     <ng-container *ngFor="let project of projects">
       <app-project
+        class="card mb-4"
         [project]="project"
         (saveProject)="addProject($event)"
         (removeProject)="deleteProject($event)"
       >
       </app-project>
-      <hr />
     </ng-container>
 
     <p

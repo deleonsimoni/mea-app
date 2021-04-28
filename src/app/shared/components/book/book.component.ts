@@ -29,8 +29,8 @@ export class BookComponent implements OnChanges {
   @ViewChild('fileInput', { static: false }) fileInput: ElementRef;
   @ViewChild('fileInput2', { static: false }) fileInput2: ElementRef;
 
-  private fileCapa: FileList;
-  private fileBook: FileList;
+  private fileCapa: File;
+  private fileBook: File;
 
   public bookForm: FormGroup;
   public showSaveButton: boolean = true;
@@ -60,13 +60,15 @@ export class BookComponent implements OnChanges {
     if (book && book.currentValue) {
       this.showSaveButton = false;
 
+      console.log(book.currentValue);
+
       this.bookForm.patchValue({
         title: book.currentValue.title,
         authors: book.currentValue.authors,
         publishingCompany: book.currentValue.publishingCompany,
-        image: this.getLink(book.currentValue.image),
+        image: book.currentValue.image,
         link: book.currentValue.link,
-        archive: this.getLink(book.currentValue.archive),
+        archive: book.currentValue.archive,
         type: book.currentValue.type
       });
 
@@ -97,15 +99,15 @@ export class BookComponent implements OnChanges {
         this.saveBook.emit({
           exist: true,
           book: this.book,
-          fileCapa: this.fileCapa[0] || null,
-          fileBook: this.fileBook[0] || null
+          fileCapa: this.fileCapa || null,
+          fileBook: this.fileBook || null
         });
       } else {
         this.saveBook.emit({
           exist: false,
           book: this.bookForm.getRawValue(),
-          fileCapa: this.fileCapa[0] || null,
-          fileBook: this.fileBook[0] || null
+          fileCapa: this.fileCapa || null,
+          fileBook: this.fileBook || null
         });
       }
 
@@ -119,30 +121,25 @@ export class BookComponent implements OnChanges {
 
   get bookImage() {
     const image = this.bookForm.get('image').value;
-    console.log(image);
-    return image ? image : 'https://via.placeholder.com/300x400';
+    return image ? this.getLink(image) : 'https://via.placeholder.com/300x400';
   }
 
   public getFileNameCapa(): string {
-    let msg;
-
-    return this.fileCapa ? this.fileCapa[0].name : msg;
+    return this.fileCapa ? this.fileCapa.name : 'Selecione o arquivo';
   }
 
-  public setFileNameCapa(files: FileList): void {
+  public setFileCapa(files: FileList): void {
     this.showSaveButton = true;
-    this.fileCapa = files;
+    this.fileCapa = files[0];
   }
 
   public getFileNameBook(): string {
-    let msg;
-
-    return this.fileBook ? this.fileBook[0].name : msg;
+    return this.fileBook ? this.fileBook.name : 'Selecione o arquivo';
   }
 
-  public setFileNameBook(files: FileList): void {
+  public setFileBook(files: FileList): void {
     this.showSaveButton = true;
-    this.fileBook = files;
+    this.fileBook = files[0];
   }
 
   public getLink(link: string): string {

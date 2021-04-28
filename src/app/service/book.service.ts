@@ -15,10 +15,15 @@ export class BookService {
 
   public create(book: any, fileCapa: File, fileBook: File) {
     const formData: FormData = new FormData();
-    formData.append('fileArray', fileCapa, fileCapa.name);
-    formData.append('fileArray', fileBook, fileBook.name);
-
     formData.append('formulario', JSON.stringify(book));
+
+    if (fileCapa) {
+      formData.append('fileArray', fileCapa, fileCapa.name);
+    }
+
+    if (fileBook) {
+      formData.append('fileArray', fileBook, fileBook.name);
+    }
 
     return this.httpClient.post(this.api, formData);
   }
@@ -28,8 +33,19 @@ export class BookService {
     return this.httpClient.get(this.api);
   }
 
-  public update(live: any) {
-    return this.httpClient.put(this.api, live);
+  public update(book: any, fileCapa: File, fileBook: File) {
+    const formData: FormData = new FormData();
+    formData.append('formulario', JSON.stringify(book));
+
+    if (fileCapa) {
+      formData.append('capa', fileCapa, fileCapa.name);
+    }
+
+    if (fileBook) {
+      formData.append('book', fileBook, fileBook.name);
+    }
+
+    return this.httpClient.put(this.api, formData);
   }
 
   public delete(id: string) {

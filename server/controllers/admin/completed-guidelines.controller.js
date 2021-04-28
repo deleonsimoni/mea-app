@@ -3,31 +3,49 @@ const S3Uploader = require('./../aws.controller');
 const config = require('./../../config/config');
 
 class CompletedGuidelinesController {
+  static async upload(file) {
+    const archiveName = config.PATH_S3_DEV + 'pdfs/' + file.name;
+
+    try {
+      await S3Uploader.uploadFile(archiveName, file.data);
+
+      return archiveName;
+    } catch (e) {
+      console.log('Erro AWS: ', e);
+    }
+  }
+
   static async create(data) {
-    let fileName = config.PATH_S3_DEV + 'pdfs/' + data.archive.name;
-    const dissertation = JSON.parse(data.body.formulario);
+    const dissertation = data.body;
+    const file = data.archive;
 
-    await S3Uploader.uploadFile(fileName, data.archive.data).then(
-      fileData => {
-        dissertation.link = fileName;
+    if (file) {
+      dissertation.archive = await this.upload(file);
+      dissertation.link = null;
+    } else {
+      dissertation.archive = null;
+    }
 
-        return new Dissertation(dissertation).save();
-      },
-      err => {
-        console.log('Erro ao enviar imagem para AWS: ' + fileName);
-        retorno.temErro = true;
-        retorno.mensagem =
-          'Servidor momentaneamente inoperante. Tente novamente mais tarde.';
-      }
-    );
+    return new Dissertation(dissertation).save();
   }
 
   static list() {
     return Dissertation.find();
   }
 
-  static update(data) {
-    return Dissertation.update(data);
+  static async update(data) {
+    const dissertation = data.body;
+    const file = data.archive;
+
+    if (file) {
+      dissertation.archive = await this.upload(file);
+      dissertation.link = null;
+    } else {
+      dissertation.archive = null;
+    }
+
+    console.log(dissertation);
+    return Dissertation.update(dissertation);
   }
 
   static delete(id) {

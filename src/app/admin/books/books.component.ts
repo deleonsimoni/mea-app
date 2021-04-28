@@ -37,7 +37,7 @@ export class BooksComponent implements OnInit {
     this.loading = true;
 
     if (ev.exist) {
-      this.bookService.update(ev.book).subscribe(
+      this.bookService.update(ev.book, ev.fileCapa, ev.fileBook).subscribe(
         () => {
           this.loading = false;
           this.listAll();

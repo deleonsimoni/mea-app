@@ -27,9 +27,16 @@ export class DissertationComponent implements OnChanges {
   @Output() removeDissertation: EventEmitter<string> = new EventEmitter();
   @ViewChild('fileInput', { static: false }) fileInput: ElementRef;
 
+  private filePdf: File;
+  public linkArchive: string;
+
+  public uploadType: number = 1;
+  public uploadOptions: Array<{ id: number; label: string }> = [
+    { id: 1, label: 'Link' },
+    { id: 2, label: 'PDF' }
+  ];
   public dissertationForm: FormGroup;
   public showSaveButton: boolean = true;
-  private filePdf: FileList;
   public dissertationlevels: Array<{ id: number; label: string }> = [
     { id: 1, label: 'Iniciação Científica' },
     { id: 2, label: 'Mestrado' },
@@ -53,6 +60,11 @@ export class DissertationComponent implements OnChanges {
 
     if (dissertation && dissertation.currentValue) {
       this.showSaveButton = false;
+
+      if (dissertation.currentValue.archive) {
+        this.uploadType = 2;
+        this.linkArchive = dissertation.currentValue.archive;
+      }
 
       this.dissertationForm.patchValue({
         date: dissertation.currentValue.date,
@@ -85,13 +97,13 @@ export class DissertationComponent implements OnChanges {
       this.saveDissertation.emit({
         exist: true,
         dissertation: this.dissertation,
-        filePdf: this.filePdf[0] || null
+        filePdf: this.filePdf ? this.filePdf : null
       });
     } else {
       this.saveDissertation.emit({
         exist: false,
         dissertation: this.dissertationForm.getRawValue(),
-        filePdf: this.filePdf[0] || null
+        filePdf: this.filePdf ? this.filePdf : null
       });
     }
 
@@ -107,14 +119,15 @@ export class DissertationComponent implements OnChanges {
   }
 
   public getFileName(): string {
-    const fileName = this.filePdf
-      ? this.filePdf[0].name
-      : 'Selecione o arquivo';
-    return fileName;
+    return this.filePdf ? this.filePdf.name : 'Selecione o arquivo';
   }
 
-  public setFileName(files: FileList): void {
+  public setFileName(file: File): void {
     this.showSaveButton = true;
-    this.filePdf = files;
+    this.filePdf = file[0];
+  }
+
+  public getLink(): string {
+    return `https://profedmeasantos.s3.us-east-2.amazonaws.com/${this.linkArchive}`;
   }
 }

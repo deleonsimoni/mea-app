@@ -35,9 +35,11 @@ export class CompletedGuidelinesComponent implements OnInit {
 
   public addDissertation(ev: any): void {
     this.loading = true;
+    this.newDissertation = false;
+    this.dissertations = [];
 
     if (ev.exist) {
-      this.dissertationService.update(ev.dissertation).subscribe(
+      this.dissertationService.update(ev.dissertation, ev.filePdf).subscribe(
         () => {
           this.loading = false;
           this.listAll();
@@ -59,8 +61,6 @@ export class CompletedGuidelinesComponent implements OnInit {
         }
       );
     }
-
-    this.newDissertation = false;
   }
 
   public deleteDissertation(id: string): void {

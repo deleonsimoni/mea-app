@@ -28,9 +28,13 @@ router.post(
 
 router.put(
   '/',
+  [fileUpload()],
   asyncHandler(async (req, res) => {
     const body = req.body;
-    await BookController.update(body);
+    const fileCapa = req.files.capa || null;
+    const fileBook = req.files.book || null;
+    console.log(req.files);
+    await BookController.update(body, fileCapa, fileBook);
 
     res.json({
       status: 200,

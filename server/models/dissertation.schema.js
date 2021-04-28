@@ -23,6 +23,9 @@ const DissertationSchema = new mongoose.Schema(
     },
     link: {
       type: String
+    },
+    archive: {
+      type: String
     }
   },
   {

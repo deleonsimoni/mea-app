@@ -3,51 +3,50 @@ const S3Uploader = require('./../aws.controller');
 const config = require('./../../config/config');
 
 class BookController {
+  static async upload(file, type) {
+    const archiveName = config.PATH_S3_DEV + type + '/' + file.name;
+
+    try {
+      await S3Uploader.uploadFile(archiveName, file.data);
+
+      return archiveName;
+    } catch (e) {
+      console.log('Erro AWS: ', e);
+    }
+  }
+
   static async create(data, fileCapa, fileBook) {
     console.log(data, fileCapa, fileBook);
-
     const book = JSON.parse(data.formulario);
 
-    let haErro = false;
-    let fileName;
-
     if (fileCapa) {
-      fileName = config.PATH_S3_DEV + 'img/' + fileCapa.name;
-      await S3Uploader.uploadFile(fileName, fileCapa.data).then(
-        fileData => {
-          book.image = fileName;
-        },
-        err => {
-          console.log('Erro ao enviar imagem para AWS: ' + fileName);
-          haErro = true;
-        }
-      );
+      book.image = await this.upload(fileCapa, 'img');
     }
 
     if (fileBook) {
-      fileName = config.PATH_S3_DEV + 'pdfs/' + fileBook.name;
-      await S3Uploader.uploadFile(fileName, fileBook.data).then(
-        fileData => {
-          book.archive = fileName;
-        },
-        err => {
-          console.log('Erro ao enviar imagem para AWS: ' + fileName);
-          haErro = true;
-        }
-      );
+      book.archive = await this.upload(fileBook, 'pdfs');
     }
 
-    if (!haErro) {
-      return new Book(book).save();
-    }
+    return new Book(book).save();
   }
 
   static list() {
     return Book.find();
   }
 
-  static update(data) {
-    return Book.update(data);
+  static async update(data, fileCapa, fileBook) {
+    console.log(data, fileCapa, fileBook);
+    const book = JSON.parse(data.formulario);
+
+    if (fileCapa) {
+      book.image = await this.upload(fileCapa, 'img');
+    }
+
+    if (fileBook) {
+      book.archive = await this.upload(fileBook, 'pdfs');
+    }
+
+    return Book.update(book);
   }
 
   static delete(id) {

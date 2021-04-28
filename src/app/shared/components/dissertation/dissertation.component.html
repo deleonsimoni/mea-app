@@ -60,18 +60,59 @@
     </div>
   </div>
 
-  <div class="custom-file mt-2">
-    <input
-      type="file"
-      class="custom-file-input"
-      data-max-size="2048"
-      id="customPreReadFile"
-      (change)="setFileName($event.target.files)"
-      #fileInput
-    />
-    <label class="custom-file-label" for="customPreReadFile">{{
-      getFileName()
-    }}</label>
+  <div class="row align-items-center mt-3">
+    <div class="col-lg-4">
+      <select
+        class="dissertation__select"
+        [(ngModel)]="uploadType"
+        [ngModelOptions]="{ standalone: true }"
+      >
+        <option
+          *ngFor="let item of uploadOptions"
+          [value]="item.id"
+          [selected]="uploadType === item.id"
+          >{{ item.label }}</option
+        >
+      </select>
+    </div>
+    <div class="col-lg-8">
+      <div [ngSwitch]="uploadType">
+        <div *ngSwitchCase="2">
+          <div class="row align-items-center">
+            <div
+              [ngClass]="{ 'col-lg-12': !linkArchive, 'col-lg-9': linkArchive }"
+            >
+              <div class="custom-file">
+                <input
+                  type="file"
+                  class="custom-file-input"
+                  data-max-size="2048"
+                  id="customPreReadFile"
+                  (change)="setFileName($event.target.files)"
+                  #fileInput
+                />
+                <label class="custom-file-label" for="customPreReadFile">{{
+                  getFileName()
+                }}</label>
+              </div>
+            </div>
+            <div class="col-lg-3" *ngIf="linkArchive">
+              <a class="link-download" [href]="getLink()" target="_blank"
+                >Download</a
+              >
+            </div>
+          </div>
+        </div>
+        <div *ngSwitchDefault>
+          <input
+            type="text"
+            class="dissertation__input-text"
+            placeholder="Link da teste"
+            formControlName="link"
+          />
+        </div>
+      </div>
+    </div>
   </div>
 
   <div

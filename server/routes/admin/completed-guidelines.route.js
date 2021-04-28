@@ -14,8 +14,9 @@ router.post(
   '/',
   [fileUpload()],
   asyncHandler(async (req, res) => {
-    const body = req.body;
-    const archive = req.files.fileArray || null;
+    const body = JSON.parse(req.body.formulario);
+    const archive = req.files ? req.files.fileArray : null;
+
     await CompletedGuidelinesController.create({ body, archive });
 
     res.json({
@@ -27,9 +28,12 @@ router.post(
 
 router.put(
   '/',
+  [fileUpload()],
   asyncHandler(async (req, res) => {
-    const body = req.body;
-    await CompletedGuidelinesController.update(body);
+    const body = JSON.parse(req.body.formulario);
+    const archive = req.files ? req.files.fileArray : null;
+
+    await CompletedGuidelinesController.update({ body, archive });
 
     res.json({
       status: 200,
