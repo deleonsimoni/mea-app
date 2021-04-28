@@ -9,6 +9,7 @@ import { ResearchProjectService } from '@app/service/research-project.service';
 export class ResearchProjectsComponent implements OnInit {
   public newProject: boolean = false;
   public projects: any[] = [];
+  public loading = false;
 
   constructor(
     private readonly researchProjectService: ResearchProjectService
@@ -19,16 +20,34 @@ export class ResearchProjectsComponent implements OnInit {
   }
 
   listAll() {
-    this.researchProjectService
-      .list()
-      .subscribe((projects: any) => (this.projects = projects));
+    this.loading = true;
+
+    this.researchProjectService.list().subscribe(
+      (projects: any) => {
+        this.loading = false;
+        this.projects = projects;
+      },
+      e => {
+        this.loading = false;
+        console.log(e);
+      }
+    );
   }
 
   public addProject(ev: any) {
+    this.loading = true;
+
     if (ev.exist) {
-      this.researchProjectService
-        .update(ev.project)
-        .subscribe(() => this.listAll(), e => console.log(e));
+      this.researchProjectService.update(ev.project).subscribe(
+        () => {
+          this.loading = false;
+          this.listAll();
+        },
+        e => {
+          this.loading = false;
+          console.log(e);
+        }
+      );
     } else {
       this.researchProjectService
         .create(ev.project)
@@ -39,6 +58,17 @@ export class ResearchProjectsComponent implements OnInit {
   }
 
   deleteProject(id: string) {
-    this.researchProjectService.delete(id).subscribe(() => this.listAll());
+    this.loading = true;
+
+    this.researchProjectService.delete(id).subscribe(
+      () => {
+        this.loading = false;
+        this.listAll();
+      },
+      e => {
+        this.loading = false;
+        console.log(e);
+      }
+    );
   }
 }

@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CustomComponentsModule } from '@app/shared/components/custom-components.module';
+import { NgxLoadingModule } from 'ngx-loading';
 
 const routes: Routes = [{ path: '', component: CurriculumComponent }];
 
@@ -15,7 +16,8 @@ const routes: Routes = [{ path: '', component: CurriculumComponent }];
     RouterModule.forChild(routes),
     HttpClientModule,
     FormsModule,
-    CustomComponentsModule
+    CustomComponentsModule,
+    NgxLoadingModule.forRoot({})
   ],
   exports: [CurriculumComponent, RouterModule]
 })

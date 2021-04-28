@@ -10,6 +10,7 @@ import { Live } from '@ng-bootstrap/ng-bootstrap/util/accessibility/live';
 export class LivesEditComponent implements OnInit {
   lives: Array<Live> = [];
   formFields = ['title', 'link', 'date', 'institution'];
+  public loading = false;
 
   constructor(private readonly liveService: LiveService) {}
 
@@ -18,24 +19,44 @@ export class LivesEditComponent implements OnInit {
   }
 
   listAll() {
-    this.liveService.list().subscribe((lives: any) => (this.lives = lives));
+    this.loading = true;
+    this.liveService.list().subscribe(
+      (lives: any) => {
+        this.loading = false;
+        this.lives = lives;
+      },
+      e => {
+        this.loading = false;
+        console.log(e);
+      }
+    );
   }
 
   public addLive(live: Live): void {
+    this.loading = true;
     this.liveService.create(live).subscribe(
       () => {
+        this.loading = false;
         this.listAll();
       },
-      e => console.log(e)
+      e => {
+        this.loading = false;
+        console.log(e);
+      }
     );
   }
 
   public deleteLive(id: string): void {
+    this.loading = true;
     this.liveService.delete(id).subscribe(
       () => {
+        this.loading = false;
         this.listAll();
       },
-      e => console.log(e)
+      e => {
+        this.loading = false;
+        console.log(e);
+      }
     );
   }
 }

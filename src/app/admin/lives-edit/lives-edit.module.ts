@@ -4,6 +4,7 @@ import { LivesEditComponent } from './lives-edit.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomComponentsModule } from '@app/shared/components/custom-components.module';
+import { NgxLoadingModule } from 'ngx-loading';
 
 const routes: Routes = [{ path: '', component: LivesEditComponent }];
 
@@ -14,7 +15,8 @@ const routes: Routes = [{ path: '', component: LivesEditComponent }];
     RouterModule.forChild(routes),
     FormsModule,
     ReactiveFormsModule,
-    CustomComponentsModule
+    CustomComponentsModule,
+    NgxLoadingModule.forRoot({})
   ],
   exports: [LivesEditComponent, RouterModule]
 })

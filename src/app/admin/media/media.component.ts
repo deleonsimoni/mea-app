@@ -10,6 +10,7 @@ import { MediaService } from '@app/service/media.service';
 export class MediaComponent implements OnInit {
   media: Array<Media> = [];
   formFields: Array<string> = ['title', 'link', 'image', 'type'];
+  public loading = false;
 
   constructor(private readonly mediaService: MediaService) {}
 
@@ -18,24 +19,47 @@ export class MediaComponent implements OnInit {
   }
 
   public listAll(): void {
-    this.mediaService.list().subscribe((media: any) => (this.media = media));
+    this.loading = true;
+
+    this.mediaService.list().subscribe(
+      (media: any) => {
+        this.loading = false;
+        this.media = media;
+      },
+      e => {
+        this.loading = false;
+        console.log(e);
+      }
+    );
   }
 
   public deleteMedia(id: string): void {
+    this.loading = true;
+
     this.mediaService.delete(id).subscribe(
       () => {
+        this.loading = false;
         this.listAll();
       },
-      e => console.log(e)
+      e => {
+        this.loading = false;
+        console.log(e);
+      }
     );
   }
 
   public addMedia(media: Media): void {
+    this.loading = true;
+
     this.mediaService.create(media).subscribe(
       () => {
+        this.loading = false;
         this.listAll();
       },
-      e => console.log(e)
+      e => {
+        this.loading = false;
+        console.log(e);
+      }
     );
   }
 }

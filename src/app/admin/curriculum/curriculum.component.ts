@@ -11,6 +11,7 @@ export class CurriculumComponent implements OnInit {
   public curriculum: any;
   public newFormation: boolean;
   public newPerformance: boolean;
+  public loading = false;
 
   constructor(private readonly curriculumService: CurriculumService) {}
 
@@ -19,12 +20,23 @@ export class CurriculumComponent implements OnInit {
   }
 
   list() {
-    this.curriculumService.list().subscribe(success => {
-      this.curriculum = success;
-    });
+    this.loading = true;
+
+    this.curriculumService.list().subscribe(
+      success => {
+        this.loading = false;
+        this.curriculum = success;
+      },
+      e => {
+        this.loading = false;
+        console.log(e);
+      }
+    );
   }
 
   addFormation(formation: any) {
+    this.loading = true;
+
     const curriculum = this.curriculum;
 
     if (formation._id) {
@@ -36,28 +48,54 @@ export class CurriculumComponent implements OnInit {
       curriculum.formations.push(formation);
     }
 
-    this.curriculumService.update(curriculum).subscribe(() => {
-      this.newFormation = false;
+    this.curriculumService.update(curriculum).subscribe(
+      () => {
+        this.loading = false;
+        this.newFormation = false;
 
-      setTimeout(() => {
-        this.list();
-      }, 500);
-    });
+        setTimeout(() => {
+          this.list();
+        }, 500);
+      },
+      e => {
+        this.loading = false;
+        console.log(e);
+      }
+    );
   }
 
   removeFormation(id: string) {
+    this.loading = true;
+
     const curriculum = this.curriculum;
     const formations = curriculum.formations.filter((el: any) => el._id !== id);
     curriculum.formations = formations;
 
-    this.curriculumService.update(curriculum).subscribe(() => this.list());
+    this.curriculumService.update(curriculum).subscribe(
+      () => {
+        this.loading = false;
+        this.list();
+      },
+      e => {
+        this.loading = false;
+        console.log(e);
+      }
+    );
   }
 
   savePersonalData(data: any) {
+    this.loading = true;
+
     this.curriculum.name = data.name;
     this.curriculum.description = data.description;
 
-    this.curriculumService.update(this.curriculum).subscribe();
+    this.curriculumService.update(this.curriculum).subscribe(
+      () => (this.loading = false),
+      e => {
+        this.loading = false;
+        console.log(e);
+      }
+    );
   }
 
   deletePerformance(ev: any) {
@@ -66,28 +104,62 @@ export class CurriculumComponent implements OnInit {
         (el: any) => el._id != ev.id
       );
 
-      this.curriculumService
-        .update(this.curriculum)
-        .subscribe(() => this.list());
+      this.curriculumService.update(this.curriculum).subscribe(
+        () => {
+          this.loading = false;
+          this.list();
+        },
+        e => {
+          this.loading = false;
+          console.log(e);
+        }
+      );
     } else {
       this.newPerformance = false;
     }
   }
 
   updatePerformance(ev: any) {
+    this.loading = true;
+
     const index = this.curriculum.professionalPerformances.findIndex(
       (el: any) => el._id == ev._id
     );
     this.curriculum.professionalPerformances[index] = ev;
 
-    this.curriculumService.update(this.curriculum).subscribe(x => this.list());
+    this.curriculumService.update(this.curriculum).subscribe(
+      x => {
+        this.loading = false;
+        this.list();
+      },
+      e => {
+        this.loading = false;
+        console.log(e);
+      }
+    );
   }
 
   public saveProfileLink(ev: any): void {
-    this.curriculumService.update({ profileLinks: ev }).subscribe();
+    this.loading = true;
+
+    this.curriculumService.update({ profileLinks: ev }).subscribe(
+      () => (this.loading = false),
+      e => {
+        this.loading = false;
+        console.log(e);
+      }
+    );
   }
 
   public deleteProfileLink(ev: any): void {
-    this.curriculumService.update({ profileLinks: ev }).subscribe();
+    this.loading = true;
+
+    this.curriculumService.update({ profileLinks: ev }).subscribe(
+      () => (this.loading = false),
+      e => {
+        this.loading = false;
+        console.log(e);
+      }
+    );
   }
 }

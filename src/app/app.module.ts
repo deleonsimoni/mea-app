@@ -20,6 +20,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { LivesModalComponent } from './modals/lives-modal/lives-modal.component';
 import { MatButtonModule } from '@angular/material/button';
+import { NgxLoadingModule } from 'ngx-loading';
 
 @NgModule({
   imports: [
@@ -37,6 +38,7 @@ import { MatButtonModule } from '@angular/material/button';
     LoginModule,
     ModalModule.forRoot(),
     DashboardModule,
+    NgxLoadingModule.forRoot({}),
     MatTabsModule,
     AppRoutingModule // must be imported as the last module as it contains the fallback route
   ],

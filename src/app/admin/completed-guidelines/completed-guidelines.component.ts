@@ -10,6 +10,7 @@ import { DissertationService } from '@app/service/dissertation.service';
 export class CompletedGuidelinesComponent implements OnInit {
   public newDissertation: boolean = false;
   public dissertations: Array<Dissertation> = [];
+  public loading = false;
 
   constructor(private readonly dissertationService: DissertationService) {}
 
@@ -18,29 +19,62 @@ export class CompletedGuidelinesComponent implements OnInit {
   }
 
   public listAll(): void {
-    this.dissertationService
-      .list()
-      .subscribe(
-        (dissertations: Array<Dissertation>) =>
-          (this.dissertations = dissertations)
-      );
+    this.loading = true;
+
+    this.dissertationService.list().subscribe(
+      (dissertations: Array<Dissertation>) => {
+        this.loading = false;
+        this.dissertations = dissertations;
+      },
+      e => {
+        this.loading = false;
+        console.log(e);
+      }
+    );
   }
 
   public addDissertation(ev: any): void {
+    this.loading = true;
+
     if (ev.exist) {
-      this.dissertationService
-        .update(ev.dissertation)
-        .subscribe(() => this.listAll());
+      this.dissertationService.update(ev.dissertation).subscribe(
+        () => {
+          this.loading = false;
+          this.listAll();
+        },
+        e => {
+          this.loading = false;
+          console.log(e);
+        }
+      );
     } else {
-      this.dissertationService
-        .create(ev.dissertation, ev.filePdf)
-        .subscribe(() => this.listAll());
+      this.dissertationService.create(ev.dissertation, ev.filePdf).subscribe(
+        () => {
+          this.loading = false;
+          this.listAll();
+        },
+        e => {
+          this.loading = false;
+          console.log(e);
+        }
+      );
     }
 
     this.newDissertation = false;
   }
 
   public deleteDissertation(id: string): void {
-    this.dissertationService.delete(id).subscribe(() => this.listAll());
+    this.loading = true;
+
+    this.dissertationService.delete(id).subscribe(
+      () => {
+        this.loading = false;
+        this.listAll();
+      },
+      e => {
+        this.loading = false;
+        console.log(e);
+      }
+    );
   }
 }

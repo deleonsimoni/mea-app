@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MediaComponent } from './media.component';
 import { RouterModule, Routes } from '@angular/router';
 import { CustomComponentsModule } from '@app/shared/components/custom-components.module';
+import { NgxLoadingModule } from 'ngx-loading';
 
 const routes: Routes = [{ path: '', component: MediaComponent }];
 
@@ -11,7 +12,8 @@ const routes: Routes = [{ path: '', component: MediaComponent }];
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    CustomComponentsModule
+    CustomComponentsModule,
+    NgxLoadingModule.forRoot({})
   ],
   exports: [MediaComponent, RouterModule]
 })
