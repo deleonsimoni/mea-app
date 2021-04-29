@@ -20,7 +20,7 @@ router.post(
 
     res.json({
       status: 200,
-      message: 'Programação cadastrada com sucesso!'
+      message: 'Projeto cadastrado com sucesso!'
     });
   })
 );
@@ -33,7 +33,7 @@ router.put(
 
     res.json({
       status: 200,
-      message: 'Programação atualizada com sucesso!'
+      message: 'Projeto atualizado com sucesso!'
     });
   })
 );
@@ -45,7 +45,7 @@ router.delete(
 
     res.json({
       status: 200,
-      message: 'Programação deletada com sucesso!'
+      message: 'Projeto deletado com sucesso!'
     });
   })
 );

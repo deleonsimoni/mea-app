@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ResearchProjectService } from '@app/service/research-project.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-research-projects',
@@ -12,7 +13,8 @@ export class ResearchProjectsComponent implements OnInit {
   public loading = false;
 
   constructor(
-    private readonly researchProjectService: ResearchProjectService
+    private readonly researchProjectService: ResearchProjectService,
+    private readonly toastr: ToastrService
   ) {}
 
   ngOnInit() {
@@ -30,6 +32,7 @@ export class ResearchProjectsComponent implements OnInit {
       e => {
         this.loading = false;
         console.log(e);
+        this.toastr.error();
       }
     );
   }
@@ -39,19 +42,25 @@ export class ResearchProjectsComponent implements OnInit {
 
     if (ev.exist) {
       this.researchProjectService.update(ev.project).subscribe(
-        () => {
+        (res: any) => {
           this.loading = false;
           this.listAll();
+          this.toastr.success(res.message);
         },
         e => {
           this.loading = false;
           console.log(e);
+          this.toastr.error();
         }
       );
     } else {
-      this.researchProjectService
-        .create(ev.project)
-        .subscribe(() => this.listAll());
+      this.researchProjectService.create(ev.project).subscribe(
+        (res: any) => {
+          this.listAll();
+          this.toastr.success(res.message);
+        },
+        e => this.toastr.error()
+      );
     }
 
     this.newProject = false;
@@ -61,13 +70,15 @@ export class ResearchProjectsComponent implements OnInit {
     this.loading = true;
 
     this.researchProjectService.delete(id).subscribe(
-      () => {
+      (res: any) => {
         this.loading = false;
         this.listAll();
+        this.toastr.success(res.message);
       },
       e => {
         this.loading = false;
         console.log(e);
+        this.toastr.error();
       }
     );
   }

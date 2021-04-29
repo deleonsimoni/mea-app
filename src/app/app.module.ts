@@ -21,6 +21,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { LivesModalComponent } from './modals/lives-modal/lives-modal.component';
 import { MatButtonModule } from '@angular/material/button';
 import { NgxLoadingModule } from 'ngx-loading';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   imports: [
@@ -34,12 +36,14 @@ import { NgxLoadingModule } from 'ngx-loading';
     ShellModule,
     HomeModule,
     MatButtonModule,
+    MatSnackBarModule,
     NoopAnimationsModule,
     LoginModule,
     ModalModule.forRoot(),
     DashboardModule,
     NgxLoadingModule.forRoot({}),
     MatTabsModule,
+    ToastrModule.forRoot(),
     AppRoutingModule // must be imported as the last module as it contains the fallback route
   ],
   entryComponents: [LivesModalComponent],

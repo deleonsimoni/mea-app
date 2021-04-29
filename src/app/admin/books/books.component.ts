@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '@app/models/book';
 import { BookService } from '@app/service/book.service';
+import { ToastrService } from 'ngx-toastr';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-books',
@@ -12,7 +14,10 @@ export class BooksComponent implements OnInit {
   public newBook: boolean = false;
   public loading = false;
 
-  constructor(private readonly bookService: BookService) {}
+  constructor(
+    private readonly bookService: BookService,
+    private readonly toastr: ToastrService
+  ) {}
 
   ngOnInit() {
     this.listAll();
@@ -21,58 +26,71 @@ export class BooksComponent implements OnInit {
   listAll() {
     this.loading = true;
 
-    this.bookService.list().subscribe(
-      (books: Array<Book>) => {
-        this.loading = false;
-        this.books = books;
-      },
-      e => {
-        this.loading = false;
-        console.log(e);
-      }
-    );
+    this.bookService
+      .list()
+      .pipe(
+        finalize(() => {
+          this.loading = false;
+        })
+      )
+      .subscribe(
+        (books: Array<Book>) => (this.books = books),
+        e => this.toastr.error()
+      );
   }
 
   public addBook(ev: any): void {
     this.loading = true;
 
     if (ev.exist) {
-      this.bookService.update(ev.book, ev.fileCapa, ev.fileBook).subscribe(
-        () => {
-          this.loading = false;
-          this.listAll();
-        },
-        e => {
-          this.loading = false;
-          console.log(e);
-        }
-      );
+      this.bookService
+        .update(ev.book, ev.fileCapa, ev.fileBook)
+        .pipe(
+          finalize(() => {
+            this.loading = false;
+          })
+        )
+        .subscribe(
+          (res: any) => {
+            this.listAll();
+            this.toastr.success(res.message);
+          },
+          e => this.toastr.error()
+        );
     } else {
-      this.bookService.create(ev.book, ev.fileCapa, ev.fileBook).subscribe(
-        () => {
-          this.loading = false;
-          this.listAll();
-        },
-        e => {
-          this.loading = false;
-          console.log(e);
-        }
-      );
+      this.bookService
+        .create(ev.book, ev.fileCapa, ev.fileBook)
+        .pipe(
+          finalize(() => {
+            this.loading = false;
+          })
+        )
+        .subscribe(
+          (res: any) => {
+            this.listAll();
+            this.toastr.success(res.message);
+          },
+          e => this.toastr.error()
+        );
     }
   }
 
   public deleteBook(id: string): void {
     this.loading = true;
 
-    this.bookService.delete(id).subscribe(
-      () => {
-        this.loading = false;
-        this.listAll();
-      },
-      e => {
-        this.loading = false;
-        console.log(e);
-      }
-    );
+    this.bookService
+      .delete(id)
+      .pipe(
+        finalize(() => {
+          this.loading = false;
+        })
+      )
+      .subscribe(
+        (res: any) => {
+          this.listAll();
+          this.toastr.success(res.message);
+        },
+        e => this.toastr.error()
+      );
   }
 }

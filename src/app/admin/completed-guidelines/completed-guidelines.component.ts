@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Dissertation } from '@app/models/dissertation';
 import { DissertationService } from '@app/service/dissertation.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-completed-guidelines',
@@ -12,7 +13,10 @@ export class CompletedGuidelinesComponent implements OnInit {
   public dissertations: Array<Dissertation> = [];
   public loading = false;
 
-  constructor(private readonly dissertationService: DissertationService) {}
+  constructor(
+    private readonly dissertationService: DissertationService,
+    private readonly toastr: ToastrService
+  ) {}
 
   ngOnInit() {
     this.listAll();
@@ -29,6 +33,7 @@ export class CompletedGuidelinesComponent implements OnInit {
       e => {
         this.loading = false;
         console.log(e);
+        this.toastr.error();
       }
     );
   }
@@ -40,24 +45,28 @@ export class CompletedGuidelinesComponent implements OnInit {
 
     if (ev.exist) {
       this.dissertationService.update(ev.dissertation, ev.filePdf).subscribe(
-        () => {
+        (res: any) => {
           this.loading = false;
           this.listAll();
+          this.toastr.success(res.message);
         },
         e => {
           this.loading = false;
           console.log(e);
+          this.toastr.error();
         }
       );
     } else {
       this.dissertationService.create(ev.dissertation, ev.filePdf).subscribe(
-        () => {
+        (res: any) => {
           this.loading = false;
           this.listAll();
+          this.toastr.success(res.message);
         },
         e => {
           this.loading = false;
           console.log(e);
+          this.toastr.error();
         }
       );
     }
@@ -67,13 +76,15 @@ export class CompletedGuidelinesComponent implements OnInit {
     this.loading = true;
 
     this.dissertationService.delete(id).subscribe(
-      () => {
+      (res: any) => {
         this.loading = false;
         this.listAll();
+        this.toastr.success(res.message);
       },
       e => {
         this.loading = false;
         console.log(e);
+        this.toastr.error();
       }
     );
   }

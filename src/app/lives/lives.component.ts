@@ -5,7 +5,7 @@ import {
   TemplateRef,
   ViewChild
 } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { LivesModalComponent } from '@app/modals/lives-modal/lives-modal.component';
 import { Live } from '@app/models';
 import { LiveService } from '@app/service/live.service';
@@ -27,7 +27,7 @@ export class LivesComponent implements OnInit {
   public lives: Array<Live> = [];
 
   constructor(
-    protected _sanitizer: DomSanitizer,
+    private sanitizer: DomSanitizer,
     private modalService: BsModalService,
     private readonly liveService: LiveService
   ) {
@@ -43,7 +43,15 @@ export class LivesComponent implements OnInit {
     // });
   }
 
-  listAllLives() {
+  public generateSafeLink(link: string): SafeResourceUrl {
+    if (link.includes('watch')) {
+      link = link.replace('watch?v=', 'embed/');
+    }
+
+    return this.sanitizer.bypassSecurityTrustResourceUrl(link);
+  }
+
+  public listAllLives(): void {
     this.liveService.list().subscribe((lives: Array<Live>) => {
       this.lives = lives;
       this.pageOfItems = lives;
@@ -72,6 +80,18 @@ export class LivesComponent implements OnInit {
         lives: this.dataModal
       }
     });
+  }
+
+  public showVideo(link: string): boolean {
+    if (
+      link.includes('youtube') ||
+      link.includes('facebook') ||
+      link.includes('instagram')
+    ) {
+      return true;
+    }
+
+    return false;
   }
 
   // livesCovid: any = [

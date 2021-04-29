@@ -43,6 +43,7 @@ import { ProfileLinksComponent } from './profile-links/profile-links.component';
     DissertationComponent,
     BookComponent,
     ProfileLinksComponent
-  ]
+  ],
+  entryComponents: [ToastComponent]
 })
 export class CustomComponentsModule {}
