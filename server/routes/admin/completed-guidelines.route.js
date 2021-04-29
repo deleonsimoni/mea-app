@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const fileUpload = require('express-fileupload');
 const asyncHandler = require('express-async-handler');
+const passport = require('passport');
 
 const CompletedGuidelinesController = require('../../controllers/admin/completed-guidelines.controller');
 
@@ -12,7 +13,12 @@ router.get('/', async (req, res) => {
 
 router.post(
   '/',
-  [fileUpload()],
+  [
+    passport.authenticate('jwt', {
+      session: false
+    }),
+    fileUpload()
+  ],
   asyncHandler(async (req, res) => {
     const body = JSON.parse(req.body.formulario);
     const archive = req.files ? req.files.fileArray : null;
@@ -28,7 +34,12 @@ router.post(
 
 router.put(
   '/',
-  [fileUpload()],
+  [
+    passport.authenticate('jwt', {
+      session: false
+    }),
+    fileUpload()
+  ],
   asyncHandler(async (req, res) => {
     const body = JSON.parse(req.body.formulario);
     const archive = req.files ? req.files.fileArray : null;
@@ -44,6 +55,9 @@ router.put(
 
 router.delete(
   '/:id',
+  passport.authenticate('jwt', {
+    session: false
+  }),
   asyncHandler(async (req, res) => {
     await CompletedGuidelinesController.delete(req.params.id);
 

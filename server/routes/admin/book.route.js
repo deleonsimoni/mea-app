@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const fileUpload = require('express-fileupload');
 const asyncHandler = require('express-async-handler');
+const passport = require('passport');
 
 const BookController = require('../../controllers/admin/book.controller');
 
@@ -12,7 +13,12 @@ router.get('/', async (req, res) => {
 
 router.post(
   '/',
-  [fileUpload()],
+  [
+    passport.authenticate('jwt', {
+      session: false
+    }),
+    fileUpload()
+  ],
   asyncHandler(async (req, res) => {
     const body = req.body;
     const fileCapa = req.files.fileArray[0] || null;
@@ -28,7 +34,12 @@ router.post(
 
 router.put(
   '/',
-  [fileUpload()],
+  [
+    passport.authenticate('jwt', {
+      session: false
+    }),
+    fileUpload()
+  ],
   asyncHandler(async (req, res) => {
     const body = req.body;
     const fileCapa = req.files.capa || null;
@@ -45,6 +56,9 @@ router.put(
 
 router.delete(
   '/:id',
+  passport.authenticate('jwt', {
+    session: false
+  }),
   asyncHandler(async (req, res) => {
     await BookController.delete(req.params.id);
 
