@@ -5,7 +5,7 @@ import { environment } from '@env/environment';
 import { Observable, of } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 
-import { Credentials, CredentialsService } from './credentials.service';
+import { CredentialsService } from './credentials.service';
 
 export interface LoginContext {
   username: string;
@@ -35,7 +35,7 @@ export class AuthenticationService {
    * @param context The login parameters.
    * @return The user credentials.
    */
-  login(context: any): Observable<Credentials> {
+  login(context: any): Observable<any> {
     return this.httpClient.post(this.api, context).pipe(
       map((res: any) => {
         this.credentialsService.setCredentials(res);
