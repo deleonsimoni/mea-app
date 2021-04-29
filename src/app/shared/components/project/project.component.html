@@ -127,7 +127,7 @@
           <ng-container formArrayName="keywords">
             <ng-container
               *ngFor="
-                let keyword of formProject.get('keywords').controls;
+                let keyword of formProject.get('keywords')['controls'];
                 let i = index
               "
               [formGroupName]="i"

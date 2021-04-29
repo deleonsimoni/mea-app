@@ -32,7 +32,7 @@
             <ng-container formArrayName="jobs">
               <div
                 *ngFor="
-                  let job of performancesForm.get('jobs').controls;
+                  let job of performancesForm.get('jobs')['controls'];
                   let jobIndex = index
                 "
                 [formGroupName]="jobIndex"
@@ -117,7 +117,9 @@
             <ng-container formArrayName="activities">
               <div
                 *ngFor="
-                  let activity of performancesForm.get('activities').controls;
+                  let activity of performancesForm.get('activities')[
+                    'controls'
+                  ];
                   let activityIndex = index
                 "
                 [formGroupName]="activityIndex"
