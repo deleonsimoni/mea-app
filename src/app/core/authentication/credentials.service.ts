@@ -1,11 +1,5 @@
 import { Injectable } from '@angular/core';
 
-export interface Credentials {
-  // Customize received credentials here
-  username: string;
-  token: string;
-}
-
 const credentialsKey = 'credentials';
 
 /**
@@ -16,10 +10,12 @@ const credentialsKey = 'credentials';
   providedIn: 'root'
 })
 export class CredentialsService {
-  private _credentials: Credentials | null = null;
+  private _credentials: any = null;
 
   constructor() {
-    const savedCredentials = sessionStorage.getItem(credentialsKey) || localStorage.getItem(credentialsKey);
+    const savedCredentials =
+      localStorage.getItem(credentialsKey) ||
+      localStorage.getItem(credentialsKey);
     if (savedCredentials) {
       this._credentials = JSON.parse(savedCredentials);
     }
@@ -37,7 +33,7 @@ export class CredentialsService {
    * Gets the user credentials.
    * @return The user credentials or null if the user is not authenticated.
    */
-  get credentials(): Credentials | null {
+  get credentials() {
     return this._credentials;
   }
 
@@ -48,14 +44,12 @@ export class CredentialsService {
    * @param credentials The user credentials.
    * @param remember True to remember credentials across sessions.
    */
-  setCredentials(credentials?: Credentials, remember?: boolean) {
+  setCredentials(credentials?: any) {
     this._credentials = credentials || null;
 
     if (credentials) {
-      const storage = remember ? localStorage : sessionStorage;
-      storage.setItem(credentialsKey, JSON.stringify(credentials));
+      localStorage.setItem(credentialsKey, JSON.stringify(credentials));
     } else {
-      sessionStorage.removeItem(credentialsKey);
       localStorage.removeItem(credentialsKey);
     }
   }

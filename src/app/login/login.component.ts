@@ -4,7 +4,12 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { finalize } from 'rxjs/operators';
 
 import { environment } from '@env/environment';
-import { Logger, I18nService, AuthenticationService, untilDestroyed } from '@app/core';
+import {
+  Logger,
+  I18nService,
+  AuthenticationService,
+  untilDestroyed
+} from '@app/core';
 
 const log = new Logger('Login');
 
@@ -34,8 +39,13 @@ export class LoginComponent implements OnInit, OnDestroy {
   ngOnDestroy() {}
 
   login() {
+    const { username, password } = this.loginForm.getRawValue();
+
     this.isLoading = true;
-    const login$ = this.authenticationService.login(this.loginForm.value);
+    const login$ = this.authenticationService.login({
+      email: username,
+      password
+    });
     login$
       .pipe(
         finalize(() => {
@@ -45,9 +55,11 @@ export class LoginComponent implements OnInit, OnDestroy {
         untilDestroyed(this)
       )
       .subscribe(
-        credentials => {
-          log.debug(`${credentials.username} successfully logged in`);
-          this.router.navigate([this.route.snapshot.queryParams.redirect || '/'], { replaceUrl: true });
+        () => {
+          this.router.navigate(
+            [this.route.snapshot.queryParams.redirect || '/'],
+            { replaceUrl: true }
+          );
         },
         error => {
           log.debug(`Login error: ${error}`);

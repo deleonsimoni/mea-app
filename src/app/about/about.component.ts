@@ -19,7 +19,6 @@ export class AboutComponent {
 
   private retrieveCurriculum(): void {
     this.curriculumService.list().subscribe(profile => {
-      console.log(profile);
       this.profile = profile;
     });
   }

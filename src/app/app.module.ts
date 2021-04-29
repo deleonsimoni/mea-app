@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -23,6 +23,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { NgxLoadingModule } from 'ngx-loading';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ToastrModule } from 'ngx-toastr';
+import { RequestInterceptor } from './core/http/request-interceptor.service';
 
 @NgModule({
   imports: [
@@ -48,7 +49,11 @@ import { ToastrModule } from 'ngx-toastr';
   ],
   entryComponents: [LivesModalComponent],
   declarations: [AppComponent, LivesModalComponent],
-  providers: [BsModalRef, GoogleAnalyticsService],
+  providers: [
+    BsModalRef,
+    GoogleAnalyticsService,
+    { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
