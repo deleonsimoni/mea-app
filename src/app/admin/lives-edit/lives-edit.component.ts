@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LiveService } from '@app/service/live.service';
+import { ToastService } from '@app/service/toast.service';
 import { Live } from '@ng-bootstrap/ng-bootstrap/util/accessibility/live';
+import { finalize, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-lives-edit',
@@ -12,7 +14,10 @@ export class LivesEditComponent implements OnInit {
   formFields = ['title', 'link', 'date', 'institution'];
   public loading = false;
 
-  constructor(private readonly liveService: LiveService) {}
+  constructor(
+    private readonly liveService: LiveService,
+    private readonly toastService: ToastService
+  ) {}
 
   ngOnInit() {
     this.listAll();
@@ -34,16 +39,24 @@ export class LivesEditComponent implements OnInit {
 
   public addLive(live: Live): void {
     this.loading = true;
-    this.liveService.create(live).subscribe(
-      () => {
-        this.loading = false;
-        this.listAll();
-      },
-      e => {
-        this.loading = false;
-        console.log(e);
-      }
-    );
+
+    this.liveService
+      .create(live)
+      .pipe(
+        finalize(() => {
+          this.loading = false;
+        })
+      )
+      .subscribe(
+        (res: any) => {
+          this.toastService.success(res.message);
+          this.listAll();
+        },
+        e => {
+          this.loading = false;
+          this.toastService.error();
+        }
+      );
   }
 
   public deleteLive(id: string): void {

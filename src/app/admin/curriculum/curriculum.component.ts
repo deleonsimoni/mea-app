@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { CurriculumService } from '@app/service/curriculum.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-curriculum',
@@ -13,7 +14,10 @@ export class CurriculumComponent implements OnInit {
   public newPerformance: boolean;
   public loading = false;
 
-  constructor(private readonly curriculumService: CurriculumService) {}
+  constructor(
+    private readonly curriculumService: CurriculumService,
+    private readonly toastr: ToastrService
+  ) {}
 
   ngOnInit() {
     this.list();
@@ -30,6 +34,7 @@ export class CurriculumComponent implements OnInit {
       e => {
         this.loading = false;
         console.log(e);
+        this.toastr.error();
       }
     );
   }
@@ -49,9 +54,10 @@ export class CurriculumComponent implements OnInit {
     }
 
     this.curriculumService.update(curriculum).subscribe(
-      () => {
+      (res: any) => {
         this.loading = false;
         this.newFormation = false;
+        this.toastr.success(res.message);
 
         setTimeout(() => {
           this.list();
@@ -60,6 +66,7 @@ export class CurriculumComponent implements OnInit {
       e => {
         this.loading = false;
         console.log(e);
+        this.toastr.error();
       }
     );
   }
@@ -72,13 +79,15 @@ export class CurriculumComponent implements OnInit {
     curriculum.formations = formations;
 
     this.curriculumService.update(curriculum).subscribe(
-      () => {
+      (res: any) => {
         this.loading = false;
         this.list();
+        this.toastr.success(res.message);
       },
       e => {
         this.loading = false;
         console.log(e);
+        this.toastr.error();
       }
     );
   }
@@ -90,10 +99,14 @@ export class CurriculumComponent implements OnInit {
     this.curriculum.description = data.description;
 
     this.curriculumService.update(this.curriculum).subscribe(
-      () => (this.loading = false),
+      (res: any) => {
+        this.loading = false;
+        this.toastr.success(res.message);
+      },
       e => {
         this.loading = false;
         console.log(e);
+        this.toastr.error();
       }
     );
   }
@@ -105,13 +118,15 @@ export class CurriculumComponent implements OnInit {
       );
 
       this.curriculumService.update(this.curriculum).subscribe(
-        () => {
+        (res: any) => {
           this.loading = false;
           this.list();
+          this.toastr.success(res.message);
         },
         e => {
           this.loading = false;
           console.log(e);
+          this.toastr.error();
         }
       );
     } else {
@@ -128,13 +143,15 @@ export class CurriculumComponent implements OnInit {
     this.curriculum.professionalPerformances[index] = ev;
 
     this.curriculumService.update(this.curriculum).subscribe(
-      x => {
+      (x: any) => {
         this.loading = false;
         this.list();
+        this.toastr.success(x.message);
       },
       e => {
         this.loading = false;
         console.log(e);
+        this.toastr.error();
       }
     );
   }
@@ -143,10 +160,14 @@ export class CurriculumComponent implements OnInit {
     this.loading = true;
 
     this.curriculumService.update({ profileLinks: ev }).subscribe(
-      () => (this.loading = false),
+      (res: any) => {
+        this.loading = false;
+        this.toastr.success(res.message);
+      },
       e => {
         this.loading = false;
         console.log(e);
+        this.toastr.error();
       }
     );
   }
@@ -155,10 +176,14 @@ export class CurriculumComponent implements OnInit {
     this.loading = true;
 
     this.curriculumService.update({ profileLinks: ev }).subscribe(
-      () => (this.loading = false),
+      (res: any) => {
+        this.loading = false;
+        this.toastr.success(res.message);
+      },
       e => {
         this.loading = false;
         console.log(e);
+        this.toastr.error();
       }
     );
   }

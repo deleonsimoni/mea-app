@@ -4,10 +4,10 @@
       <h3 class="mb-3 text-primary">{{ live.title }}</h3>
       <div class="row mb-5 ml-lg-4 no-gutters">
         <div class="col-12 col-md-6">
-          <div *ngIf="live.link">
-            <div *ngIf="live.showVideo" class="iframe-container">
+          <ng-container *ngIf="live.link">
+            <div class="iframe-container" *ngIf="showVideo(live.link)">
               <iframe
-                [src]="live.linkSafe"
+                [src]="generateSafeLink(live.link)"
                 width="560"
                 height="315"
                 style="border: none; overflow: hidden;"
@@ -18,32 +18,22 @@
                 allowfullscreen
               ></iframe>
             </div>
-
-            <div *ngIf="!live.showVideo">
-              <div *ngIf="live.link">
-                <a href="{{ live.link }}" target="_blank">
-                  <button class="btn btn-primary">
-                    Acessar
-                  </button>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div *ngIf="!live.link && live.openModal">
-            <button (click)="openModal(1)" class="btn btn-primary">
-              Confira agora
-            </button>
-          </div>
-
-          <div *ngIf="!live.link && !live.openModal">
+            <ng-container *ngIf="!showVideo(live.link)">
+              <a [href]="live.link" target="_blank">
+                <button class="btn btn-primary">
+                  Acessar
+                </button>
+              </a>
+            </ng-container>
+          </ng-container>
+          <div *ngIf="!live.link">
             Evento fechado
           </div>
         </div>
       </div>
     </div>
 
-    <div class="card-footer pb-0 pt-3">
+    <div class="card-footer pb-0 pt-3" *ngIf="lives.length > 0">
       <jw-pagination
         [pageSize]=""
         [items]="lives"
