@@ -2,9 +2,9 @@
   <section class="guidelines mt-4">
     <div class="row align-items-center mb-2">
       <div class="col-sm-10 col-lg-10">
-        <h3 class="guidelines__title">DISSERTACÕES E TESES</h3>
+        <h3 class="guidelines__title">ORIENTAÇÕES CONCLUÍDAS</h3>
       </div>
-      <div class="col-lg-2 text-right">
+      <div class="col-md-2 col-lg-2 text-right">
         <button class="btn" (click)="newDissertation = true">
           Adicionar +
         </button>
@@ -31,7 +31,11 @@
     </ng-container>
 
     <p
-      *ngIf="(!dissertations || dissertations.length < 1) && !newDissertation"
+      *ngIf="
+        (!dissertations || dissertations.length < 1) &&
+        !newDissertation &&
+        !loading
+      "
       class="error mt-5"
     >
       Não há dissertações/teses cadastradas!

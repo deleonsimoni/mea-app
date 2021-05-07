@@ -9,7 +9,11 @@ export class ToastService {
     this.toastr.success(message, 'Sucesso: ');
   }
 
-  public error(): void {
-    this.toastr.error('Indisponibilidade temporária.', 'Erro: ');
+  public error(message: string = null): void {
+    if (!message) {
+      message = 'Indisponibilidade temporária.';
+    }
+
+    this.toastr.error(message, 'Erro: ');
   }
 }

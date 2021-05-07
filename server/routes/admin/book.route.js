@@ -21,8 +21,9 @@ router.post(
   ],
   asyncHandler(async (req, res) => {
     const body = req.body;
-    const fileCapa = req.files.fileArray[0] || null;
-    const fileBook = req.files.fileArray[1] || null;
+    const fileCapa = req.files ? req.files.capa : null;
+    const fileBook = req.files ? req.files.book : null;
+
     await BookController.create(body, fileCapa, fileBook);
 
     res.json({
@@ -42,9 +43,9 @@ router.put(
   ],
   asyncHandler(async (req, res) => {
     const body = req.body;
-    const fileCapa = req.files.capa || null;
-    const fileBook = req.files.book || null;
-    console.log(req.files);
+    const fileCapa = req.files ? req.files.capa : null;
+    const fileBook = req.files ? req.files.book : null;
+
     await BookController.update(body, fileCapa, fileBook);
 
     res.json({

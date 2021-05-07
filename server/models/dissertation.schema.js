@@ -14,12 +14,12 @@ const DissertationSchema = new mongoose.Schema(
       type: String,
       required: true
     },
-    type: {
-      type: Number
+    category: {
+      type: Number,
+      required: true
     },
     description: {
-      type: String,
-      required: true
+      type: String
     },
     link: {
       type: String

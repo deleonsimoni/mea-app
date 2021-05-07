@@ -42,6 +42,7 @@ router.put(
   ],
   asyncHandler(async (req, res) => {
     const body = JSON.parse(req.body.formulario);
+    console.log(body);
     const archive = req.files ? req.files.fileArray : null;
 
     await CompletedGuidelinesController.update({ body, archive });

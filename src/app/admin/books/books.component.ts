@@ -55,7 +55,10 @@ export class BooksComponent implements OnInit {
             this.listAll();
             this.toastr.success(res.message);
           },
-          e => this.toastr.error()
+          e => {
+            console.log(e);
+            this.toastr.error();
+          }
         );
     } else {
       this.bookService
@@ -70,7 +73,10 @@ export class BooksComponent implements OnInit {
             this.listAll();
             this.toastr.success(res.message);
           },
-          e => this.toastr.error()
+          e => {
+            console.log(e);
+            this.toastr.error();
+          }
         );
     }
   }
@@ -90,7 +96,10 @@ export class BooksComponent implements OnInit {
           this.listAll();
           this.toastr.success(res.message);
         },
-        e => this.toastr.error()
+        e => {
+          console.log(e);
+          this.toastr.error();
+        }
       );
   }
 }

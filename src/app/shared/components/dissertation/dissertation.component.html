@@ -1,6 +1,6 @@
 <form [formGroup]="dissertationForm" class="dissertation">
   <div class="row align-items-center">
-    <div class="col-lg-2">
+    <div class="col-md-2 col-lg-2">
       <input
         type="text"
         class="dissertation__input-text"
@@ -8,7 +8,12 @@
         formControlName="date"
       />
     </div>
-    <div [ngClass]="{ 'col-lg-9': dissertation, 'col-lg-10': !dissertation }">
+    <div
+      [ngClass]="{
+        'col-md-9 col-lg-9': dissertation,
+        'col-md-10 col-lg-10': !dissertation
+      }"
+    >
       <input
         type="text"
         class="dissertation__input-text"
@@ -16,7 +21,7 @@
         formControlName="title"
       />
     </div>
-    <div class="col-lg-1" *ngIf="dissertation">
+    <div class="col-md-1 col-lg-1" *ngIf="dissertation">
       <button
         class="action action--delete action--full"
         (click)="deleteDissertation()"
@@ -26,10 +31,10 @@
     </div>
   </div>
   <div class="row align-items-center mt-3">
-    <div class="col-lg-2">
+    <div class="col-md-2 col-lg-2">
       <p class="dissertation__label">AUTOR(A)</p>
     </div>
-    <div class="col-lg-6">
+    <div class="col-md-6 col-lg-6">
       <input
         type="text"
         class="dissertation__input-text"
@@ -37,8 +42,11 @@
         formControlName="author"
       />
     </div>
-    <div class="col-lg-4">
-      <select class="dissertation__select" formControlName="type">
+    <div class="col-md-4 col-lg-4">
+      <select class="dissertation__select" formControlName="category">
+        <option [selected]="!dissertationForm.get('category').value"
+          >Selecione a categoria</option
+        >
         <option *ngFor="let item of dissertationlevels" [value]="item.id">{{
           item.label
         }}</option>
@@ -46,7 +54,7 @@
     </div>
   </div>
   <div class="row align-items-center">
-    <div class="col-lg-12">
+    <div class="col-md-12 col-lg-12">
       <div class="dissertation__content">
         <textarea
           name=""
@@ -61,7 +69,7 @@
   </div>
 
   <div class="row align-items-center mt-3">
-    <div class="col-lg-4">
+    <div class="col-md-4 col-lg-4">
       <select
         class="dissertation__select"
         [(ngModel)]="uploadType"
@@ -75,7 +83,7 @@
         >
       </select>
     </div>
-    <div class="col-lg-8">
+    <div class="col-md-8 col-lg-8">
       <div [ngSwitch]="uploadType">
         <div *ngSwitchCase="2">
           <div class="row align-items-center">
@@ -91,12 +99,14 @@
                   (change)="setFileName($event.target.files)"
                   #fileInput
                 />
-                <label class="custom-file-label" for="customPreReadFile">{{
-                  getFileName()
-                }}</label>
+                <label
+                  class="custom-file-label"
+                  for="customPreReadFile"
+                  [innerHtml]="msgPdf"
+                ></label>
               </div>
             </div>
-            <div class="col-lg-3" *ngIf="linkArchive">
+            <div class="col-md-3 col-lg-3" *ngIf="linkArchive">
               <a class="link-download" [href]="getLink()" target="_blank"
                 >Download</a
               >
@@ -107,7 +117,7 @@
           <input
             type="text"
             class="dissertation__input-text"
-            placeholder="Link da teste"
+            [placeholder]="typeField"
             formControlName="link"
           />
         </div>
@@ -119,10 +129,10 @@
     class="row align-items-center justify-content-center mt-3"
     *ngIf="showSaveButton"
   >
-    <div class="col-lg-2" *ngIf="!dissertation">
+    <div class="col-md-2 col-lg-2" *ngIf="!dissertation">
       <a class="close" (click)="cancelDissertation()">Cancelar</a>
     </div>
-    <div class="col-lg-2">
+    <div class="col-md-2 col-lg-2">
       <button class="btn btn--full" (click)="addDissertation()">Salvar</button>
     </div>
   </div>

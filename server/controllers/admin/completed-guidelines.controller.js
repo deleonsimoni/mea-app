@@ -40,11 +40,15 @@ class CompletedGuidelinesController {
     if (file) {
       dissertation.archive = await this.upload(file);
       dissertation.link = null;
-    } else {
+    }
+
+    if (dissertation.link) {
       dissertation.archive = null;
     }
 
-    console.log(dissertation);
+    dissertation.id = dissertation._id;
+    delete dissertation._id;
+
     return Dissertation.update(dissertation);
   }
 

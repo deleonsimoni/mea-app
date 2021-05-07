@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Dissertation } from '@app/models';
 import { DissertationService } from '@app/service/dissertation.service';
 import { GoogleAnalyticsService } from '@app/service/google-analytics.service';
-import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-dissertacao',
@@ -27,9 +29,12 @@ export class DissertacaoComponent implements OnInit {
     this.dissertationService
       .list()
       .pipe(
+        switchMap((dissertations: Array<Dissertation>) => {
+          return this.sortDissertationsByDate(dissertations);
+        }),
         map((dissertations: Array<Dissertation>) => {
           this.dissertacoesChoose = dissertations.filter(
-            (dissertation: Dissertation) => dissertation.type == '2'
+            (dissertation: Dissertation) => dissertation.category == 2
           );
           return dissertations;
         })
@@ -37,6 +42,18 @@ export class DissertacaoComponent implements OnInit {
       .subscribe((dissertations: Array<Dissertation>) => {
         this.dissertations = dissertations;
       });
+  }
+
+  private sortDissertationsByDate(
+    dissertations: Array<Dissertation> = []
+  ): Observable<Array<Dissertation>> {
+    return new Observable(obs => {
+      obs.next(
+        dissertations.sort((x, y) => {
+          return moment(x.date).unix() - moment(y.date).unix();
+        })
+      );
+    });
   }
 
   selectType(type: any) {
@@ -86,12 +103,20 @@ export class DissertacaoComponent implements OnInit {
     }
 
     this.dissertacoesChoose = this.dissertations.filter(
-      dissertation => dissertation.type == type
+      dissertation => dissertation.category == type
     );
   }
 
   public getLink(link: string): string {
     return `https://profedmeasantos.s3.us-east-2.amazonaws.com/${link}`;
+  }
+
+  getDissertationLink(dissertation: Dissertation) {
+    if (dissertation.link) {
+      return dissertation.link;
+    }
+
+    return this.getLink(dissertation.archive);
   }
 
   // dissertacoes = [

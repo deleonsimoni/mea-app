@@ -17,9 +17,14 @@
             class="img-fluid capa-livro"
           />
           <div class=" d-flex flexAcerto">
-            <div *ngIf="book.link" class="mr-3 mb-4">
-              <a class="completo" [href]="book.link" target="_blank"
+            <div *ngIf="book.linkOfStore" class="mr-3 mb-4">
+              <a class="completo" [href]="book.linkOfStore" target="_blank"
                 ><i class="fa fa-book"></i> Loja Online</a
+              >
+            </div>
+            <div *ngIf="book.linkOfBook" class="mr-3 mb-4">
+              <a class="completo" [href]="book.linkOfBook" target="_blank"
+                ><i class="fa fa-book"></i> Link do livro</a
               >
             </div>
             <div *ngIf="book.archive" class="mr-3 mb-4">
@@ -60,7 +65,12 @@
           *ngIf="book.type === '2'"
         >
           <div class=" d-flex flexAcerto">
-            <div class="mr-3 mb-4">
+            <div *ngIf="book.linkOfBook" class="mr-3 mb-4">
+              <a class="completo" [href]="book.linkOfBook" target="_blank"
+                ><i class="fa fa-book"></i> Link do livro</a
+              >
+            </div>
+            <div class="mr-3 mb-4" *ngIf="book.archive">
               <a class="completo" [href]="getLink(book.archive)" target="_blank"
                 ><i class="fa fa-file"></i> Acessar Web Livro Social</a
               >
@@ -90,9 +100,14 @@
             class="img-fluid capa-livro"
           />
           <div class=" d-flex flexAcerto">
-            <div *ngIf="book.link" class="mr-3 mb-4">
-              <a class="completo" [href]="book.link" target="_blank"
+            <div *ngIf="book.linkOfStore" class="mr-3 mb-4">
+              <a class="completo" [href]="book.linkOfStore" target="_blank"
                 ><i class="fa fa-book"></i> Loja Online</a
+              >
+            </div>
+            <div *ngIf="book.linkOfBook" class="mr-3 mb-4">
+              <a class="completo" [href]="book.linkOfBook" target="_blank"
+                ><i class="fa fa-book"></i> Link do livro</a
               >
             </div>
             <div *ngIf="book.archive" class="mr-3 mb-4">
@@ -129,9 +144,14 @@
             class="img-fluid capa-livro"
           />
           <div class=" d-flex flexAcerto">
-            <div *ngIf="book.link" class="mr-3 mb-4">
-              <a class="completo" [href]="book.link" target="_blank"
+            <div *ngIf="book.linkOfStore" class="mr-3 mb-4">
+              <a class="completo" [href]="book.linkOfStore" target="_blank"
                 ><i class="fa fa-book"></i> Loja Online</a
+              >
+            </div>
+            <div *ngIf="book.linkOfBook" class="mr-3 mb-4">
+              <a class="completo" [href]="book.linkOfBook" target="_blank"
+                ><i class="fa fa-book"></i> Link do livro</a
               >
             </div>
             <div *ngIf="book.archive" class="mr-3 mb-4">
@@ -179,9 +199,14 @@
             class="img-fluid capa-livro"
           />
           <div class=" d-flex flexAcerto">
-            <div *ngIf="book.link" class="mr-3 mb-4">
-              <a class="completo" [href]="book.link" target="_blank"
+            <div *ngIf="book.linkOfStore" class="mr-3 mb-4">
+              <a class="completo" [href]="book.linkOfStore" target="_blank"
                 ><i class="fa fa-book"></i> Loja Online</a
+              >
+            </div>
+            <div *ngIf="book.linkOfBook" class="mr-3 mb-4">
+              <a class="completo" [href]="book.linkOfBook" target="_blank"
+                ><i class="fa fa-book"></i> Link do livro</a
               >
             </div>
             <div *ngIf="book.archive" class="mr-3 mb-4">
@@ -240,9 +265,14 @@
     </div>
 
     <div class=" d-flex flexAcerto">
-      <div *ngIf="book.link != '' && book.link != null" class="mr-3 mb-4">
-        <a class="completo" [href]="book.link" target="_blank"
+      <div *ngIf="book.linkOfStore" class="mr-3 mb-4">
+        <a class="completo" [href]="book.linkOfStore" target="_blank"
           ><i class="fa fa-book"></i> Loja Online</a
+        >
+      </div>
+      <div *ngIf="book.linkOfBook" class="mr-3 mb-4">
+        <a class="completo" [href]="book.linkOfBook" target="_blank"
+          ><i class="fa fa-book"></i> Link do livro</a
         >
       </div>
       <div *ngIf="book.archive != '' && book.archive != null" class="mr-3 mb-4">

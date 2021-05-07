@@ -31,6 +31,8 @@ export class BookComponent implements OnChanges {
 
   private fileCapa: File;
   private fileBook: File;
+  public msgCapa: string = 'Selecione o arquivo';
+  public msgBook: string = 'Selecione o arquivo';
 
   public bookForm: FormGroup;
   public showSaveButton: boolean = true;
@@ -44,12 +46,14 @@ export class BookComponent implements OnChanges {
 
   constructor(private readonly formBuilder: FormBuilder) {
     this.bookForm = this.formBuilder.group({
-      title: [null, Validators.required],
-      authors: [null, Validators.required],
-      publishingCompany: [null, Validators.required],
+      title: [null],
+      authors: [null],
+      publishingCompany: [null],
       image: [null],
-      link: [null],
+      linkOfBook: [null],
+      linkOfStore: [null],
       archive: [null],
+      description: [null],
       type: [null, Validators.required]
     });
   }
@@ -60,18 +64,20 @@ export class BookComponent implements OnChanges {
     if (book && book.currentValue) {
       this.showSaveButton = false;
 
-      console.log(book.currentValue);
-
       this.bookForm.patchValue({
         title: book.currentValue.title,
         authors: book.currentValue.authors,
         publishingCompany: book.currentValue.publishingCompany,
         image: book.currentValue.image,
-        link: book.currentValue.link,
+        linkOfBook: book.currentValue.linkOfBook,
+        linkOfStore: book.currentValue.linkOfStore,
         archive: book.currentValue.archive,
-        type: book.currentValue.type
+        type: book.currentValue.type,
+        description: book.currentValue.description
       });
 
+      this.getFileNameCapa();
+      this.getFileNameBook();
       this.registerListenner();
     }
   }
@@ -89,6 +95,12 @@ export class BookComponent implements OnChanges {
   }
 
   public addBook(): void {
+    if (this.fileCapa) {
+      this.bookForm.patchValue({
+        image: null
+      });
+    }
+
     if (this.bookForm.valid) {
       if (this.book) {
         this.book = {
@@ -112,6 +124,11 @@ export class BookComponent implements OnChanges {
       }
 
       this.bookForm.reset();
+      this.fileCapa = {} as File;
+      this.fileBook = {} as File;
+
+      this.getFileNameCapa();
+      this.getFileNameBook();
     }
   }
 
@@ -124,25 +141,68 @@ export class BookComponent implements OnChanges {
     return image ? this.getLink(image) : 'https://via.placeholder.com/300x400';
   }
 
-  public getFileNameCapa(): string {
-    return this.fileCapa ? this.fileCapa.name : 'Selecione o arquivo';
-  }
-
   public setFileCapa(files: FileList): void {
-    this.showSaveButton = true;
-    this.fileCapa = files[0];
+    if (files.length > 0) {
+      this.showSaveButton = true;
+      this.fileCapa = files[0];
+
+      this.getFileNameCapa();
+      this.encodeToBase64(this.fileCapa);
+    }
   }
 
-  public getFileNameBook(): string {
-    return this.fileBook ? this.fileBook.name : 'Selecione o arquivo';
+  private encodeToBase64(file: File): void {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      this.bookForm.patchValue({
+        image: reader.result
+      });
+    };
+  }
+
+  private getFileNameCapa() {
+    if (this.fileCapa && this.fileCapa.name) {
+      this.msgCapa = this.fileCapa.name;
+    } else {
+      this.msgCapa = this.getNameFromFile('image');
+    }
+  }
+
+  private getFileNameBook() {
+    if (this.fileBook && this.fileBook.name) {
+      this.msgBook = this.fileBook.name;
+    } else {
+      this.msgBook = this.getNameFromFile('archive');
+    }
+  }
+
+  private getNameFromFile(field: string): string {
+    const fieldValue = this.bookForm.get(field).value;
+
+    if (fieldValue !== null) {
+      return fieldValue.replace(/\w+[/]|[.]\w+/gi, '');
+    }
+
+    return 'Selecione o arquivo';
   }
 
   public setFileBook(files: FileList): void {
     this.showSaveButton = true;
     this.fileBook = files[0];
+
+    this.getFileNameBook();
+
+    if (!this.book) {
+      this.encodeToBase64(this.fileCapa);
+    }
   }
 
   public getLink(link: string): string {
-    return `https://profedmeasantos.s3.us-east-2.amazonaws.com/${link}`;
+    if (!this.fileCapa) {
+      return `https://profedmeasantos.s3.us-east-2.amazonaws.com/${link}`;
+    }
+
+    return link;
   }
 }

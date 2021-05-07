@@ -16,7 +16,6 @@ class BookController {
   }
 
   static async create(data, fileCapa, fileBook) {
-    console.log(data, fileCapa, fileBook);
     const book = JSON.parse(data.formulario);
 
     if (fileCapa) {
@@ -35,7 +34,6 @@ class BookController {
   }
 
   static async update(data, fileCapa, fileBook) {
-    console.log(data, fileCapa, fileBook);
     const book = JSON.parse(data.formulario);
 
     if (fileCapa) {

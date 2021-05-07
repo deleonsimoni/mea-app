@@ -3,20 +3,11 @@ import {
   EventEmitter,
   Input,
   OnChanges,
-  OnInit,
   Output,
   SimpleChanges
 } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-
-enum translate {
-  title = 'Título',
-  link = 'Link',
-  date = 'Data',
-  institution = 'Instituição',
-  image = 'Imagem',
-  type = 'Tipo'
-}
+import { translate } from '@app/enums/translate.enum';
 
 @Component({
   selector: 'app-add-transmition',

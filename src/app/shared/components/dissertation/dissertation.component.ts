@@ -8,8 +8,10 @@ import {
   SimpleChanges,
   ViewChild
 } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { translate } from '@app/enums/translate.enum';
 import { Dissertation } from '@app/models/dissertation';
+import { ToastService } from '@app/service/toast.service';
 
 @Component({
   selector: 'app-dissertation',
@@ -33,10 +35,12 @@ export class DissertationComponent implements OnChanges {
   public uploadType: number = 1;
   public uploadOptions: Array<{ id: number; label: string }> = [
     { id: 1, label: 'Link' },
-    { id: 2, label: 'PDF' }
+    { id: 2, label: 'PDF' },
+    { id: 3, label: 'Currículo lattes' }
   ];
   public dissertationForm: FormGroup;
   public showSaveButton: boolean = true;
+  public msgPdf = 'Selecione o arquivo';
   public dissertationlevels: Array<{ id: number; label: string }> = [
     { id: 1, label: 'Iniciação Científica' },
     { id: 2, label: 'Mestrado' },
@@ -44,12 +48,15 @@ export class DissertationComponent implements OnChanges {
     { id: 4, label: 'Pós Doc' }
   ];
 
-  constructor(private readonly formBuilder: FormBuilder) {
+  constructor(
+    private readonly formBuilder: FormBuilder,
+    private readonly toastService: ToastService
+  ) {
     this.dissertationForm = this.formBuilder.group({
       date: [null],
       title: [null],
-      author: [null],
-      type: [null],
+      author: [null, [Validators.required]],
+      category: [null, [Validators.required]],
       description: [null],
       link: [null]
     });
@@ -70,11 +77,12 @@ export class DissertationComponent implements OnChanges {
         date: dissertation.currentValue.date,
         title: dissertation.currentValue.title,
         author: dissertation.currentValue.author,
-        type: dissertation.currentValue.type,
+        category: dissertation.currentValue.category,
         description: dissertation.currentValue.description,
         link: dissertation.currentValue.link
       });
 
+      this.getFileName();
       this.registerListenner();
     }
   }
@@ -88,26 +96,39 @@ export class DissertationComponent implements OnChanges {
   }
 
   public addDissertation(): void {
-    if (this.dissertation) {
-      this.dissertation = {
-        ...this.dissertation,
-        ...this.dissertationForm.getRawValue()
-      };
+    if (this.dissertationForm.valid) {
+      if (this.dissertation) {
+        this.dissertation = {
+          ...this.dissertation,
+          ...this.dissertationForm.getRawValue()
+        };
 
-      this.saveDissertation.emit({
-        exist: true,
-        dissertation: this.dissertation,
-        filePdf: this.filePdf ? this.filePdf : null
-      });
+        this.saveDissertation.emit({
+          exist: true,
+          dissertation: this.dissertation,
+          filePdf: this.filePdf ? this.filePdf : null
+        });
+      } else {
+        this.saveDissertation.emit({
+          exist: false,
+          dissertation: this.dissertationForm.getRawValue(),
+          filePdf: this.filePdf ? this.filePdf : null
+        });
+      }
+
+      this.dissertationForm.reset();
     } else {
-      this.saveDissertation.emit({
-        exist: false,
-        dissertation: this.dissertationForm.getRawValue(),
-        filePdf: this.filePdf ? this.filePdf : null
-      });
-    }
+      const controls = this.dissertationForm.controls;
+      let field: string;
 
-    this.dissertationForm.reset();
+      for (const key in controls) {
+        if (controls[key].errors) {
+          field = key;
+          this.toastService.error(`Preencha o campo ${translate[field]}`);
+          return;
+        }
+      }
+    }
   }
 
   public cancelDissertation(): void {
@@ -118,16 +139,38 @@ export class DissertationComponent implements OnChanges {
     this.removeDissertation.emit(this.dissertation._id);
   }
 
-  public getFileName(): string {
-    return this.filePdf ? this.filePdf.name : 'Selecione o arquivo';
+  private getFileName() {
+    if (this.filePdf && this.filePdf.name) {
+      this.msgPdf = this.filePdf.name;
+    } else {
+      this.msgPdf = this.getNameFromFile();
+    }
+  }
+
+  private getNameFromFile(): string {
+    if (this.linkArchive) {
+      return this.linkArchive.replace(/\w+[/]|[.]\w+/gi, '');
+    }
+
+    return 'Selecione o arquivo';
   }
 
   public setFileName(file: File): void {
     this.showSaveButton = true;
     this.filePdf = file[0];
+
+    this.getFileName();
   }
 
   public getLink(): string {
     return `https://profedmeasantos.s3.us-east-2.amazonaws.com/${this.linkArchive}`;
+  }
+
+  get typeField(): string {
+    if (this.uploadType === 1) {
+      return 'Link da teste';
+    }
+
+    return 'Link do currículo lattes';
   }
 }

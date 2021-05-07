@@ -15,6 +15,7 @@
         </div>
         <div class="col-lg-2" *ngIf="book">
           <button
+            type="button"
             class="action action--delete action--full"
             (click)="deleteBook()"
           >
@@ -41,6 +42,9 @@
         </div>
         <div class="col-lg-6">
           <select class="book__select" formControlName="type">
+            <option [selected]="!bookForm.get('type').value"
+              >Selecione a categoria</option
+            >
             <option *ngFor="let type of bookTypes" [value]="type.id">{{
               type.label
             }}</option>
@@ -51,10 +55,20 @@
       <input
         type="text"
         class="book__input-text"
-        placeholder="Link do livro"
-        formControlName="link"
+        placeholder="Link da loja"
+        formControlName="linkOfStore"
       />
 
+      <input
+        type="text"
+        class="book__input-text"
+        placeholder="Link do livro"
+        formControlName="linkOfBook"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
       <label for="" class="book__label">PDF</label>
       <div class="custom-file">
         <input
@@ -65,11 +79,14 @@
           (change)="setFileBook($event.target.files)"
           #fileInput
         />
-        <label class="custom-file-label" for="customPreReadFile">{{
-          getFileNameBook()
-        }}</label>
+        <label
+          class="custom-file-label"
+          for="customPreReadFile"
+          [innerHtml]="msgBook"
+        ></label>
       </div>
-
+    </div>
+    <div class="col-lg-6">
       <label for="" class="book__label">Capa do livro</label>
       <div class="custom-file">
         <input
@@ -80,22 +97,38 @@
           (change)="setFileCapa($event.target.files)"
           #fileInput2
         />
-        <label class="custom-file-label" for="customPreReadFile2">{{
-          getFileNameCapa()
-        }}</label>
+        <label
+          class="custom-file-label"
+          for="customPreReadFile2"
+          [innerHtml]="msgCapa"
+        ></label>
       </div>
-
-      <div
-        class="row align-items-center justify-content-center mt-3"
-        *ngIf="showSaveButton"
-      >
-        <div class="col-lg-2" *ngIf="!book">
-          <a class="close" (click)="cancelBook()">Cancelar</a>
-        </div>
-        <div class="col-lg-2">
-          <button class="btn btn--full" type="submit">Salvar</button>
-        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="book__content">
+        <textarea
+          class="book__text-box"
+          placeholder="Descrição"
+          name=""
+          id=""
+          cols="30"
+          rows="6"
+          formControlName="description"
+        ></textarea>
       </div>
+    </div>
+  </div>
+  <div
+    class="row align-items-center justify-content-center mt-3"
+    *ngIf="showSaveButton"
+  >
+    <div class="col-lg-2" *ngIf="!book">
+      <a class="close" (click)="cancelBook()">Cancelar</a>
+    </div>
+    <div class="col-lg-2">
+      <button class="btn btn--full" type="submit">Salvar</button>
     </div>
   </div>
 </form>

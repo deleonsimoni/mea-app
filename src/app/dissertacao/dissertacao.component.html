@@ -49,22 +49,28 @@
         <h6>
           Autor(a) - <span class="subLinhas">{{ dissertacao.author }}</span>
         </h6>
-        <p class="text-left pt-1 pb-1 descricao">
+        <p
+          class="text-left pt-1 pb-1 descricao"
+          *ngIf="dissertacao.description"
+        >
           {{ dissertacao.description }}
         </p>
-        <!-- <h6>Orientadora - <span class="subLinhas">{{ dissertacao.orientador }}</span></h6> -->
-        <div class="mt-3 mb-3">
+        <div
+          class="mt-3 mb-3"
+          *ngIf="type != 4 && (dissertacao.link || dissertacao.archive)"
+        >
           <a
-            *ngIf="type != 4"
-            [href]="dissertacao.link"
+            [href]="getDissertationLink(dissertacao)"
             target="_blank"
             class="completo"
           >
             <i class="fa fa-file mr-2"></i> Acesse o documento completo
           </a>
+        </div>
+        <div class="mt-3 mb-3" *ngIf="type == 4">
           <a
-            *ngIf="type == 4"
-            [href]="getLink(dissertacao.link)"
+            *ngIf="dissertacao.link"
+            [href]="dissertacao.link"
             target="_blank"
             class="completo"
           >

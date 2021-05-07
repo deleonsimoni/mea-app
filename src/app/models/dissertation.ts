@@ -3,7 +3,8 @@ export type Dissertation = {
   date: string;
   title: string;
   author: string;
-  type: string;
+  category: number;
   description: string;
   link: string;
+  archive?: string;
 };

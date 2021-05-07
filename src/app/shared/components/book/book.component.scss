@@ -34,6 +34,16 @@
     }
   }
 
+  &__text-box {
+    resize: none;
+    color: #495057;
+    font-size: 15px;
+    font-weight: 400;
+    min-width: 100%;
+
+    @include interactive-styles(none);
+  }
+
   &__image {
     width: 100%;
     height: auto;
@@ -52,6 +62,14 @@
     margin: 6px 0px 4px;
     font-size: 14px;
     font-weight: 600;
+  }
+
+  &__content {
+    flex-flow: row wrap;
+    border-left: solid #f45622 3px;
+    color: #495057;
+    padding: 0px 0px 0px 16px;
+    margin-top: 12px;
   }
 }
 
@@ -104,4 +122,9 @@
   &--full {
     min-width: 100%;
   }
+}
+
+.custom-file {
+  overflow: hidden;
+  white-space: nowrap;
 }
