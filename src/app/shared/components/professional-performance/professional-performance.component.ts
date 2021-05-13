@@ -26,11 +26,11 @@ export class ProfessionalPerformanceComponent implements OnChanges {
   > = new EventEmitter();
 
   public performancesForm: FormGroup;
-  public institution: string;
   public showSaveButton: boolean;
 
   constructor(private readonly formBuilder: FormBuilder) {
     this.performancesForm = this.formBuilder.group({
+      institution: [null],
       jobs: this.formBuilder.array([]),
       activities: this.formBuilder.array([])
     });
@@ -39,7 +39,10 @@ export class ProfessionalPerformanceComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if (changes.professionalPerformance) {
       const currentValue = changes.professionalPerformance.currentValue;
-      this.institution = currentValue.institution;
+
+      this.performancesForm.patchValue({
+        institution: currentValue.institution
+      });
 
       currentValue.jobs.forEach((el: any) => {
         this.addJobControl(el);
@@ -55,6 +58,10 @@ export class ProfessionalPerformanceComponent implements OnChanges {
       this.addActivityControl();
     }
 
+    this.registerListenner();
+  }
+
+  private registerListenner() {
     this.performancesForm.valueChanges.subscribe(val => {
       if (val) {
         this.showSaveButton = true;
@@ -122,19 +129,34 @@ export class ProfessionalPerformanceComponent implements OnChanges {
   }
 
   public savePerformance() {
-    const { jobs, activities } = this.performancesForm.getRawValue();
+    const {
+      institution,
+      jobs,
+      activities
+    } = this.performancesForm.getRawValue();
 
     if (
       this.performancesForm.get('jobs').status === 'VALID' &&
-      this.performancesForm.get('activities').status === 'VALID' &&
-      this.institution !== ''
+      this.performancesForm.get('activities').status === 'VALID'
     ) {
-      this.professionalPerformance.institution = this.institution;
-      this.professionalPerformance.jobs = jobs;
-      this.professionalPerformance.activities = activities;
+      if (!this.professionalPerformance) {
+        this.updateProfessionalPerformance.emit({
+          data: this.performancesForm.getRawValue(),
+          exist: false
+        });
+      } else {
+        this.professionalPerformance.institution = institution;
+        this.professionalPerformance.jobs = jobs;
+        this.professionalPerformance.activities = activities;
 
-      this.updateProfessionalPerformance.emit(this.professionalPerformance);
+        this.updateProfessionalPerformance.emit({
+          data: this.professionalPerformance,
+          exist: true
+        });
+      }
     }
+
+    this.showSaveButton = false;
   }
 
   public getError(index: number, control: string): boolean {

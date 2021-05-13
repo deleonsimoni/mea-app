@@ -29,7 +29,9 @@ export class AddFormationComponent implements OnInit, OnChanges {
       institutionName: [null],
       title: [null],
       grade: [null],
-      advisor: [null]
+      advisor: [null],
+      activitySections: [null],
+      levelOfEducation: [null]
     });
   }
 
@@ -51,7 +53,9 @@ export class AddFormationComponent implements OnInit, OnChanges {
       institutionName: data.institutionName,
       title: data.title,
       grade: data.grade,
-      advisor: data.advisor
+      advisor: data.advisor,
+      activitySections: data.activitySections,
+      levelOfEducation: data.levelOfEducation
     });
   }
 

@@ -24,6 +24,7 @@ export class ProfileLinksComponent {
     if (this.linkForm.valid) {
       this.profileLinks.push(this.linkForm.getRawValue());
       this.saveLink.emit(this.profileLinks);
+      this.linkForm.reset();
     }
   }
 

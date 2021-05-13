@@ -17,7 +17,12 @@ const FormationSchema = new mongoose.Schema({
   advisor: {
     type: String
   },
-  activities: [activity]
+  activitySections: {
+    type: String
+  },
+  levelOfEducation: {
+    type: String
+  }
 });
 
 module.exports = mongoose.model('formation', FormationSchema);

@@ -28,12 +28,11 @@
       >
         <h5>{{ formation.type }}</h5>
         <p class="subLinhas">{{ formation.institutionName }}</p>
-        <div class="pl-3 d-flex descricao">
+        <div class="pl-3 descricao">
           <p>{{ formation.title }}</p>
           <p>{{ formation.grade }}</p>
-          <p *ngFor="let activity of formation.activities">
-            {{ activity.name }}
-          </p>
+          <p>{{ formation.activitySections }}</p>
+          <p>{{ formation.levelOfEducation }}</p>
           <p>{{ formation.advisor }}</p>
         </div>
       </div>

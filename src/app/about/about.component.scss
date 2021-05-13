@@ -1,9 +1,14 @@
 .descricao {
-  flex-flow: row wrap;
+  display: flex;
+  flex-flow: column wrap;
   border-left: solid #f45622 3px;
   /* background-color: #e9ecef; */
   color: #495057;
   padding: 0px 10px;
+
+  &__atividades {
+    white-space: pre-line;
+  }
 }
 .text-center {
   font-weight: 600;

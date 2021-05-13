@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
 import { CurriculumService } from '@app/service/curriculum.service';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from '@app/service/toast.service';
 
 @Component({
   selector: 'app-curriculum',
@@ -16,7 +15,7 @@ export class CurriculumComponent implements OnInit {
 
   constructor(
     private readonly curriculumService: CurriculumService,
-    private readonly toastr: ToastrService
+    private readonly toastr: ToastService
   ) {}
 
   ngOnInit() {
@@ -136,11 +135,16 @@ export class CurriculumComponent implements OnInit {
 
   updatePerformance(ev: any) {
     this.loading = true;
+    this.newPerformance = false;
 
-    const index = this.curriculum.professionalPerformances.findIndex(
-      (el: any) => el._id == ev._id
-    );
-    this.curriculum.professionalPerformances[index] = ev;
+    if (ev.exist) {
+      const index = this.curriculum.professionalPerformances.findIndex(
+        (el: any) => el._id == ev.data._id
+      );
+      this.curriculum.professionalPerformances[index] = ev.data;
+    } else {
+      this.curriculum.professionalPerformances.push(ev.data);
+    }
 
     this.curriculumService.update(this.curriculum).subscribe(
       (x: any) => {
