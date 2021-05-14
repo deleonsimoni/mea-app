@@ -45,7 +45,6 @@ class CompletedGuidelinesController {
       dissertation.archive = null;
     }
 
-    console.log(dissertation);
     const id = dissertation._id;
     delete dissertation._id;
 

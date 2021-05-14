@@ -44,7 +44,6 @@ class BookController {
       book.archive = await this.upload(fileBook, 'pdfs');
     }
 
-    console.log(book);
     return Book.update(book);
   }
 
