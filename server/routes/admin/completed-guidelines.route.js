@@ -41,11 +41,10 @@ router.put(
     fileUpload()
   ],
   asyncHandler(async (req, res) => {
-    const body = JSON.parse(req.body.formulario);
-    console.log(body);
+    const body = req.body;
     const archive = req.files ? req.files.fileArray : null;
 
-    await CompletedGuidelinesController.update({ body, archive });
+    await CompletedGuidelinesController.update(body, archive);
 
     res.json({
       status: 200,

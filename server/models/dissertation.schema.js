@@ -3,16 +3,14 @@ const mongoose = require('mongoose');
 const DissertationSchema = new mongoose.Schema(
   {
     title: {
-      type: String,
-      required: true
+      type: String
     },
     author: {
       type: String,
       required: true
     },
     date: {
-      type: String,
-      required: true
+      type: String
     },
     category: {
       type: Number,

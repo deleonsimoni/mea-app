@@ -65,7 +65,6 @@ export class MidiaComponent implements OnInit {
   listAllMedia() {
     this.mediaService.list().subscribe((media: Array<Media>) => {
       this.media = media;
-      console.log(media);
     });
   }
 

@@ -267,6 +267,17 @@
       </div>
     </div>
 
+    <h3 class="text-primary mb-3">PODCASTS:</h3>
+    <div class="row mb-5">
+      <ng-container *ngFor="let item of media">
+        <div class="col-md-4" *ngIf="item.type === '4'">
+          <a class="completo" [href]="item.link" target="_blank"
+            ><i class="fas fa-headphones"></i> {{ item.title }}</a
+          >
+        </div>
+      </ng-container>
+    </div>
+
     <h3 class="text-primary mb-3">APRESENTAÇÕES:</h3>
     <ng-container>
       APRESENTAÇÕES:<a

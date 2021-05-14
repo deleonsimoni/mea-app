@@ -23,7 +23,8 @@ export class AddTransmitionComponent implements OnChanges {
   selectTypes: Array<{ id: number; label: string }> = [
     { id: 1, label: 'Entrevista' },
     { id: 2, label: 'Apresentação' },
-    { id: 3, label: 'Mídia' }
+    { id: 3, label: 'Mídia' },
+    { id: 4, label: 'Podcast' }
   ];
 
   constructor(private readonly formBuilder: FormBuilder) {}

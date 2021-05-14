@@ -33,9 +33,8 @@ class CompletedGuidelinesController {
     return Dissertation.find();
   }
 
-  static async update(data) {
-    const dissertation = data.body;
-    const file = data.archive;
+  static async update(data, file) {
+    const dissertation = JSON.parse(data.formulario);
 
     if (file) {
       dissertation.archive = await this.upload(file);
@@ -46,10 +45,11 @@ class CompletedGuidelinesController {
       dissertation.archive = null;
     }
 
-    dissertation.id = dissertation._id;
+    console.log(dissertation);
+    const id = dissertation._id;
     delete dissertation._id;
 
-    return Dissertation.update(dissertation);
+    return Dissertation.update({ _id: id }, dissertation, { upsert: true });
   }
 
   static delete(id) {

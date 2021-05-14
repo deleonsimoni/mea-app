@@ -17,6 +17,9 @@
         <ng-container *ngIf="field === 'type'">
           <div class="col-sm-6 col-lg-6" [ngClass]="{ 'mt-2': i > 1 }">
             <select [formControlName]="field" class="transmition__select">
+              <option [selected]="!transmitionForm.get(field).value"
+                >Selecione a categoria</option
+              >
               <option *ngFor="let item of selectTypes" [value]="item.id">{{
                 item.label
               }}</option>
