@@ -77,6 +77,10 @@ export class MidiaComponent implements OnInit {
     return this.sanitize.bypassSecurityTrustResourceUrl(link);
   }
 
+  public getLink(link: string): string {
+    return `https://profedmeasantos.s3.us-east-2.amazonaws.com/${link}`;
+  }
+
   // entrevistas = [
   //   {
   //     titulo: 'Entrevista com Edméa Oliveira dos Santos',

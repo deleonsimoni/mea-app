@@ -13,8 +13,10 @@ export class MediaService {
 
   constructor(private readonly httpClient: HttpClient) {}
 
-  public create(media: any) {
-    return this.httpClient.post(this.api, media);
+  public create(media: any, image: File) {
+    const formData = this.createFormData(media, image);
+
+    return this.httpClient.post(this.api, formData);
   }
 
   public list() {
@@ -27,5 +29,16 @@ export class MediaService {
 
   public delete(id: string) {
     return this.httpClient.delete(`${this.api}/${id}`);
+  }
+
+  private createFormData(media: any, image: File): FormData {
+    const formData: FormData = new FormData();
+    formData.append('formulario', JSON.stringify(media));
+
+    if (image && image.name) {
+      formData.append('image', image);
+    }
+
+    return formData;
   }
 }

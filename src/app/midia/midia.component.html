@@ -2,7 +2,7 @@
   <section class="p-3 pt-lg-5 align-items-center">
     <!-- https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fanped.educacao%2Fvideos%2F548400622526798%2F&show_text=0&width=560 -->
     <ng-container *ngFor="let item of media">
-      <div *ngIf="item.type === '3'">
+      <div *ngIf="item.type === '1'">
         <h3 class="mb-3 text-primary">{{ item.title }}</h3>
         <div class="row mb-5 ml-lg-4 no-gutters">
           <div class="col-12 col-md-6">
@@ -167,104 +167,53 @@
           <iframe src="https://www.youtube.com/embed/ZLbBFrZ8cvM"></iframe>
         </div>
       </div>
-    </div>
+    </div>-->
 
     <h3 class="mb-3 text-primary">Filmes de Pesquisa</h3>
     <div class="row mb-5 ml-lg-4 no-gutters">
-      <div class="col-12 col-md-6">
-        <div class="iframe-container">
-          <iframe src="https://www.youtube.com/embed/5J0PSxlfSbI"></iframe>
+      <ng-container *ngFor="let item of media">
+        <div class="col-12 col-md-6" *ngIf="item.type === '3'">
+          <div class="iframe-container">
+            <iframe [src]="safeLink(item.link)"></iframe>
+          </div>
         </div>
-      </div>
-      <div class="col-12 col-md-6">
-        <div class="iframe-container">
-          <iframe src="https://www.youtube.com/embed/HF8BONc6wcA"></iframe>
-        </div>
-      </div>
+      </ng-container>
     </div>
+
     <h3 class="mb-3 text-primary">Série salto para Futuro</h3>
     <div class="row mb-5 ml-lg-4 no-gutters">
-      <div class="col-12 col-md-6">
-        <div class="iframe-container">
-          <iframe src="https://www.youtube.com/embed/AoR8Bfo4pG4"></iframe>
+      <ng-container *ngFor="let item of media">
+        <div class="col-12 col-md-6" *ngIf="item.type === '5'">
+          <div class="iframe-container">
+            <iframe [src]="safeLink(item.link)"></iframe>
+          </div>
         </div>
-      </div>
-      <div class="col-12 col-md-6">
-        <div class="iframe-container">
-          <iframe src="https://www.youtube.com/embed/c-NreGRqHuw"></iframe>
-        </div>
-      </div>
-      <div class="col-12 col-md-6">
-        <div class="iframe-container">
-          <iframe src="https://www.youtube.com/embed/qDUDYrRS8Eo"></iframe>
-        </div>
-      </div>
-      <div class="col-12 col-md-6">
-        <div class="iframe-container">
-          <iframe src="https://www.youtube.com/embed/AIA1ncR3T4Y"></iframe>
-        </div>
-      </div>
-      <div class="col-12 col-md-6">
-        <div class="iframe-container">
-          <iframe src="https://www.youtube.com/embed/NSOQFkoZ3RY"></iframe>
-        </div>
-      </div>
+      </ng-container>
     </div>
 
     <h3 class="mb-3 text-primary">Video Aulas e PALESTRAs</h3>
     <div class="row mb-5 ml-lg-4">
-      <div class="col-12 col-md-6">
-        <h5 class="mt-4 mb-0 text-center">Palestra no Enelud</h5>
-        <p class="text-center mb-3">
-          <a
-            href="https://osaciperere.wordpress.com/vii-enelud/"
-            target="_blank"
-            >materia sobre a Enelud</a
-          >
-        </p>
-        <div class="iframe-container">
-          <iframe src="https://www.youtube.com/embed/ujoCr7Gcd-c"></iframe>
+      <ng-container *ngFor="let item of media">
+        <div class="col-12 col-md-6" *ngIf="item.type === '6'">
+          <h5 class="mt-4 mb-0 text-center">{{ item.title }}</h5>
+          <div class="iframe-container">
+            <iframe [src]="safeLink(item.link)"></iframe>
+          </div>
         </div>
-      </div>
-      <div class="col-12 col-md-6">
-        <h5 class="mb-3 mt-4 text-center">Sobre Tutoria</h5>
-        <br />
-        <div class="iframe-container">
-          <iframe src="https://www.youtube.com/embed/iyncg7vJWzc"></iframe>
-        </div>
-      </div>
-      <div class="col-12 col-md-6">
-        <h5 class="mb-3 mt-4 text-center">
-          WEBINAR CEAD 2 - DESAFIOS E PERSPECTIVAS DA DOCÊNCIA NO ENSINO
-          SUPERIOR E DOCÊNCIA ONLINE
-        </h5>
-        <div class="iframe-container">
-          <iframe src="https://www.youtube.com/embed/MTWLPz19E-8"></iframe>
-        </div>
-      </div>
-      <div class="col-12 col-md-6">
-        <h5 class="mb-3 mt-4 text-center">
-          IGEAD - EAD 0202 - Hangout - Professora Edmea
-        </h5>
-        <br />
-        <div class="iframe-container">
-          <iframe src="https://www.youtube.com/embed/JbbbStPvR2c"></iframe>
-        </div>
-      </div>
-    </div> -->
+      </ng-container>
+    </div>
 
     <h3 class="mb-3 text-primary">Entrevistas</h3>
     <div class="row mb-5 ml-lg-4">
-      <div
-        class="col-12 col-md-4 d-flex entCont"
-        *ngFor="let entrevista of entrevistas"
-      >
-        <img
-          class="img-fluid capa-livro"
-          (click)="openModal(template, entrevista)"
-          [src]="entrevista.imagem"
-        />
-      </div>
+      <ng-container *ngFor="let item of media">
+        <div class="col-12 col-md-4 d-flex entCont" *ngIf="item.type === '1'">
+          <img
+            class="img-fluid capa-livro"
+            (click)="openModal(template, item)"
+            [src]="getLink(item.image)"
+          />
+        </div>
+      </ng-container>
     </div>
 
     <h3 class="text-primary mb-3">PODCASTS:</h3>
@@ -279,27 +228,18 @@
     </div>
 
     <h3 class="text-primary mb-3">APRESENTAÇÕES:</h3>
-    <ng-container>
-      APRESENTAÇÕES:<a
-        href="https://www.slideshare.net/edmea"
-        style="color: blue;"
-        target="_blank"
-      >
-        Ir para SlideShare</a
-      >
+    <ng-container *ngFor="let item of media">
+      <div class="row mb-3" *ngIf="item.type === '2'">
+        <div class="col-md-12">
+          <h4 class="mb-2 text-primary">{{ item.title }}</h4>
+          <a [href]="item.link" target="_blank">
+            <button class="btn btn-primary">
+              Acessar
+            </button>
+          </a>
+        </div>
+      </div>
     </ng-container>
-
-    <!-- <div class="text-center align-items-center d-none d-lg-block d-md-block">
-      <h1 class="text-primary">Cibercultura EaD.</h1>
-      <h3>UERJ - TV Escola</h3>
-    </div>
-    <div class="text-center align-items-center  d-lg-none d-md-none">
-      <h3 class="text-primary">Cibercultura EaD.</h3>
-      <p>UERJ - TV Escola</p>
-    </div>
-    <div class="iframe-container">
-      <iframe src="https://www.youtube.com/embed/fAMaLhqWD1Q"></iframe>
-    </div> -->
 
     <ng-template #template>
       <div class="modal-header">

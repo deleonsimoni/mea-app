@@ -1,4 +1,4 @@
-@mixin interactive-styles($height: 34px) {
+@mixin interactive-styles($height: 38px) {
   &::placeholder {
     font-weight: normal;
     text-transform: none;
@@ -56,4 +56,9 @@
 
     @include interactive-styles;
   }
+}
+
+.custom-file {
+  overflow: hidden;
+  white-space: nowrap;
 }

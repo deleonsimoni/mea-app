@@ -55,10 +55,10 @@ export class MediaComponent implements OnInit {
     );
   }
 
-  public addMedia(media: Media): void {
+  public addMedia(ev: any): void {
     this.loading = true;
 
-    this.mediaService.create(media).subscribe(
+    this.mediaService.create(ev.media, ev.image).subscribe(
       (res: any) => {
         this.loading = false;
         this.listAll();

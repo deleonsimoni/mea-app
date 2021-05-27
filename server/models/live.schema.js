@@ -11,8 +11,7 @@ const LiveSchema = new mongoose.Schema(
       required: true
     },
     date: {
-      type: String,
-      required: true
+      type: String
     },
     institution: {
       type: String

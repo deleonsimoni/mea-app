@@ -3,12 +3,10 @@ const mongoose = require('mongoose');
 const MediaSchema = new mongoose.Schema(
   {
     title: {
-      type: String,
-      required: true
+      type: String
     },
     link: {
-      type: String,
-      required: true
+      type: String
     },
     image: {
       type: String

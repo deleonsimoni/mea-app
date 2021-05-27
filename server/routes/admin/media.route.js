@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const fileUpload = require('express-fileupload');
 const asyncHandler = require('express-async-handler');
 const passport = require('passport');
 
@@ -15,12 +16,17 @@ router.get(
 
 router.post(
   '/',
-  passport.authenticate('jwt', {
-    session: false
-  }),
+  [
+    passport.authenticate('jwt', {
+      session: false
+    }),
+    fileUpload()
+  ],
   asyncHandler(async (req, res) => {
     const body = req.body;
-    await MediaController.create(body);
+    const fileCover = req.files ? req.files.image : null;
+
+    await MediaController.create(body, fileCover);
 
     res.json({
       status: 200,

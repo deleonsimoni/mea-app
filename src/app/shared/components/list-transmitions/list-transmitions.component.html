@@ -12,6 +12,7 @@
         </div>
         <div class="col-sm-2 col-lg-2 text-right">
           <a
+            *ngIf="transmition.link"
             class="transmition-list__link"
             [href]="transmition.link"
             target="_blank"

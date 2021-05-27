@@ -3,7 +3,7 @@
   <form [formGroup]="transmitionForm" (ngSubmit)="addTransmition()">
     <div class="row">
       <ng-container *ngFor="let field of formFields; let i = index">
-        <ng-container *ngIf="field !== 'type'">
+        <ng-container *ngIf="field !== 'type' && field !== 'image'">
           <div class="col-sm-6 col-lg-6" [ngClass]="{ 'mt-2': i > 1 }">
             <input
               type="text"
@@ -24,6 +24,25 @@
                 item.label
               }}</option>
             </select>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="field === 'image'">
+          <div class="col-sm-6 col-lg-6" [ngClass]="{ 'mt-2': i > 1 }">
+            <div class="custom-file">
+              <input
+                type="file"
+                class="custom-file-input"
+                data-max-size="2048"
+                id="customPreReadFile2"
+                (change)="setCover($event.target.files)"
+                #fileInput
+              />
+              <label
+                class="custom-file-label"
+                for="customPreReadFile2"
+                [innerHtml]="msgCover"
+              ></label>
+            </div>
           </div>
         </ng-container>
       </ng-container>

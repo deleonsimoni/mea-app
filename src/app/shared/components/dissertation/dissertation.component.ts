@@ -168,7 +168,7 @@ export class DissertationComponent implements OnChanges {
 
   get typeField(): string {
     if (this.uploadType === 1) {
-      return 'Link da teste';
+      return 'Link do trabalho';
     }
 
     return 'Link do currículo lattes';
