@@ -48,10 +48,17 @@ export class AddTransmitionComponent implements OnChanges {
   }
 
   public addTransmition() {
-    this.saveTransmition.emit({
-      media: this.transmitionForm.getRawValue(),
-      image: this.fileCover
-    });
+    let body;
+    if (this.type == 'live') {
+      body = this.transmitionForm.getRawValue()
+    } else {
+      body = {
+        media: this.transmitionForm.getRawValue(),
+        image: this.fileCover
+      };
+    }
+
+    this.saveTransmition.emit(body);
     this.transmitionForm.reset();
     this.fileCover = {} as File;
     this.getFileNameCover();
