@@ -10,6 +10,7 @@ import {
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Book } from '@app/models/book';
+import { ToastService } from '@app/service/toast.service';
 
 @Component({
   selector: 'app-book',
@@ -44,7 +45,10 @@ export class BookComponent implements OnChanges {
     { id: 5, label: 'Capítulos em livros' }
   ];
 
-  constructor(private readonly formBuilder: FormBuilder) {
+  constructor(
+    private readonly formBuilder: FormBuilder,
+    private readonly toastService: ToastService
+  ) {
     this.bookForm = this.formBuilder.group({
       title: [null],
       authors: [null],
@@ -129,6 +133,8 @@ export class BookComponent implements OnChanges {
 
       this.getFileNameCapa();
       this.getFileNameBook();
+    } else {
+      this.toastService.error('Selecione a categoria do livro!');
     }
   }
 
