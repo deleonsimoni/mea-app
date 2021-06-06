@@ -73,7 +73,11 @@ export class MidiaComponent implements OnInit {
     this.modalRef = this.modalService.show(template);
   }
 
-  safeLink(link: string) {
+  public safeLink(link: string) {
+    if (link.includes('watch')) {
+      link = link.replace('watch?v=', 'embed/');
+    }
+
     return this.sanitize.bypassSecurityTrustResourceUrl(link);
   }
 
