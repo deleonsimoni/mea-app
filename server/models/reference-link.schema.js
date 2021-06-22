@@ -6,6 +6,9 @@ const ReferenceLinkSchema = new mongoose.Schema({
   },
   link: {
     type: String
+  },
+  created: {
+    type: Date
   }
 });
 

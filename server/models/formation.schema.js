@@ -22,6 +22,9 @@ const FormationSchema = new mongoose.Schema({
   },
   levelOfEducation: {
     type: String
+  },
+  created: {
+    type: Date
   }
 });
 

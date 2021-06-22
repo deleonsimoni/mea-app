@@ -29,6 +29,9 @@ const BookSchema = new mongoose.Schema(
     },
     description: {
       type: String
+    },
+    created: {
+      type: Date
     }
   },
   {

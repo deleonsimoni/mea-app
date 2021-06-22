@@ -14,6 +14,9 @@ const MediaSchema = new mongoose.Schema(
     type: {
       type: String,
       required: true
+    },
+    created: {
+      type: Date
     }
   },
   {

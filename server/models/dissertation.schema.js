@@ -24,6 +24,9 @@ const DissertationSchema = new mongoose.Schema(
     },
     archive: {
       type: String
+    },
+    created: {
+      type: Date
     }
   },
   {

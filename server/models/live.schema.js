@@ -15,6 +15,9 @@ const LiveSchema = new mongoose.Schema(
     },
     institution: {
       type: String
+    },
+    created: {
+      type: Date
     }
   },
   {

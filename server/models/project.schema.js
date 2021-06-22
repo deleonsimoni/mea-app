@@ -39,6 +39,9 @@ const ProjectSchema = new mongoose.Schema(
     },
     specificObjectives: {
       type: String
+    },
+    created: {
+      type: Date
     }
   },
   {

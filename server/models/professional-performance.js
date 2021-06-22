@@ -8,7 +8,10 @@ const ProfessionalPerformanceSchema = new mongoose.Schema(
       type: String
     },
     jobs: [job],
-    activities: [professionalActivity]
+    activities: [professionalActivity],
+    created: {
+      type: Date
+    }
   },
   {
     versionKey: false
