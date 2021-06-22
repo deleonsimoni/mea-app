@@ -68,4 +68,19 @@ router.delete(
   })
 );
 
+router.post(
+  '/update-all',
+  passport.authenticate('jwt', {
+    session: false
+  }),
+  asyncHandler(async (req, res) => {
+    await CompletedGuidelinesController.updateAll();
+
+    res.json({
+      status: 200,
+      message: 'Orientação atualizada com sucesso!'
+    });
+  })
+);
+
 module.exports = router;

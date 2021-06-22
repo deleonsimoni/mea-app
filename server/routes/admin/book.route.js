@@ -70,4 +70,19 @@ router.delete(
   })
 );
 
+router.post(
+  '/update-all',
+  passport.authenticate('jwt', {
+    session: false
+  }),
+  asyncHandler(async (req, res) => {
+    await BookController.updateAll();
+
+    res.json({
+      status: 200,
+      message: 'Livro atualizado com sucesso!'
+    });
+  })
+);
+
 module.exports = router;

@@ -60,4 +60,19 @@ router.delete(
   })
 );
 
+router.post(
+  '/update-all',
+  passport.authenticate('jwt', {
+    session: false
+  }),
+  asyncHandler(async (req, res) => {
+    await ResearchProjectController.updateAll();
+
+    res.json({
+      status: 200,
+      message: 'Projeto atualizado com sucesso!'
+    });
+  })
+);
+
 module.exports = router;
