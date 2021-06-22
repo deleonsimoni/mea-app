@@ -26,6 +26,7 @@ class BookController {
       book.archive = await this.upload(fileBook, 'pdfs');
     }
 
+    book.created = new Date();
     return new Book(book).save();
   }
 
@@ -44,6 +45,7 @@ class BookController {
       book.archive = await this.upload(fileBook, 'pdfs');
     }
 
+    book.created = new Date();
     return Book.update(book);
   }
 

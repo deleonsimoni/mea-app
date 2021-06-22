@@ -2,6 +2,7 @@ const Project = require('../../models/project.schema');
 
 class ProjectController {
   static create(data) {
+    data.created = new Date();
     return new Project(data).save();
   }
 
@@ -10,6 +11,7 @@ class ProjectController {
   }
 
   static update(data) {
+    data.created = new Date();
     return Project.update(data);
   }
 

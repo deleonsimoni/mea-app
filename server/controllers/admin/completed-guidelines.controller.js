@@ -26,6 +26,7 @@ class CompletedGuidelinesController {
       dissertation.archive = null;
     }
 
+    dissertation.created = new Date();
     return new Dissertation(dissertation).save();
   }
 
@@ -48,6 +49,7 @@ class CompletedGuidelinesController {
     const id = dissertation._id;
     delete dissertation._id;
 
+    dissertation.created = new Date();
     return Dissertation.update({ _id: id }, dissertation, { upsert: true });
   }
 

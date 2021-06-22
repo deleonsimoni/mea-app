@@ -22,6 +22,7 @@ class MediaController {
       media.image = await this.upload(fileCover, 'img');
     }
 
+    media.created = new Date();
     return new Media(media).save();
   }
 
@@ -30,6 +31,7 @@ class MediaController {
   }
 
   static update(data) {
+    data.created = new Date();
     return Media.update(data);
   }
 

@@ -2,6 +2,7 @@ const Live = require('../../models/live.schema');
 
 class LiveController {
   static create(data) {
+    data.created = new Date();
     return new Live(data).save();
   }
 
@@ -10,6 +11,7 @@ class LiveController {
   }
 
   static update(data) {
+    data.created = new Date();
     return Live.update(data);
   }
 
