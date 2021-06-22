@@ -21,7 +21,7 @@ export class MenuComponent implements OnInit {
     {
       isCollapsed: true,
       link: '/curriculo',
-      name: 'Curriculo Lattes',
+      name: 'Curriculo',
       external: false
     },
     {
