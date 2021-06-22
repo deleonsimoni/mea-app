@@ -26,7 +26,7 @@ class MediaController {
   }
 
   static list() {
-    return Media.find();
+    return Media.find({}, null, { sort: { created: -1 } });
   }
 
   static update(data) {
@@ -35,6 +35,10 @@ class MediaController {
 
   static delete(id) {
     return Media.deleteOne({ _id: id });
+  }
+
+  static updateAll() {
+    return Media.updateMany({ $set: { created: new Date() } });
   }
 }
 

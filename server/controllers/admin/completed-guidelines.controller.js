@@ -30,7 +30,7 @@ class CompletedGuidelinesController {
   }
 
   static list() {
-    return Dissertation.find();
+    return Dissertation.find({}, null, { sort: { created: -1 } });
   }
 
   static async update(data, file) {
@@ -53,6 +53,10 @@ class CompletedGuidelinesController {
 
   static delete(id) {
     return Dissertation.deleteOne({ _id: id });
+  }
+
+  static updateAll() {
+    return Dissertation.updateMany({ $set: { created: new Date() } });
   }
 }
 

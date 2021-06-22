@@ -30,7 +30,7 @@ class BookController {
   }
 
   static list() {
-    return Book.find();
+    return Book.find({}, null, { sort: { created: -1 } });
   }
 
   static async update(data, fileCapa, fileBook) {
@@ -49,6 +49,10 @@ class BookController {
 
   static delete(id) {
     return Book.deleteOne({ _id: id });
+  }
+
+  static updateAll() {
+    return Book.updateMany({ $set: { created: new Date() } });
   }
 }
 

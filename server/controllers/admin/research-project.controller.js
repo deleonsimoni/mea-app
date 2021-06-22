@@ -6,7 +6,7 @@ class ProjectController {
   }
 
   static list() {
-    return Project.find();
+    return Project.find({}, null, { sort: { created: -1 } });
   }
 
   static update(data) {
@@ -15,6 +15,10 @@ class ProjectController {
 
   static delete(id) {
     return Project.deleteOne({ _id: id });
+  }
+
+  static updateAll() {
+    return Project.updateMany({ $set: { created: new Date() } });
   }
 }
 

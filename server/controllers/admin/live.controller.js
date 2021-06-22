@@ -6,7 +6,7 @@ class LiveController {
   }
 
   static list() {
-    return Live.find();
+    return Live.find({}, null, { sort: { created: -1 } });
   }
 
   static update(data) {
@@ -15,6 +15,10 @@ class LiveController {
 
   static delete(id) {
     return Live.deleteOne({ _id: id });
+  }
+
+  static updateAll() {
+    return Live.updateMany({ $set: { created: new Date() } });
   }
 }
 
