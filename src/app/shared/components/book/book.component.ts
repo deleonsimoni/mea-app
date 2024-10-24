@@ -42,7 +42,8 @@ export class BookComponent implements OnChanges {
     { id: 2, label: 'Web Livros Sociais' },
     { id: 3, label: 'Organizados' },
     { id: 4, label: 'Livros internacionais' },
-    { id: 5, label: 'Capítulos em livros' }
+    { id: 5, label: 'Capítulos em livros' },
+    { id: 6, label: 'Prefácios' }
   ];
 
   constructor(

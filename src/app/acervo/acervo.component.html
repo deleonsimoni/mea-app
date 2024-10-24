@@ -180,6 +180,59 @@
     </div>
     <!-- FIM DOS INTERNACIONAIS -->
 
+    <!-- PREFÁCIOS -->
+    <h2 class="text-primary mb-4 mt-4 d-none d-lg-block">Prefácio de livros</h2>
+    <h3 class="text-primary mb-4 mt-4 d-lg-none d-md-none">
+      Prefácio de livros
+    </h3>
+    <div class="row ml-lg-4">
+      <ng-container *ngFor="let book of books">
+        <div
+          class="col-sm-12 col-md-6 col-lg-4 align-self-center"
+          *ngIf="book.type === '6'"
+        >
+          <img
+            [src]="getLink(book.image)"
+            (click)="openModal(template, book)"
+            class="img-fluid capa-livro"
+          />
+          <div class=" d-flex flexAcerto">
+            <div *ngIf="book.linkOfStore" class="mr-3 mb-4">
+              <a class="completo" [href]="book.linkOfStore" target="_blank"
+                ><i class="fa fa-book"></i> Loja Online</a
+              >
+            </div>
+            <div *ngIf="book.linkOfBook" class="mr-3 mb-4">
+              <a class="completo" [href]="book.linkOfBook" target="_blank"
+                ><i class="fa fa-book"></i> Link do livro</a
+              >
+            </div>
+            <div *ngIf="book.archive" class="mr-3 mb-4">
+              <a
+                class="completo"
+                [href]="getLink(book.archive)"
+                target="_blank"
+              >
+                <i class="fa fa-file"></i> Versão em PDF</a
+              >
+            </div>
+            <!-- <div *ngIf="autoral.download != '' && autoral.download != null" class="mr-3 mb-4">
+              <a class="completo" [href]="autoral.download" download="{{
+                  autoral.download.substring(
+                    autoral.download.indexOf('Livro') + 5
+                  )
+                }}"><i class="fa fa-file"></i> Download PDF</a>
+            </div> -->
+            <!-- <div *ngIf="autoral.linkIngles != '' && autoral.linkIngles != null" class="mr-3 mb-4">
+              <a class="completo" [href]="autoral.linkIngles" target="_blank"><i class="fa fa-file"></i> Versão em
+                Inglês</a>
+            </div> -->
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <!-- FIM DOS PREFÁCIOS -->
+
     <!-- LIVROS CAPITULOS EM LIVROS -->
     <h3 class="text-primary mb-4 mt-4 d-none d-lg-block">
       Capítulos em livros
